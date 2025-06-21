@@ -33,3 +33,78 @@ export interface TaskFilterState {
   status?: TaskStatus[] | 'all';
   search?: string;
 }
+
+// Message types for the messaging system
+export interface Message {
+  id: string;
+  from_user_id: string;
+  to_user_id: string;
+  subject: string;
+  content: string;
+  priority: 'Low' | 'Medium' | 'High';
+  is_read: boolean;
+  is_starred: boolean;
+  is_archived: boolean;
+  created_at: string;
+  updated_at: string;
+  // User info for display
+  from_user?: {
+    id: string;
+    name: string;
+    email: string;
+  };
+  to_user?: {
+    id: string;
+    name: string;
+    email: string;
+  };
+}
+
+export interface CreateMessageData {
+  to_user_id: string;
+  subject: string;
+  content: string;
+  priority: 'Low' | 'Medium' | 'High';
+}
+
+export interface UpdateMessageData {
+  is_read?: boolean;
+  is_starred?: boolean;
+  is_archived?: boolean;
+}
+
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: 'admin' | 'manager' | 'analyst' | 'developer' | 'designer';
+  password?: string;
+  avatar_url?: string;
+  address?: string;
+  phone_number?: string;
+}
+
+// Document Management Types
+export interface Document {
+  id: string;
+  name: string;
+  description?: string;
+  category: string;
+  file_type?: string;
+  file_path: string;
+  file_size?: number;
+  uploaded_by_user_id?: string;
+  created_at: string;
+  updated_at: string;
+  uploaded_by_user?: { name: string };
+}
+
+export interface CreateDocumentData {
+  name: string;
+  description?: string;
+  category: string;
+  file_path: string;
+  file_type: string;
+  file_size: number;
+  uploaded_by_user_id: string;
+}

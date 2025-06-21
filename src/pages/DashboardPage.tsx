@@ -40,8 +40,11 @@ const DashboardPage: React.FC = () => {
   ];
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-bold">NTS G.R.O.W Admin Platform</h1>
+    <div className="space-y-6 p-4 sm:p-6 lg:p-8">
+      <div>
+        <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
+        <p className="text-muted-foreground mt-1">A quick overview of your key metrics and activities.</p>
+      </div>
       
       {/* Key Metric Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

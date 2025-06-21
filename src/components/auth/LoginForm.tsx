@@ -5,45 +5,91 @@ import { Input } from '@/components/ui/input';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { MOCK_USERS } from '@/lib/constants';
 import { toast } from '@/components/ui/use-toast';
+import { supabase } from '@/lib/supabaseClient';
+import { useAppContext } from '@/contexts/AppContext';
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { setCurrentUser } = useAppContext();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    
-    // Simple mock authentication
-    setTimeout(() => {
-      const user = MOCK_USERS.find(
-        (user) => user.email === email && user.password === password
-      );
+  const handleLogin = async (mockUser: any) => {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: mockUser.email,
+      password: mockUser.password,
+    });
 
-      if (user) {
-        // Store user in localStorage (in a real app, use proper auth tokens)
-        localStorage.setItem('currentUser', JSON.stringify(user));
+    if (error && error.message.includes('Invalid login credentials')) {
+      // User does not exist, so sign them up
+      const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
+        email: mockUser.email,
+        password: mockUser.password,
+        options: {
+          data: {
+            full_name: mockUser.name,
+            role: mockUser.role,
+          },
+        },
+      });
+
+      if (signUpError) {
         toast({
-          title: 'Login successful',
-          description: `Welcome back, ${user.name}!`,
-        });
-        navigate('/dashboard');
-      } else {
-        toast({
-          title: 'Login failed',
-          description: 'Invalid email or password. Please try again.',
+          title: 'Sign-up failed',
+          description: signUpError.message,
           variant: 'destructive',
         });
+        return false;
       }
-      setIsLoading(false);
-    }, 1000);
+      
+      // After sign-up, login again
+      return handleLogin(mockUser);
+
+    } else if (error) {
+      toast({
+        title: 'Login failed',
+        description: error.message,
+        variant: 'destructive',
+      });
+      return false;
+    }
+    
+    // On successful Supabase login, store the mock user data and set in context
+    localStorage.setItem('currentUser', JSON.stringify(mockUser));
+    setCurrentUser(mockUser);
+    toast({
+      title: 'Login successful',
+      description: `Welcome back, ${mockUser.name}!`,
+    });
+    navigate('/');
+    return true;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    const mockUser = MOCK_USERS.find(user => user.email === email && user.password === password);
+
+    if (!mockUser) {
+        toast({
+            title: 'Login failed',
+            description: 'Invalid email or password provided.',
+            variant: 'destructive',
+        });
+        setIsLoading(false);
+        return;
+    }
+
+    await handleLogin(mockUser);
+    setIsLoading(false);
   };
 
   return (
     <Card className="w-full max-w-md mx-auto">
-      <CardHeader>
+      <CardHeader className="items-center">
+        <img src="/grow_logo.png" alt="NTS G.R.O.W Logo" className="h-16 w-16 mb-4" />
         <CardTitle className="text-center text-primary">NTS G.R.O.W Admin</CardTitle>
         <CardDescription className="text-center">Sign in to access the admin platform</CardDescription>
       </CardHeader>
@@ -83,9 +129,12 @@ const LoginForm: React.FC = () => {
         </form>
       </CardContent>
       <CardFooter className="flex justify-center">
-        <p className="text-sm text-muted-foreground">
-          For demo: use admin@ntsgrow.com / admin123
-        </p>
+        <div className="text-sm text-muted-foreground text-center">
+          <p className="mb-2">Test Accounts:</p>
+          <p>Super Admin: superadmin@ntsgrow.com / admin123</p>
+          <p>Admin: admin@ntsgrow.com / password</p>
+          <p>Agronomist: agronomist@ntsgrow.com / password</p>
+        </div>
       </CardFooter>
     </Card>
   );

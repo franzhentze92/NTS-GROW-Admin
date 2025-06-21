@@ -1,179 +1,163 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { supabase } from '@/lib/supabaseClient';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Calendar, Target, TrendingUp, Users } from 'lucide-react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Progress } from '@/components/ui/progress';
+import { Target, CheckCircle, List, User, Users, FileText, Calendar, RefreshCw, AlertCircle } from 'lucide-react';
 
-const MonthlyStrategiesPage: React.FC = () => {
-  const strategies = [
-    {
-      id: 1,
-      title: 'Q1 Growth Initiative',
-      description: 'Focus on customer acquisition and retention strategies',
-      status: 'Active',
-      progress: 75,
-      dueDate: '2024-03-31',
-      team: 'Marketing Team',
-      priority: 'High'
-    },
-    {
-      id: 2,
-      title: 'Digital Transformation',
-      description: 'Modernize internal processes and customer touchpoints',
-      status: 'Planning',
-      progress: 25,
-      dueDate: '2024-04-30',
-      team: 'Tech Team',
-      priority: 'Medium'
-    },
-    {
-      id: 3,
-      title: 'Market Expansion',
-      description: 'Explore new geographic markets and customer segments',
-      status: 'Review',
-      progress: 90,
-      dueDate: '2024-02-28',
-      team: 'Business Development',
-      priority: 'High'
-    }
-  ];
+// --- Types ---
+interface Strategy {
+    id: number;
+    month: string;
+    title: string;
+    description: string;
+    status: 'Not Started' | 'Planning' | 'In Progress' | 'Completed' | 'On Hold';
+    progress: number;
+    priority: 'Low' | 'Medium' | 'High';
+    objectives?: string[];
+    notes?: string;
+    people_involved?: string[];
+}
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'Active': return 'bg-green-100 text-green-800';
-      case 'Planning': return 'bg-blue-100 text-blue-800';
-      case 'Review': return 'bg-yellow-100 text-yellow-800';
-      default: return 'bg-gray-100 text-gray-800';
-    }
-  };
+const MONTHS = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+const CURRENT_YEAR = new Date().getFullYear();
+const ALL_MONTHS_OPTIONS = MONTHS.map(m => `${m} ${CURRENT_YEAR}`);
 
-  const getPriorityColor = (priority: string) => {
-    switch (priority) {
-      case 'High': return 'bg-red-100 text-red-800';
-      case 'Medium': return 'bg-orange-100 text-orange-800';
-      case 'Low': return 'bg-green-100 text-green-800';
-      default: return 'bg-gray-100 text-gray-800';
-    }
-  };
-
-  return (
-    <div className="p-6 space-y-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-foreground">Monthly Strategies</h1>
-          <p className="text-muted-foreground mt-1">Strategic initiatives and planning overview</p>
-        </div>
-        <Button className="flex items-center gap-2">
-          <Target className="h-4 w-4" />
-          New Strategy
-        </Button>
-      </div>
-
-      {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Active Strategies</CardTitle>
-            <Target className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">3</div>
-            <p className="text-xs text-muted-foreground">Currently in progress</p>
-          </CardContent>
-        </Card>
-        
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Avg Progress</CardTitle>
-            <TrendingUp className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">63%</div>
-            <p className="text-xs text-muted-foreground">Across all strategies</p>
-          </CardContent>
-        </Card>
-        
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Teams Involved</CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">3</div>
-            <p className="text-xs text-muted-foreground">Active teams</p>
-          </CardContent>
-        </Card>
-        
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Due This Month</CardTitle>
-            <Calendar className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">1</div>
-            <p className="text-xs text-muted-foreground">Strategies ending</p>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Strategies List */}
-      <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Current Strategies</h2>
-        {strategies.map((strategy) => (
-          <Card key={strategy.id}>
-            <CardHeader>
-              <div className="flex items-start justify-between">
-                <div>
-                  <CardTitle className="text-lg">{strategy.title}</CardTitle>
-                  <CardDescription className="mt-1">{strategy.description}</CardDescription>
-                </div>
-                <div className="flex gap-2">
-                  <Badge className={getStatusColor(strategy.status)}>
-                    {strategy.status}
-                  </Badge>
-                  <Badge className={getPriorityColor(strategy.priority)}>
-                    {strategy.priority}
-                  </Badge>
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span>Progress</span>
-                    <span>{strategy.progress}%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div 
-                      className="bg-primary h-2 rounded-full transition-all duration-300" 
-                      style={{ width: `${strategy.progress}%` }}
-                    ></div>
-                  </div>
-                </div>
-                
-                <div className="flex justify-between items-center text-sm text-muted-foreground">
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-1">
-                      <Users className="h-4 w-4" />
-                      {strategy.team}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-4 w-4" />
-                      Due: {strategy.dueDate}
-                    </div>
-                  </div>
-                  <Button variant="outline" size="sm">
-                    View Details
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-  );
+// --- API Functions ---
+const fetchAllStrategies = async (): Promise<Strategy[]> => {
+    const { data, error } = await supabase.from('strategies').select('*');
+    if (error) throw new Error(error.message);
+    return data || [];
 };
 
-export default MonthlyStrategiesPage;
+// --- Helper: Status Badge Variant ---
+const getStatusBadgeVariant = (status: Strategy['status']): 'success' | 'warning' | 'info' | 'secondary' | 'outline' => {
+    switch (status) {
+        case 'Completed': return 'success';
+        case 'In Progress': return 'info';
+        case 'Planning': return 'warning';
+        case 'On Hold': return 'secondary';
+        default: return 'outline';
+    }
+};
+
+// --- Component ---
+const MonthlyStrategiesPage: React.FC = () => {
+    const [selectedMonth, setSelectedMonth] = useState(`${MONTHS[new Date().getMonth()]} ${CURRENT_YEAR}`);
+    const { data: strategies = [], isLoading, isError, error } = useQuery({ queryKey: ['allStrategies'], queryFn: fetchAllStrategies });
+
+    const strategy = useMemo(() => {
+        const found = strategies.find(s => s.month === selectedMonth);
+        if (found) return found;
+        
+        return {
+            id: 0,
+            month: selectedMonth,
+            title: 'No Strategy Defined',
+            description: 'Use the Strategy Management page to define a strategy for this month.',
+            status: 'Not Started' as const,
+            progress: 0,
+            priority: 'Low' as const,
+            objectives: [],
+            notes: '',
+            people_involved: [],
+        };
+    }, [strategies, selectedMonth]);
+
+    if (isLoading) {
+        return <div className="flex items-center justify-center h-full p-6"><RefreshCw className="h-6 w-6 animate-spin mr-2" /> Loading strategies...</div>;
+    }
+
+    if (isError) {
+        return <div className="text-destructive p-6 flex items-center"><AlertCircle className="h-6 w-6 mr-2" />Error loading strategies: {error.message}</div>;
+    }
+
+    return (
+        <div className="p-4 sm:p-6 lg:p-8 space-y-6">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h1 className="text-3xl font-bold text-foreground">Monthly Strategies</h1>
+                    <p className="text-muted-foreground mt-1">A detailed view of the strategic initiative for each month.</p>
+                </div>
+                 <div className="w-full sm:w-auto">
+                    <Select value={selectedMonth} onValueChange={setSelectedMonth}>
+                        <SelectTrigger className="w-full sm:w-[280px]">
+                            <SelectValue placeholder="Select a month" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {ALL_MONTHS_OPTIONS.map(m => <SelectItem key={m} value={m}>{m}</SelectItem>)}
+                        </SelectContent>
+                    </Select>
+                </div>
+            </div>
+            
+            <Card className="shadow-lg border-primary/20">
+                <CardHeader>
+                    <div className="flex justify-between items-start gap-4">
+                        <div className="space-y-1">
+                            <CardTitle className="text-2xl font-bold text-primary flex items-center gap-2">
+                                <Calendar className="h-6 w-6"/> {strategy.month}
+                            </CardTitle>
+                             <p className="text-lg text-muted-foreground font-semibold">{strategy.title}</p>
+                        </div>
+                        <div className="flex flex-col items-end gap-2 text-sm">
+                           <Badge variant={getStatusBadgeVariant(strategy.status)}>{strategy.status}</Badge>
+                           <Badge variant={strategy.priority === 'High' ? 'destructive' : strategy.priority === 'Medium' ? 'warning' : 'success'}>
+                                {strategy.priority} Priority
+                           </Badge>
+                        </div>
+                    </div>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                    <div>
+                        <h3 className="font-semibold text-lg mb-2 flex items-center gap-2"><Target className="h-5 w-5"/> Description</h3>
+                        <p className="text-muted-foreground pl-7">{strategy.description}</p>
+                    </div>
+
+                    {strategy.id > 0 && (
+                        <>
+                           <div>
+                                <h3 className="font-semibold text-lg mb-2 flex items-center gap-2"><List className="h-5 w-5"/> Objectives</h3>
+                                <ul className="list-none space-y-2 pl-7">
+                                    {strategy.objectives && strategy.objectives.length > 0 ? strategy.objectives.map((obj, i) => (
+                                        <li key={i} className="flex items-start gap-2 text-muted-foreground">
+                                            <CheckCircle className="h-5 w-5 text-primary mt-1"/> 
+                                            <span>{typeof obj === 'string' ? obj : (obj as any).value}</span>
+                                        </li>
+                                    )) : <p className="text-muted-foreground">No objectives defined.</p>}
+                                </ul>
+                            </div>
+                             <div>
+                                <h3 className="font-semibold text-lg mb-2 flex items-center gap-2"><Users className="h-5 w-5"/> People Involved</h3>
+                                <div className="flex flex-wrap gap-2 pl-7">
+                                    {strategy.people_involved && strategy.people_involved.length > 0 ? strategy.people_involved.map((person) => (
+                                        <Badge key={person} variant="secondary"><User className="h-3 w-3 mr-1"/>{person}</Badge>
+                                    )) : <p className="text-muted-foreground">No people assigned.</p>}
+                                </div>
+                            </div>
+
+                            {strategy.notes && (
+                                <div>
+                                    <h3 className="font-semibold text-lg mb-2 flex items-center gap-2"><FileText className="h-5 w-5"/> Notes</h3>
+                                    <p className="text-muted-foreground p-3 bg-muted rounded-md text-sm pl-7">{strategy.notes}</p>
+                                </div>
+                            )}
+
+                            <div>
+                               <h3 className="font-semibold text-lg mb-2">Progress</h3>
+                                <div className="flex items-center gap-3">
+                                   <Progress value={strategy.progress} className="w-full" />
+                                   <span className="font-bold text-primary">{strategy.progress}%</span>
+                               </div>
+                            </div>
+                        </>
+                    )}
+                </CardContent>
+            </Card>
+        </div>
+    );
+};
+
+export default MonthlyStrategiesPage; 

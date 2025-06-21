@@ -1,55 +1,116 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AppProvider } from "@/contexts/AppContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Layout from "@/components/layout/Layout";
 import LoginPage from "@/pages/LoginPage";
 import DashboardPage from "@/pages/DashboardPage";
-import { WebTrafficPage, FinancialAnalysisPage, TaskCalendarPage } from "@/pages/UpdatedPages";
-import MonthlyStrategiesPage from "@/pages/MonthlyStrategiesPage";
+import WebTrafficAnalyticsPage from "@/pages/WebTrafficAnalyticsPage";
+import { 
+  FinancialAnalysisPage, 
+  MonthlyStrategiesPage, 
+  StrategyManagementPage,
+  TaskCalendarPage
+} from "@/pages/UpdatedPages";
 import InboxPage from "@/pages/InboxPage";
 import NotFound from "@/pages/NotFound";
 import TaskManagementPage from "@/pages/TaskManagementPage";
+import DocumentsPage from "@/pages/DocumentsPage";
+import ProfilePage from "@/pages/ProfilePage";
+import ComingSoonPage from "@/pages/ComingSoonPage";
+import GManChatPage from "@/pages/GManChatPage";
+import WeatherPage from "@/pages/WeatherPage";
+import { useEffect } from 'react';
 
 // Create a client
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 1000 * 60 * 5, // 5 minutes
-      retry: 1,
-    },
-  },
-});
+const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider defaultTheme="light">
-      <AppProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Layout>
+function App() {
+  useEffect(() => {
+    // This effect runs once on app startup to clean up old data formats.
+    try {
+      const userStr = localStorage.getItem('currentUser');
+      if (userStr) {
+        const user = JSON.parse(userStr);
+        // If the ID is a number, it's the old format.
+        if (typeof user.id === 'number') {
+          console.log('Old user data format detected. Clearing localStorage.');
+          localStorage.removeItem('currentUser');
+          // Optional: force a reload to ensure the user is logged out.
+          window.location.reload();
+        }
+      }
+    } catch (error) {
+      console.error('Failed to parse user data from localStorage:', error);
+      localStorage.removeItem('currentUser');
+    }
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="light">
+        <AppProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <Router>
               <Routes>
-                <Route path="/" element={<LoginPage />} />
-                <Route path="/dashboard" element={<DashboardPage />} />
-                <Route path="/traffic" element={<WebTrafficPage />} />
-                <Route path="/financial" element={<FinancialAnalysisPage />} />
-                <Route path="/tasks" element={<TaskCalendarPage />} />
-                <Route path="/task-management" element={<TaskManagementPage />} />
-                <Route path="/strategies" element={<MonthlyStrategiesPage />} />
-                <Route path="/inbox" element={<InboxPage />} />
-                <Route path="*" element={<NotFound />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/" element={<Layout><Outlet /></Layout>}>
+                  {/* Legacy routes - keeping for backward compatibility */}
+                  <Route index element={<DashboardPage />} />
+                  <Route path="/web-traffic" element={<WebTrafficAnalyticsPage />} />
+                  <Route path="/financial" element={<FinancialAnalysisPage />} />
+                  <Route path="/task-management" element={<TaskManagementPage />} />
+                  <Route path="/task-calendar" element={<TaskCalendarPage />} />
+                  <Route path="/monthly-strategies" element={<MonthlyStrategiesPage />} />
+                  <Route path="/strategy-management" element={<StrategyManagementPage />} />
+                  <Route path="/inbox" element={<InboxPage />} />
+                  <Route path="/documents" element={<DocumentsPage />} />
+                  <Route path="/profile" element={<ProfilePage />} />
+
+                  {/* G.R.O.W Agronomist Routes */}
+                  <Route path="/agronomist/soil/create-chart" element={<ComingSoonPage title="Create Soil Chart" description="Create detailed soil analysis charts for agricultural planning." />} />
+                  <Route path="/agronomist/soil/create-report" element={<ComingSoonPage title="Create Soil Report" description="Generate comprehensive soil analysis reports." />} />
+                  <Route path="/agronomist/soil/reports" element={<ComingSoonPage title="View Saved Reports" description="Access and review previously created soil analysis reports." />} />
+                  <Route path="/agronomist/plant/create-chart" element={<ComingSoonPage title="Create Leaf Chart" description="Create detailed leaf analysis charts for plant health assessment." />} />
+                  <Route path="/agronomist/plant/create-report" element={<ComingSoonPage title="Create Leaf Report" description="Generate comprehensive leaf analysis reports." />} />
+                  <Route path="/agronomist/plant/reports" element={<ComingSoonPage title="View Saved Reports" description="Access and review previously created leaf analysis reports." />} />
+                  <Route path="/agronomist/analysis/enter" element={<ComingSoonPage title="Enter New Analysis" description="Record new soil or leaf therapy analysis data." />} />
+                  <Route path="/agronomist/analysis/reports" element={<ComingSoonPage title="Analysis Reports" description="View analytics and charts for soil and leaf therapy creations." />} />
+                  <Route path="/agronomist/g-man-chat" element={<GManChatPage />} />
+                  <Route path="/agronomist/inbox" element={<ComingSoonPage title="G.R.O.W Messaging" description="Access your G.R.O.W messaging inbox." />} />
+                  <Route path="/agronomist/weather" element={<WeatherPage />} />
+                  <Route path="/agronomist/fertiliser-prices" element={<ComingSoonPage title="Fertiliser Prices" description="Current market prices and trends for fertilisers." />} />
+                  <Route path="/agronomist/documents" element={<DocumentsPage />} />
+                  <Route path="/agronomist/crop-nutrition" element={<ComingSoonPage title="Crop Nutrition Thresholds" description="Monitor and manage crop nutrition thresholds and guidelines." />} />
+
+                  {/* G.R.O.W Admin Routes */}
+                  <Route path="/admin/dashboard" element={<DashboardPage />} />
+                  <Route path="/admin/web-traffic" element={<WebTrafficAnalyticsPage />} />
+                  <Route path="/admin/financial" element={<FinancialAnalysisPage />} />
+                  <Route path="/admin/task-calendar" element={<TaskCalendarPage />} />
+                  <Route path="/admin/monthly-strategies" element={<MonthlyStrategiesPage />} />
+                  <Route path="/admin/inbox" element={<InboxPage />} />
+
+                  {/* G.R.O.W Super Admin Routes */}
+                  <Route path="/super-admin/task-management" element={<TaskManagementPage />} />
+                  <Route path="/super-admin/strategy-management" element={<StrategyManagementPage />} />
+                  <Route path="/super-admin/cost-management" element={<ComingSoonPage title="Cost Management" description="Manage and track operational costs and budgets." />} />
+                  <Route path="/super-admin/income-management" element={<ComingSoonPage title="Income Management" description="Track and manage income streams and revenue." />} />
+
+                  <Route path="*" element={<NotFound />} />
+                </Route>
               </Routes>
-            </Layout>
-          </BrowserRouter>
-        </TooltipProvider>
-      </AppProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
-);
+            </Router>
+          </TooltipProvider>
+        </AppProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
+  );
+}
 
 export default App;
