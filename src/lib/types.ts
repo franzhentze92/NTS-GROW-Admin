@@ -108,3 +108,34 @@ export interface CreateDocumentData {
   file_size: number;
   uploaded_by_user_id: string;
 }
+
+export interface Analysis {
+  id: string;
+  created_at: string;
+  client_name: string;
+  consultant: string;
+  analysis_type: 'soil' | 'leaf';
+  crop: string;
+  category: string;
+  status: 'Draft' | 'Ready to be Checked' | 'Checked Ready to be Emailed' | 'Emailed';
+  status_updated_at: string;
+  updated_by: { id: string, name: string };
+  eal_lab_no?: string;
+  test_count?: number;
+  notes?: string;
+  pdf_file_path?: string;
+  sample_no?: string;
+  // Step tracking fields
+  draft_by?: string;
+  draft_date?: string;
+  ready_check_by?: string;
+  ready_check_date?: string;
+  checked_by?: string;
+  checked_date?: string;
+  emailed_by?: string;
+  emailed_date?: string;
+}
+
+export type AnalysisForCreate = Omit<Analysis, 'id' | 'created_at' | 'status_updated_at' | 'updated_by'> & {
+  updated_by: string;
+};

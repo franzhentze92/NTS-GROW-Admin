@@ -22,7 +22,10 @@ import DocumentsPage from "@/pages/DocumentsPage";
 import ProfilePage from "@/pages/ProfilePage";
 import ComingSoonPage from "@/pages/ComingSoonPage";
 import GManChatPage from "@/pages/GManChatPage";
-import WeatherPage from "@/pages/WeatherPage";
+import EnterAnalysisPage from "@/pages/EnterAnalysisPage";
+import AnalysisReportsPage from '@/pages/AnalysisReportsPage';
+import ChatPage from "@/pages/ChatPage";
+import SatelliteImageryPage from "@/pages/SatelliteImageryPage";
 import { useEffect } from 'react';
 
 // Create a client
@@ -79,11 +82,20 @@ function App() {
                   <Route path="/agronomist/plant/create-chart" element={<ComingSoonPage title="Create Leaf Chart" description="Create detailed leaf analysis charts for plant health assessment." />} />
                   <Route path="/agronomist/plant/create-report" element={<ComingSoonPage title="Create Leaf Report" description="Generate comprehensive leaf analysis reports." />} />
                   <Route path="/agronomist/plant/reports" element={<ComingSoonPage title="View Saved Reports" description="Access and review previously created leaf analysis reports." />} />
-                  <Route path="/agronomist/analysis/enter" element={<ComingSoonPage title="Enter New Analysis" description="Record new soil or leaf therapy analysis data." />} />
-                  <Route path="/agronomist/analysis/reports" element={<ComingSoonPage title="Analysis Reports" description="View analytics and charts for soil and leaf therapy creations." />} />
-                  <Route path="/agronomist/g-man-chat" element={<GManChatPage />} />
+                  <Route path="/agronomist/analysis/enter" element={<EnterAnalysisPage />} />
+                  <Route path="/agronomist/analysis/reports" element={<AnalysisReportsPage />} />
+                  <Route path="/agronomist/chat" element={<ChatPage />} />
+                  
+                  {/* Satellite Imagery Routes */}
+                  <Route path="/agronomist/satellite/crop-health" element={<SatelliteImageryPage />} />
+                  <Route path="/agronomist/satellite/weather" element={<SatelliteImageryPage />} />
+
+                  {/* G.R.O.W Smart Tools Routes */}
+                  <Route path="/agronomist/smart-tools/irrigation/calculation" element={<ComingSoonPage title="Irrigation Calculation" description="Calculate optimal irrigation schedules and water requirements for your crops." />} />
+                  <Route path="/agronomist/smart-tools/crop-nutrition/recommendator" element={<ComingSoonPage title="NTS Product Recommendator" description="Get personalized product recommendations based on your crop analysis and soil conditions." />} />
+                  <Route path="/agronomist/smart-tools/crop-protection/gdd" element={<ComingSoonPage title="Growing Degree Days" description="Track growing degree days to optimize crop protection timing and pest management." />} />
+
                   <Route path="/agronomist/inbox" element={<ComingSoonPage title="G.R.O.W Messaging" description="Access your G.R.O.W messaging inbox." />} />
-                  <Route path="/agronomist/weather" element={<WeatherPage />} />
                   <Route path="/agronomist/fertiliser-prices" element={<ComingSoonPage title="Fertiliser Prices" description="Current market prices and trends for fertilisers." />} />
                   <Route path="/agronomist/documents" element={<DocumentsPage />} />
                   <Route path="/agronomist/crop-nutrition" element={<ComingSoonPage title="Crop Nutrition Thresholds" description="Monitor and manage crop nutrition thresholds and guidelines." />} />

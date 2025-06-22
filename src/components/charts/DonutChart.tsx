@@ -61,7 +61,10 @@ const DonutChart: React.FC<DonutChartProps> = ({
           fill="#8884d8"
           dataKey={dataKey}
           nameKey={nameKey}
-          label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+          label={({ name, percent }) => {
+            if (percent === 0) return '';
+            return `${name}: ${(percent * 100).toFixed(0)}%`;
+          }}
         >
           {data.map((entry, index) => (
             <Cell 
