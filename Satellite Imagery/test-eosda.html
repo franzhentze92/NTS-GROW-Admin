@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTS G.R.O.W - Satellite Imagery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        :root {
+            --nts-green: #8cb43a;
+            --nts-green-dark: #739431;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 0;
+            background: linear-gradient(45deg, var(--nts-green-dark), var(--nts-green));
+            color: white;
+            border-radius: 8px;
+        }
+        .section-header {
+            padding: 10px 15px;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--nts-green);
+            background-color: #f8f9fa;
+        }
+        .card { box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #e9ecef; }
+        .card-header { background-color: var(--nts-green); color: white; font-weight: 500; }
+        .btn-primary { background-color: var(--nts-green); border-color: var(--nts-green); }
+        .btn-primary:hover { background-color: var(--nts-green-dark); border-color: var(--nts-green-dark); }
+        .btn:focus, .form-control:focus { box-shadow: 0 0 0 0.25rem rgba(140, 180, 58, 0.25) !important; border-color: var(--nts-green) !important; }
+        #farmLocationMap, #ndvi-map-container { height: 400px; width: 100%; border-radius: 8px; }
+        .table-responsive { max-height: 400px; }
+        pre { background-color: #f8f9fa; padding: 1rem; border-radius: 4px; white-space: pre-wrap; word-break: break-all; }
+        .spinner-border { width: 1.5rem; height: 1.5rem; }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="container py-4">
+        <div class="page-header">
+            <h1>NTS G.R.O.W</h1>
+            <p>Satellite Imagery Analysis Platform</p>
+        </div>
+
+        <!-- Farm Location -->
+        <div class="mb-4">
+            <h2>Farm Location</h2>
+            <div class="card">
+                <div class="card-body">
+                    <p>Weather and satellite data is fetched for the hardcoded "Yandina Farm" area shown below.</p>
+                    <div id="farmLocationMap"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Left Column: Controls & Actions -->
+            <div class="col-lg-5">
+                
+                <!-- Connection Test -->
+                <div class="section-header"><h4 class="m-0">System Status</h4></div>
+                <div class="card mb-4">
+                    <div class="card-header">Proxy Connection Test</div>
+                    <div class="card-body">
+                        <button id="testProxyBtn" class="btn btn-primary">Test Connection</button>
+                    </div>
+                </div>
+
+                <!-- Scene Search -->
+                <div class="section-header"><h4 class="m-0">1. Find Available Scenes</h4></div>
+                <div class="card mb-4">
+                    <div class="card-header">Search for Satellite Scenes</div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="searchDateFrom" class="form-label">From:</label>
+                            <input type="date" id="searchDateFrom" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="searchDateTo" class="form-label">To:</label>
+                            <input type="date" id="searchDateTo" class="form-control">
+                        </div>
+                        <button id="searchScenesBtn" class="btn btn-primary">Search Scenes</button>
+                    </div>
+                </div>
+
+                <!-- Weather & Indices -->
+                <div class="section-header"><h4 class="m-0">2. Fetch Farm Data</h4></div>
+                <div class="card mb-4">
+                    <div class="card-header">Weather & Vegetation Data</div>
+                    <div class="card-body">
+                        <p class="text-muted">Uses the same date range as the Scene Search above.</p>
+                        <button id="fetch14DayForecastBtn" class="btn btn-primary mb-2 w-100">Fetch 14-Day Forecast</button>
+                        <button id="fetchHistoricalWeatherBtn" class="btn btn-primary mb-2 w-100">Fetch Historical Weather</button>
+                        <button id="fetchVegIndicesBtn" class="btn btn-primary mb-2 w-100">Fetch Vegetation Indices</button>
+                        <button id="fetchSoilMoistureBtn" class="btn btn-primary w-100">Fetch Soil Moisture</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Results & Logs -->
+            <div class="col-lg-7">
+                
+                <!-- Status & Error Display -->
+                <div class="section-header"><h4 class="m-0">Status</h4></div>
+                <div id="status-container" class="alert alert-info">Awaiting action...</div>
+
+                <!-- Scene Results -->
+                <div class="section-header"><h4 class="m-0">Available Scenes</h4></div>
+                <div class="card mb-4">
+                    <div class="card-header">Scene Search Results</div>
+                    <div class="card-body">
+                        <div id="scene-results-container" class="table-responsive">
+                            <p>Scene results will appear here. Click a scene to generate an NDVI image.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NDVI Image Display -->
+                <div class="section-header"><h4 class="m-0">NDVI Image</h4></div>
+                <div class="card mb-4">
+                    <div class="card-header">Generated NDVI Image</div>
+                    <div class="card-body">
+                        <div id="ndvi-image-container">
+                            <p>An NDVI image will be displayed here after selecting a scene.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Tables Display -->
+                <div class="section-header"><h4 class="m-0">Data Tables</h4></div>
+                <div id="data-tables-container">
+                    <p>Weather, vegetation, and soil moisture data will be displayed here in tables.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const PROXY_URL = 'http://localhost:3001';
+
+            // --- Element References ---
+            const searchDateFrom = document.getElementById('searchDateFrom');
+            const searchDateTo = document.getElementById('searchDateTo');
+            const statusContainer = document.getElementById('status-container');
+            const sceneResultsContainer = document.getElementById('scene-results-container');
+            const ndviImageContainer = document.getElementById('ndvi-image-container');
+            const dataTablesContainer = document.getElementById('data-tables-container');
+
+            // --- Default Dates ---
+            const today = new Date();
+            const oneMonthAgo = new Date(new Date().setMonth(today.getMonth() - 1));
+            searchDateFrom.value = oneMonthAgo.toISOString().split('T')[0];
+            searchDateTo.value = today.toISOString().split('T')[0];
+            
+            // --- Farm Location Map ---
+            const farmLocationMap = L.map('farmLocationMap').setView([-26.496, 152.915], 16);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(farmLocationMap);
+            const farmPolygon = [
+                [-26.496307, 152.914835], [-26.496444, 152.914995], [-26.496434, 152.915082], 
+                [-26.496476, 152.915136], [-26.496410, 152.915167], [-26.496306, 152.915152],
+                [-26.496179, 152.915140], [-26.496039, 152.915133], [-26.495981, 152.915040],
+                [-26.496194, 152.914902], [-26.496307, 152.914835]
+            ];
+            L.polygon(farmPolygon, { color: 'blue' }).addTo(farmLocationMap);
+
+            // --- Helper Functions ---
+            const setButtonsDisabled = (disabled) => {
+                document.querySelectorAll('#testProxyBtn, #searchScenesBtn, #fetch14DayForecastBtn, #fetchHistoricalWeatherBtn, #fetchVegIndicesBtn, #fetchSoilMoistureBtn, .generate-ndvi')
+                    .forEach(btn => btn.disabled = disabled);
+            };
+            
+            const showStatus = (message, type = 'info') => {
+                statusContainer.className = `alert alert-${type}`;
+                statusContainer.innerHTML = message;
+            };
+
+            const showLoadingStatus = (action) => {
+                showStatus(`<div class="d-flex align-items-center"><div class="spinner-border text-primary me-2"></div> <strong>Loading...</strong> ${action}</div>`, 'info');
+            };
+
+            const renderTable = (title, data, headers) => {
+                let tableHtml = `<div class="card mb-3"><div class="card-header">${title}</div><div class="card-body table-responsive"><table class="table table-striped table-hover"><thead><tr>`;
+                headers.forEach(h => tableHtml += `<th>${h}</th>`);
+                tableHtml += `</tr></thead><tbody>`;
+                data.forEach(row => {
+                    tableHtml += `<tr>`;
+                    headers.forEach(h => tableHtml += `<td>${row[h.toLowerCase().replace(/ /g,'_')] || 'N/A'}</td>`);
+                    tableHtml += `</tr>`;
+                });
+                tableHtml += `</tbody></table></div></div>`;
+                return tableHtml;
+            };
+
+            const apiRequest = async (endpoint, body, actionText) => {
+                showLoadingStatus(actionText);
+                setButtonsDisabled(true);
+                try {
+                    const response = await fetch(`${PROXY_URL}${endpoint}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(body)
+                    });
+                    const result = await response.json();
+                    if (!response.ok || !result.success) {
+                        throw new Error(result.details || result.message || 'Unknown API error');
+                    }
+                    showStatus(`${actionText} successful.`, 'success');
+                    return result;
+                } catch (error) {
+                    console.error(`Error during ${actionText}:`, error);
+                    showStatus(`<strong>Error!</strong> Could not ${actionText.toLowerCase()}.<br><small>${error.message}</small>`, 'danger');
+                    return null;
+                } finally {
+                    setButtonsDisabled(false);
+                }
+            };
+            
+            // --- Event Listeners ---
+
+            // Test Proxy
+            document.getElementById('testProxyBtn').addEventListener('click', async () => {
+                showLoadingStatus('Testing proxy connection...');
+                try {
+                    const response = await fetch(`${PROXY_URL}/test`);
+                    const data = await response.json();
+                    showStatus(`Proxy connection successful! Message: "${data.message}"`, 'success');
+                } catch (error) {
+                    showStatus(`<strong>Error!</strong> Proxy connection failed. Is the server running?`, 'danger');
+                }
+            });
+
+            // Search Scenes
+            document.getElementById('searchScenesBtn').addEventListener('click', async () => {
+                const body = { date_start: searchDateFrom.value, date_end: searchDateTo.value };
+                const result = await apiRequest('/fetch-scenes', body, 'Searching for scenes');
+                
+                if (result && result.data && result.data.results) {
+                    sceneResultsContainer.innerHTML = ''; // Clear previous
+                    let tableHtml = `<table class="table table-hover"><thead><tr><th>Date</th><th>Cloud %</th><th>Scene ID</th><th>Action</th></tr></thead><tbody>`;
+                    result.data.results.forEach(scene => {
+                        tableHtml += `
+                            <tr>
+                                <td>${scene.date}</td>
+                                <td>${scene.cloudCoverage.toFixed(2)}</td>
+                                <td>${scene.sceneID}</td>
+                                <td><button class="btn btn-sm btn-primary generate-ndvi" data-view-id="${scene.view_id}">Generate NDVI</button></td>
+                            </tr>`;
+                    });
+                    tableHtml += `</tbody></table>`;
+                    sceneResultsContainer.innerHTML = tableHtml;
+                } else {
+                    sceneResultsContainer.innerHTML = '<p>No scenes found or an error occurred.</p>';
+                }
+            });
+
+            // Generate NDVI (event delegation)
+            sceneResultsContainer.addEventListener('click', async (event) => {
+                if (event.target.classList.contains('generate-ndvi')) {
+                    const viewId = event.target.dataset.viewId;
+                    const result = await apiRequest('/fetch-ndvi-image', { view_id: viewId }, 'Generating NDVI image');
+                    if (result && result.imageUrl) {
+                        ndviImageContainer.innerHTML = `<a href="${result.imageUrl}" target="_blank"><img src="${result.imageUrl}" class="img-fluid rounded" alt="NDVI Image"></a>`;
+                    } else {
+                        ndviImageContainer.innerHTML = '<p>Could not generate NDVI image.</p>';
+                    }
+                }
+            });
+            
+            // 14-Day Forecast
+            document.getElementById('fetch14DayForecastBtn').addEventListener('click', async () => {
+                const result = await apiRequest('/fetch-14-day-forecast', {}, 'Fetching 14-day forecast');
+                if (result && result.data) {
+                    dataTablesContainer.innerHTML = renderTable('14-Day Forecast', result.data, ['Date', 'Temp Min', 'Temp Max', 'Humidity', 'Rainfall', 'Wind Speed']);
+                }
+            });
+
+            // Historical Weather
+            document.getElementById('fetchHistoricalWeatherBtn').addEventListener('click', async () => {
+                const body = { date_start: searchDateFrom.value, date_end: searchDateTo.value };
+                const result = await apiRequest('/fetch-historical-weather', body, 'Fetching historical weather');
+                 if (result && result.data) {
+                    dataTablesContainer.innerHTML = renderTable('Historical Weather', result.data, ['Date', 'Temp Min', 'Temp Max', 'Humidity', 'Rainfall', 'Wind Speed']);
+                }
+            });
+            
+            // Vegetation Indices
+            document.getElementById('fetchVegIndicesBtn').addEventListener('click', async () => {
+                const body = { date_start: searchDateFrom.value, date_end: searchDateTo.value };
+                const result = await apiRequest('/fetch-vegetation-indices', body, 'Fetching vegetation indices');
+                if (result && result.data) {
+                    const mappedData = result.data.map(d => ({...d.stats, date: new Date(d.date).toLocaleDateString()}));
+                    dataTablesContainer.innerHTML = renderTable('Vegetation Indices', mappedData, ['Date', 'NDVI', 'EVI', 'SAVI']);
+                }
+            });
+
+            // Soil Moisture
+            document.getElementById('fetchSoilMoistureBtn').addEventListener('click', async () => {
+                const body = { date_start: searchDateFrom.value, date_end: searchDateTo.value };
+                const result = await apiRequest('/fetch-soil-moisture', body, 'Fetching soil moisture');
+                 if (result && result.data) {
+                    const mappedData = result.data.map(d => ({ date: new Date(d.date).toLocaleDateString(), soil_moisture: d.stats.soilmoisture }));
+                    dataTablesContainer.innerHTML = renderTable('Soil Moisture', mappedData, ['Date', 'Soil Moisture']);
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html> 

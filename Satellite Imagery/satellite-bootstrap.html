@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G.R.O.W From Above</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .highlight {
+      color: #8bb439 !important;
+    }
+    .bg-highlight {
+      background-color: #8bb439 !important;
+      color: #fff !important;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .card-value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #222;
+    }
+    .badge-info {
+      background: #e6f4d7;
+      color: #8bb439;
+      font-size: 0.8em;
+    }
+    .info-icon {
+      font-size: 1.1em;
+      color: #8bb439;
+      cursor: pointer;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <div class="container py-4">
+    <!-- Header -->
+    <div class="mb-3 p-4 bg-white rounded-4 shadow-sm">
+      <h2 class="mb-1 fw-bold">G.R.O.W From Above</h2>
+      <p class="text-muted mb-0">See the bigger picture — monitor crop health and field dynamics through aerial insights.</p>
+    </div>
+
+    <!-- Section Toggle -->
+    <div class="mb-3">
+      <button class="btn bg-highlight me-2" disabled>Satellite</button>
+      <a href="weather-bootstrap.html" class="btn btn-outline-secondary me-2">Weather</a>
+      <a href="gdd-bootstrap.html" class="btn btn-outline-secondary">Growing Degree Days</a>
+    </div>
+
+    <!-- Filters (Farm/Paddock) -->
+    <div class="mb-4 bg-white p-3 rounded-4 shadow-sm d-flex flex-wrap gap-2 align-items-center">
+      <label for="farmSelect" class="form-label mb-0 me-2">Farm:</label>
+      <select id="farmSelect" class="form-select w-auto me-3">
+        <option value="1">North Farm</option>
+        <option value="2">South Farm</option>
+      </select>
+      <label for="paddockSelect" class="form-label mb-0 me-2">Paddock:</label>
+      <select id="paddockSelect" class="form-select w-auto">
+        <option value="1">Iowa Demo Field</option>
+      </select>
+    </div>
+
+    <!-- Cards Row -->
+    <div class="mb-4 bg-white p-3 rounded-4 shadow-sm">
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm rounded-4">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-2">
+                <span class="material-icons highlight me-2">trending_up</span>
+                <span class="card-title">NDVI
+                  <span class="material-icons info-icon ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Normalized Difference Vegetation Index (NDVI) is a widely used remote sensing index that measures the density and health of vegetation by comparing the difference between near-infrared (which vegetation strongly reflects) and red light (which vegetation absorbs). NDVI values range from -1 to 1, where higher values indicate healthier and denser green vegetation, while lower values indicate sparse or stressed vegetation, bare soil, or non-vegetated surfaces.">info</span>
+                </span>
+                <span class="badge badge-info ms-2">Current</span>
+              </div>
+              <div class="card-value" id="ndviValue">0.723</div>
+              <div class="text-muted small">Vegetation Health</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm rounded-4">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-2">
+                <span class="material-icons highlight me-2">bar_chart</span>
+                <span class="card-title">EVI
+                  <span class="material-icons info-icon ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Enhanced Vegetation Index (EVI) is an optimized vegetation index designed to enhance the vegetation signal with improved sensitivity in high biomass regions and improved vegetation monitoring through a de-coupling of the canopy background signal and a reduction in atmospheric influences. EVI is particularly useful in areas with dense canopy and is calculated using blue, red, and near-infrared bands.">info</span>
+                </span>
+                <span class="badge badge-info ms-2">Current</span>
+              </div>
+              <div class="card-value" id="eviValue">0.512</div>
+              <div class="text-muted small">Enhanced Vegetation</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm rounded-4">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-2">
+                <span class="material-icons highlight me-2">show_chart</span>
+                <span class="card-title">SAVI
+                  <span class="material-icons info-icon ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Soil Adjusted Vegetation Index (SAVI) is a vegetation index that corrects for the influence of soil brightness in areas where vegetative cover is low. It introduces a soil brightness correction factor (L) to the NDVI formula, making it more reliable for arid and semi-arid regions. SAVI values also range from -1 to 1.">info</span>
+                </span>
+                <span class="badge badge-info ms-2">Current</span>
+              </div>
+              <div class="card-value" id="saviValue">0.634</div>
+              <div class="text-muted small">Soil Adjusted</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm rounded-4">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-2">
+                <span class="material-icons highlight me-2">opacity</span>
+                <span class="card-title">Moisture
+                  <span class="material-icons info-icon ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Soil Moisture Index (or similar proxy) estimates the amount of water present in the soil, which is crucial for plant growth and health. It can be derived from remote sensing data using various spectral bands sensitive to water content. Higher values indicate wetter soil, while lower values indicate drier conditions.">info</span>
+                </span>
+                <span class="badge badge-info ms-2">Current</span>
+              </div>
+              <div class="card-value" id="moistureValue">0.489</div>
+              <div class="text-muted small">Soil Moisture</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Controls (Variable/Date) -->
+    <div class="mb-2 d-flex flex-wrap gap-2 align-items-center">
+      <label for="mapVariableSelect" class="form-label mb-0 me-2">Variable:</label>
+      <select id="mapVariableSelect" class="form-select w-auto me-3">
+        <option value="ndvi">NDVI</option>
+        <option value="evi">EVI</option>
+        <option value="savi">SAVI</option>
+        <option value="moisture">Moisture</option>
+      </select>
+      <label for="mapDateSelect" class="form-label mb-0 me-2">Day:</label>
+      <select id="mapDateSelect" class="form-select w-auto"></select>
+    </div>
+
+    <!-- Map Placeholder -->
+    <div class="bg-white p-4 rounded-4 shadow-sm mb-4">
+      <h5 class="mb-3">Map View <span id="mapLegend" class="badge bg-highlight ms-2">NDVI</span> <span id="mapDateLabel" class="badge bg-secondary ms-2"></span></h5>
+      <div id="map" style="height: 300px; width: 100%;"></div>
+    </div>
+
+    <!-- Chart Controls (below map) -->
+    <div class="mb-2 d-flex flex-wrap gap-2 align-items-center">
+      <label for="chartFromDate" class="form-label mb-0 me-2">Date Range:</label>
+      <input type="date" id="chartFromDate" class="form-control w-auto">
+      <input type="date" id="chartToDate" class="form-control w-auto ms-2">
+      <button id="applyDateRange" class="btn btn-sm btn-outline-primary ms-2">Apply</button>
+    </div>
+
+    <!-- Charts stacked vertically -->
+    <div class="mb-4">
+      <div class="bg-white p-3 rounded-4 shadow-sm mb-4">
+        <h6 class="mb-2">NDVI Time Series
+          <span class="material-icons info-icon ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Normalized Difference Vegetation Index (NDVI) is a widely used remote sensing index that measures the density and health of vegetation by comparing the difference between near-infrared (which vegetation strongly reflects) and red light (which vegetation absorbs). NDVI values range from -1 to 1, where higher values indicate healthier and denser green vegetation, while lower values indicate sparse or stressed vegetation, bare soil, or non-vegetated surfaces.">info</span>
+        </h6>
+        <canvas id="ndviChart" height="120"></canvas>
+      </div>
+      <div class="bg-white p-3 rounded-4 shadow-sm mb-4">
+        <h6 class="mb-2">EVI Time Series
+          <span class="material-icons info-icon ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Enhanced Vegetation Index (EVI) is an optimized vegetation index designed to enhance the vegetation signal with improved sensitivity in high biomass regions and improved vegetation monitoring through a de-coupling of the canopy background signal and a reduction in atmospheric influences. EVI is particularly useful in areas with dense canopy and is calculated using blue, red, and near-infrared bands.">info</span>
+        </h6>
+        <canvas id="eviChart" height="120"></canvas>
+      </div>
+      <div class="bg-white p-3 rounded-4 shadow-sm mb-4">
+        <h6 class="mb-2">SAVI Time Series
+          <span class="material-icons info-icon ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Soil Adjusted Vegetation Index (SAVI) is a vegetation index that corrects for the influence of soil brightness in areas where vegetative cover is low. It introduces a soil brightness correction factor (L) to the NDVI formula, making it more reliable for arid and semi-arid regions. SAVI values also range from -1 to 1.">info</span>
+        </h6>
+        <canvas id="saviChart" height="120"></canvas>
+      </div>
+      <div class="bg-white p-3 rounded-4 shadow-sm mb-4">
+        <h6 class="mb-2">Moisture Time Series
+          <span class="material-icons info-icon ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Soil Moisture Index (or similar proxy) estimates the amount of water present in the soil, which is crucial for plant growth and health. It can be derived from remote sensing data using various spectral bands sensitive to water content. Higher values indicate wetter soil, while lower values indicate drier conditions.">info</span>
+        </h6>
+        <canvas id="moistureChart" height="120"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap, jQuery, Chart.js, Material Icons, and Leaflet -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Yandina Farm polygon (longitude, latitude)
+    const yandinaPolygon = [
+      [152.9148355104133, -26.49630785386763],
+      [152.9149951437186, -26.49644491790693],
+      [152.9150826047683, -26.49643498282219],
+      [152.915136003929, -26.49647654096426],
+      [152.9151679717066, -26.49641027369633],
+      [152.9151522879532, -26.4963066956674],
+      [152.9151405649811, -26.49617943071427],
+      [152.9151330645278, -26.49603918146022],
+      [152.9150405267262, -26.49598117140157],
+      [152.9149028386955, -26.49619458038391],
+      [152.9148355104133, -26.49630785386763]
+    ];
+    const yandinaPolygonGeoJSON = {
+      type: 'Polygon',
+      coordinates: [yandinaPolygon]
+    };
+
+    // Helper: get date string in YYYY-MM-DD
+    function formatDate(date) {
+      return date.toISOString().slice(0, 10);
+    }
+
+    // Fetch vegetation indices from proxy
+    async function fetchVegetationIndices(from, to) {
+      try {
+        const res = await fetch('http://localhost:3001/fetch-vegetation-indices', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            date_start: from + 'T00:00',
+            date_end: to + 'T00:00',
+            geometry: yandinaPolygonGeoJSON,
+            limit: 10
+          })
+        });
+        const data = await res.json();
+        console.log('API Response:', data); // Debug log
+        
+        if (!data.success && data.error) throw new Error(data.error);
+        
+        // The proxy returns { success: true, data: result }
+        // Each result has { scene_id, view_id, date, cloud, indexes }
+        // The indexes contain NDVI, EVI, SAVI directly
+        return data.data || [];
+      } catch (e) {
+        console.error('Error fetching vegetation indices:', e);
+        throw e;
+      }
+    }
+
+    // Calculate vegetation indices from band data (fallback)
+    function calculateIndices(b04, b08) {
+      // NDVI = (NIR - Red) / (NIR + Red) = (B08 - B04) / (B08 + B04)
+      const ndvi = (b08 - b04) / (b08 + b04);
+      
+      // EVI = 2.5 * (NIR - Red) / (NIR + 6*Red - 7.5*Blue + 1)
+      // Since we don't have blue band, we'll use a simplified version
+      const evi = 2.5 * (b08 - b04) / (b08 + 6 * b04 + 1);
+      
+      // SAVI = 1.5 * (NIR - Red) / (NIR + Red + 0.5)
+      const savi = 1.5 * (b08 - b04) / (b08 + b04 + 0.5);
+      
+      // MSI (Moisture Stress Index) = SWIR / NIR
+      // Since we don't have SWIR, we'll use a moisture proxy based on B04/B08 ratio
+      const msi = 1 - (b04 / b08); // Invert ratio so higher values mean more moisture
+      
+      return { ndvi, evi, savi, msi };
+    }
+
+    // Parse EOSDA vegetation indices data for charts/cards
+    function parseIndicesData(data) {
+      console.log('Parsing data:', data); // Debug log
+      
+      return data.map(scene => {
+        // The new data structure has indexes directly: scene.indexes.NDVI, scene.indexes.EVI, etc.
+        if (scene.indexes && scene.indexes.NDVI && scene.indexes.EVI && scene.indexes.SAVI) {
+          return {
+            date: scene.date,
+            ndvi: scene.indexes.NDVI.average,
+            evi: scene.indexes.EVI.average,
+            savi: scene.indexes.SAVI.average,
+            msi: 0.5 // Default moisture value since we don't have MSI in the response
+          };
+        }
+        
+        // Fallback: if we have B04/B08 bands, calculate indices manually
+        if (scene.indexes && scene.indexes.B04 && scene.indexes.B08) {
+          const b04 = scene.indexes.B04.average;
+          const b08 = scene.indexes.B08.average;
+          const indices = calculateIndices(b04, b08);
+          
+          return {
+            date: scene.date,
+            ndvi: indices.ndvi,
+            evi: indices.evi,
+            savi: indices.savi,
+            msi: indices.msi
+          };
+        }
+        
+        return {
+          date: scene.date,
+          ndvi: null,
+          evi: null,
+          savi: null,
+          msi: null
+        };
+      }).filter(item => item.ndvi !== null)
+      .sort((a, b) => new Date(a.date) - new Date(b.date)); // Sort by date
+    }
+
+    // Update cards with latest values
+    function updateCards(indices) {
+      if (!indices || indices.length === 0) {
+        $("#ndviValue,#eviValue,#saviValue,#moistureValue").text('N/A');
+        return;
+      }
+      const latest = indices[indices.length - 1];
+      $("#ndviValue").text(latest.ndvi.toFixed(3));
+      $("#eviValue").text(latest.evi.toFixed(3));
+      $("#saviValue").text(latest.savi.toFixed(3));
+      $("#moistureValue").text(latest.msi.toFixed(3));
+    }
+
+    // Update charts
+    function updateCharts(indices, charts) {
+      if (!indices || indices.length === 0) return;
+      
+      const labels = indices.map(d => d.date);
+      
+      charts.ndviChart.data.labels = labels;
+      charts.ndviChart.data.datasets[0].data = indices.map(d => d.ndvi);
+      charts.ndviChart.update();
+      
+      charts.eviChart.data.labels = labels;
+      charts.eviChart.data.datasets[0].data = indices.map(d => d.evi);
+      charts.eviChart.update();
+      
+      charts.saviChart.data.labels = labels;
+      charts.saviChart.data.datasets[0].data = indices.map(d => d.savi);
+      charts.saviChart.update();
+      
+      charts.moistureChart.data.labels = labels;
+      charts.moistureChart.data.datasets[0].data = indices.map(d => d.msi);
+      charts.moistureChart.update();
+    }
+
+    // Show loading/error states
+    function setLoading(isLoading) {
+      $("#ndviValue,#eviValue,#saviValue,#moistureValue").text(isLoading ? '...': 'N/A');
+    }
+    function setError(msg) {
+      $("#ndviValue,#eviValue,#saviValue,#moistureValue").text('N/A');
+      alert(msg);
+    }
+
+    // On page load, fetch and display real data for last 30 days
+    $(async function() {
+      // Initialize charts
+      const chartOptions = {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { display: true, title: { display: true, text: 'Date' } },
+          y: { display: true, title: { display: true, text: 'Index Value' } }
+        }
+      };
+
+      const ndviChart = new Chart(document.getElementById('ndviChart').getContext('2d'), {
+        type: 'line',
+        data: { labels: [], datasets: [{ label: 'NDVI', data: [], borderColor: '#8bb439', backgroundColor: 'rgba(139,180,57,0.1)', tension: 0.3, fill: true }] },
+        options: chartOptions
+      });
+
+      const eviChart = new Chart(document.getElementById('eviChart').getContext('2d'), {
+        type: 'line',
+        data: { labels: [], datasets: [{ label: 'EVI', data: [], borderColor: '#60a5fa', backgroundColor: 'rgba(96,165,250,0.1)', tension: 0.3, fill: true }] },
+        options: chartOptions
+      });
+
+      const saviChart = new Chart(document.getElementById('saviChart').getContext('2d'), {
+        type: 'line',
+        data: { labels: [], datasets: [{ label: 'SAVI', data: [], borderColor: '#fbbf24', backgroundColor: 'rgba(251,191,36,0.1)', tension: 0.3, fill: true }] },
+        options: chartOptions
+      });
+
+      const moistureChart = new Chart(document.getElementById('moistureChart').getContext('2d'), {
+        type: 'line',
+        data: { labels: [], datasets: [{ label: 'Moisture', data: [], borderColor: '#34d399', backgroundColor: 'rgba(52,211,153,0.1)', tension: 0.3, fill: true }] },
+        options: chartOptions
+      });
+
+      // Set default date range
+      const today = new Date();
+      const from = formatDate(new Date(today.getTime() - 29*24*60*60*1000));
+      const to = formatDate(today);
+      $('#chartFromDate').val(from);
+      $('#chartToDate').val(to);
+
+      setLoading(true);
+      try {
+        const raw = await fetchVegetationIndices(from, to);
+        const indices = parseIndicesData(raw);
+        updateCards(indices);
+        updateCharts(indices, { ndviChart, eviChart, saviChart, moistureChart });
+        setLoading(false);
+      } catch (e) {
+        setError(e.message);
+      }
+
+      // Handle date range changes
+      $('#applyDateRange').on('click', async function() {
+        const from = $('#chartFromDate').val();
+        const to = $('#chartToDate').val();
+        setLoading(true);
+        try {
+          const raw = await fetchVegetationIndices(from, to);
+          const indices = parseIndicesData(raw);
+          updateCards(indices);
+          updateCharts(indices, { ndviChart, eviChart, saviChart, moistureChart });
+          setLoading(false);
+        } catch (e) {
+          setError(e.message);
+        }
+      });
+
+      // Map logic: show Yandina Farm polygon
+      var map = L.map('map').setView([-26.4962, 152.9150], 18);
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 19,
+        attribution: 'Tiles © Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+      }).addTo(map);
+      L.polygon(yandinaPolygon.map(([lng, lat]) => [lat, lng]), {color: '#8bb439', fillOpacity: 0.3})
+        .addTo(map)
+        .bindPopup('Yandina Farm')
+        .openPopup();
+      map.fitBounds(yandinaPolygon.map(([lng, lat]) => [lat, lng]));
+
+      // Enable Bootstrap tooltips
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+      });
+    });
+  </script>
+</body>
+</html> 
