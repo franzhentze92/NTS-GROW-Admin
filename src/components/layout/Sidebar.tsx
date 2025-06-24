@@ -39,7 +39,15 @@ import {
   FileText,
   FolderOpen,
   BarChart,
-  TrendingUp
+  TrendingUp,
+  Satellite,
+  Zap,
+  Calculator,
+  Package,
+  Thermometer,
+  MapPin,
+  ClipboardList,
+  Folder
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -72,7 +80,15 @@ const getIcon = (iconName: string) => {
     'FileText': FileText,
     'FolderOpen': FolderOpen,
     'BarChart': BarChart,
-    'TrendingUp': TrendingUp
+    'TrendingUp': TrendingUp,
+    'Satellite': Satellite,
+    'Zap': Zap,
+    'Calculator': Calculator,
+    'Package': Package,
+    'Thermometer': Thermometer,
+    'MapPin': MapPin,
+    'ClipboardList': ClipboardList,
+    'Folder': Folder
   };
   const IconComponent = iconMap[iconName as keyof typeof iconMap] || LayoutDashboard;
   return <IconComponent className="h-5 w-5" />;

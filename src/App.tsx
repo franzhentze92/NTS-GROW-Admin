@@ -32,6 +32,7 @@ import FieldVisitAnalyticsPage from "@/pages/FieldVisitAnalyticsPage";
 import IrrigationCalculatorPage from "@/pages/IrrigationCalculatorPage";
 import NTSProductRecommendatorPage from "@/pages/NTSProductRecommendatorPage";
 import GrowingDegreeDaysPage from '@/pages/GrowingDegreeDaysPage';
+import CropHealth from "@/components/satellite/CropHealth";
 import { useEffect } from 'react';
 
 // Create a client
@@ -93,8 +94,8 @@ function App() {
                   <Route path="/agronomist/chat" element={<ChatPage />} />
                   
                   {/* Satellite Imagery Routes */}
-                  <Route path="/agronomist/satellite/crop-health" element={<SatelliteImageryPage />} />
-                  <Route path="/agronomist/satellite/weather" element={<SatelliteImageryPage />} />
+                  <Route path="/agronomist/satellite/crop-health" element={<CropHealth />} />
+                  <Route path="/agronomist/satellite/weather" element={<WeatherPage />} />
                   <Route path="/agronomist/weather" element={<WeatherPage />} />
 
                   {/* G.R.O.W Smart Tools Routes */}
