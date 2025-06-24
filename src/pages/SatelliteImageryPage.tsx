@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CropHealth from "../components/satellite/CropHealth";
-import Weather from "../components/satellite/Weather";
+import WeatherPage from "./WeatherPage";
 
 const SatelliteImageryPage = () => {
   return (
@@ -15,7 +15,7 @@ const SatelliteImageryPage = () => {
           <CropHealth />
         </TabsContent>
         <TabsContent value="weather">
-          <Weather />
+          <WeatherPage />
         </TabsContent>
       </Tabs>
     </div>

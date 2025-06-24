@@ -1,0 +1,33 @@
+ID,Created at,Project,Category,Task,Description,Date of start,Date of completion,Action,Update Pushed Live
+growtask1,1/5/2025,G.R.O.W Agronomy,UI/UX and Presentation,Platform Header,Remove the header section from the agronomist platform interface.,1/5/2025,19/05/2025,Completed,Yes
+growtask2,1/5/2025,G.R.O.W Agronomy,UI/UX and Presentation,Add Mixing Table,Add mixing table option to leaf therapy report generation,1/5/2025,19/05/2025,Completed,Yes
+growtask3,1/5/2025,G.R.O.W Users,Feature Development,Onboarding Walkthrough,Integrate an onboarding walkthrough for new users.,1/5/2025,19/05/2025,Completed,Yes
+growtask4,1/5/2025,G.R.O.W Users,Functional Enhancements,Analysis Assignment,Enable saving and assigning of soil and leaf analyses to specific farms and paddocks.,1/5/2025,19/05/2025,Completed,Yes
+growtask5,1/5/2025,G.R.O.W Users,UI/UX and Presentation,pH Rounding,Adjust pH rounding logic to round values ending in .05 down instead of up.,1/5/2025,19/05/2025,Completed,Yes
+growtask6,1/5/2025,G.R.O.W Users,UI/UX and Presentation,Leaf Table Styling,Thicken external border lines and add a bottom line to the “Deficient / Acceptable / Excessive” row.,1/5/2025,19/05/2025,Completed,Yes
+growtask7,1/5/2025,G.R.O.W Users,UI/UX and Presentation,Bar Positioning,Adjust nutrient bars to start adjacent to column lines to prevent overlap.,1/5/2025,19/05/2025,Completed,Yes
+growtask8,1/5/2025,G.R.O.W Users,UI/UX and Presentation,Ca:Mg Ratio Display,Refine Ca:Mg ratio bar so low values in the acceptable range display correctly.,1/5/2025,19/05/2025,Completed,Yes
+growtask9,1/5/2025,G.R.O.W Users,UI/UX and Presentation,Field Label Correction,Rename “Basic Texture” and “Basic Color” fields to “Texture” and “Color.”,1/5/2025,19/05/2025,Completed,Yes
+growtask10,1/5/2025,G.R.O.W Users,UI/UX and Presentation,Ideal Field Value Formatting,Remove “0–0” from “Texture” and “Color” ideal value fields and display them as blank.,1/5/2025,19/05/2025,Completed,Yes
+growtask11,1/5/2025,G.R.O.W Users,UI/UX and Presentation,Value Alignment,Vertically center-align values in the “Your Values” column.,1/5/2025,19/05/2025,Completed,Yes
+growtask12,1/5/2025,G.R.O.W Users,Feature Development,Nutrition Farming Dictionary,"Add a page ""G.R.O.W Health Index"" with all the definition related to soil health, plant health, animal health, human health and planetary health.",1/5/2025,19/05/2025,Completed,Yes
+growtask13,1/5/2025,G.R.O.W Users,Feature Development,Nutritional Score,Add a general nutritional score to soil and leaf values for better comparison and tracking and analysis.,1/5/2025,19/05/2025,Completed,Yes
+growtask14,1/5/2025,G.R.O.W Users,System Maintenance,Hosting Migration,"Migrate entire website from Hostinger to new hosting provider due to exceeded data storage limits (340 GB). Ensure all pages, databases, and media files are fully transferred and tested.",1/5/2025,25/05/2025,Completed,Yes
+growtask15,1/5/2025,G.R.O.W Users,Feature Development,Request Analysis Page,Implement “Request Analysis” page for soil and leaf tests.,1/5/2025,25/05/2025,Completed,Yes
+growtask16,1/5/2025,G.R.O.W Users,Feature Development,Submitted Analysis Table,Create a “Submitted Analyses” table to manage soil and leaf records.,1/5/2025,25/05/2025,Completed,Yes
+growtask17,1/5/2025,G.R.O.W Users,Feature Development,Soil and Leaf Analytics Page,"Build an analytics page with time-series charts per nutrient and filters for farm, paddock, crop, and date.",1/5/2025,25/05/2025,Completed,Yes
+growtask18,27/05/2025,G.R.O.W Users,Functional Enhancements,CSV Example,Add downloadable example CSV in soil and leaf card description for users without analysis data.,27/05/2025,2/6/2025,In Progress,No
+growtask19,27/05/2025,G.R.O.W Users,Functional Enhancements,Crop Model Error Handling,Add error handling system for crop modeling functions.,27/05/2025,25/05/2025,In Progress,No
+growtask20,20/05/2025,G.R.O.W Users,Feature Development,Interactive Metrics Dashboard,Develop an interactive dashboard to display platform performance metrics.,20/05/2025,30/05/2025,In Progress,Partial
+growtask21,25/05/2025,G.R.O.W Users,Feature Development,Nutrient Fertilization vs Real Value Comparison,Create a section to compare the fertilisation or application of a nutrient versus the values from laboratory to analyse fertilisation impact,25/05/2025,2/6/2025,In Progress,No
+growtask22,25/05/2025,G.R.O.W Users,Functional Enhancements,Traceability Improvement,Improve design and content of scanned traceability section,25/05/2025,2/6/2025,In Progress,No
+growtask23,25/05/2025,G.R.O.W Users,Functional Enhancements,Nutritional Analysis Introduction,Add the option for users to add nutritional analysis to their produce to be shown in traceability,25/05/2025,2/6/2025,In Progress,No
+growtask24,25/05/2025,G.R.O.W Users,Functional Enhancements,Nutrient and Active Substances Break Down from Added Products,Add the option for users to add the ingredients and % to be shown in traceability,25/05/2025,2/6/2025,In Progress,No
+growtask25,25/05/2025,G.R.O.W Users,Functional Enhancements,Satellite Imagery and Weather Integration,Integrate satellite and weather apis to visualize crop health index and weather monitoring for users,25/05/2025,6/6/2025,In Progress,No
+growtask26,2/6/2025,G.R.O.W Agronomy,UI/UX and Presentation,Bar Color Logic,"Modify bar color logic based on Marco's proposed percentage thresholds per category (macros, trace elements, Ca:Mg, pH, Lamotte/Reams, organic matter).",2/6/2025,6/6/2025,Pending,No
+growtask27,2/6/2025,G.R.O.W Users,UI/UX and Presentation,Bar Color Logic,"Modify bar color logic based on Marco's proposed percentage thresholds per category (macros, trace elements, Ca:Mg, pH, Lamotte/Reams, organic matter).",2/6/2025,6/6/2025,Pending,No
+growtask28,2/6/2025,G.R.O.W Users,Feature Development,Stripe Connection,Connect suscriptions to Stripe to start charging for bookings and suscriptions,2/6/2025,3/6/2025,Pending,No
+growtask29,2/6/2025,G.R.O.W Users,Feature Development,Billing and Pricing Information,Fine tune billing and pricing information.,2/6/2025,4/6/2025,Pending,No
+growtask30,2/6/2025,G.R.O.W Users,Feature Development,Enable Suscriptions,Enable user suscriptions based on final pricing plans.,2/6/2025,4/6/2025,Pending,No
+growtask31,2/6/2025,G.R.O.W Agronomy,Feature Development,Soil and Leaf Chart Automation,Automate the process of graphing soil and leaf analysis. Get the chart graphed as asoon as csv/email arrives to agronomy email and email the graph back to agronomy email,2/6/2025,9/6/2025,Pending,No
+growtask32,2/6/2025,G.R.O.W Agronomy,UI/UX and Presentation,Soil Report Generation,"Implement section for agronomist to generate, export and edit soil therapy reports (like in plant therapy)",2/6/2025,9/6/2025,Pending,No

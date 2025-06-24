@@ -45,10 +45,10 @@ const ComingSoonPage: React.FC<ComingSoonPageProps> = ({
               Go Back
             </Button>
             <Button 
-              onClick={() => navigate('/dashboard')} 
+              onClick={() => navigate('/')} 
               className="w-full"
             >
-              Go to Dashboard
+              Go to Home
             </Button>
           </div>
         </CardContent>

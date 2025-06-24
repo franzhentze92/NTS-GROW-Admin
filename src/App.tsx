@@ -26,6 +26,12 @@ import EnterAnalysisPage from "@/pages/EnterAnalysisPage";
 import AnalysisReportsPage from '@/pages/AnalysisReportsPage';
 import ChatPage from "@/pages/ChatPage";
 import SatelliteImageryPage from "@/pages/SatelliteImageryPage";
+import WeatherPage from "@/pages/WeatherPage";
+import FieldVisitsPage from "@/pages/FieldVisitsPage";
+import FieldVisitAnalyticsPage from "@/pages/FieldVisitAnalyticsPage";
+import IrrigationCalculatorPage from "@/pages/IrrigationCalculatorPage";
+import NTSProductRecommendatorPage from "@/pages/NTSProductRecommendatorPage";
+import GrowingDegreeDaysPage from '@/pages/GrowingDegreeDaysPage';
 import { useEffect } from 'react';
 
 // Create a client
@@ -89,11 +95,12 @@ function App() {
                   {/* Satellite Imagery Routes */}
                   <Route path="/agronomist/satellite/crop-health" element={<SatelliteImageryPage />} />
                   <Route path="/agronomist/satellite/weather" element={<SatelliteImageryPage />} />
+                  <Route path="/agronomist/weather" element={<WeatherPage />} />
 
                   {/* G.R.O.W Smart Tools Routes */}
-                  <Route path="/agronomist/smart-tools/irrigation/calculation" element={<ComingSoonPage title="Irrigation Calculation" description="Calculate optimal irrigation schedules and water requirements for your crops." />} />
-                  <Route path="/agronomist/smart-tools/crop-nutrition/recommendator" element={<ComingSoonPage title="NTS Product Recommendator" description="Get personalized product recommendations based on your crop analysis and soil conditions." />} />
-                  <Route path="/agronomist/smart-tools/crop-protection/gdd" element={<ComingSoonPage title="Growing Degree Days" description="Track growing degree days to optimize crop protection timing and pest management." />} />
+                  <Route path="/agronomist/smart-tools/irrigation/calculation" element={<IrrigationCalculatorPage />} />
+                  <Route path="/agronomist/smart-tools/crop-nutrition/recommendator" element={<NTSProductRecommendatorPage />} />
+                  <Route path="/agronomist/smart-tools/crop-protection/gdd" element={<GrowingDegreeDaysPage />} />
 
                   <Route path="/agronomist/inbox" element={<ComingSoonPage title="G.R.O.W Messaging" description="Access your G.R.O.W messaging inbox." />} />
                   <Route path="/agronomist/fertiliser-prices" element={<ComingSoonPage title="Fertiliser Prices" description="Current market prices and trends for fertilisers." />} />
@@ -101,7 +108,7 @@ function App() {
                   <Route path="/agronomist/crop-nutrition" element={<ComingSoonPage title="Crop Nutrition Thresholds" description="Monitor and manage crop nutrition thresholds and guidelines." />} />
 
                   {/* G.R.O.W Admin Routes */}
-                  <Route path="/admin/dashboard" element={<DashboardPage />} />
+                  <Route path="/admin/overview" element={<DashboardPage />} />
                   <Route path="/admin/web-traffic" element={<WebTrafficAnalyticsPage />} />
                   <Route path="/admin/financial" element={<FinancialAnalysisPage />} />
                   <Route path="/admin/task-calendar" element={<TaskCalendarPage />} />
@@ -113,6 +120,10 @@ function App() {
                   <Route path="/super-admin/strategy-management" element={<StrategyManagementPage />} />
                   <Route path="/super-admin/cost-management" element={<ComingSoonPage title="Cost Management" description="Manage and track operational costs and budgets." />} />
                   <Route path="/super-admin/income-management" element={<ComingSoonPage title="Income Management" description="Track and manage income streams and revenue." />} />
+
+                  {/* G.R.O.W Agronomist Field Visit Routes */}
+                  <Route path="/agronomist/field-visits" element={<FieldVisitsPage />} />
+                  <Route path="/agronomist/field-visits/analytics" element={<FieldVisitAnalyticsPage />} />
 
                   <Route path="*" element={<NotFound />} />
                 </Route>

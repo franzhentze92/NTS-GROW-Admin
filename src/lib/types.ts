@@ -6,7 +6,7 @@ export type TaskPriority = 'low' | 'medium' | 'high';
 
 export type TaskCategory = 'design' | 'development' | 'qa' | 'content' | 'support';
 
-export type Project = 'web-traffic' | 'dashboard' | 'analytics' | 'financial' | 'other';
+export type Project = 'web-traffic' | 'overview' | 'analytics' | 'financial' | 'other';
 
 export interface Task {
   id: string;
@@ -80,6 +80,7 @@ export interface User {
   role: 'admin' | 'manager' | 'analyst' | 'developer' | 'designer';
   password?: string;
   avatar_url?: string;
+  avatarUrl?: string;
   address?: string;
   phone_number?: string;
 }
@@ -139,3 +140,58 @@ export interface Analysis {
 export type AnalysisForCreate = Omit<Analysis, 'id' | 'created_at' | 'status_updated_at' | 'updated_by'> & {
   updated_by: string;
 };
+
+// Field Visit Types
+export interface FieldVisit {
+  id: string;
+  farm_name: string;
+  farmer_name: string;
+  agronomist: string;
+  visit_date: string;
+  visit_type: 'routine' | 'emergency' | 'follow-up' | 'initial';
+  crop_type: string;
+  field_size: number;
+  field_size_unit: 'hectares' | 'acres';
+  soil_type?: string;
+  weather_conditions?: string;
+  observations: string;
+  recommendations: string;
+  next_visit_date?: string;
+  status: 'scheduled' | 'in-progress' | 'completed' | 'cancelled';
+  location?: {
+    latitude?: number;
+    longitude?: number;
+    address?: string;
+  };
+  photos?: string[];
+  created_at: string;
+  updated_at: string;
+  created_by: { id: string; name: string };
+}
+
+export interface CreateFieldVisitData {
+  farm_name: string;
+  farmer_name: string;
+  agronomist: string;
+  visit_date: string;
+  visit_type: 'routine' | 'emergency' | 'follow-up' | 'initial';
+  crop_type: string;
+  field_size: number;
+  field_size_unit: 'hectares' | 'acres';
+  soil_type?: string;
+  weather_conditions?: string;
+  observations: string;
+  recommendations: string;
+  next_visit_date?: string;
+  status: 'scheduled' | 'in-progress' | 'completed' | 'cancelled';
+  location?: {
+    latitude?: number;
+    longitude?: number;
+    address?: string;
+  };
+  photos?: string[];
+}
+
+export interface UpdateFieldVisitData extends Partial<CreateFieldVisitData> {
+  id: string;
+}

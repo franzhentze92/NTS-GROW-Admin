@@ -18,9 +18,10 @@ import { format } from "date-fns"
 interface AnalysisColumnsProps {
   onViewDetails: (analysis: Analysis) => void;
   onEditAnalysis: (analysis: Analysis) => void;
+  onDeleteAnalysis: (analysis: Analysis) => void;
 }
 
-export const createColumns = ({ onViewDetails, onEditAnalysis }: AnalysisColumnsProps): ColumnDef<Analysis>[] => [
+export const createColumns = ({ onViewDetails, onEditAnalysis, onDeleteAnalysis }: AnalysisColumnsProps): ColumnDef<Analysis>[] => [
   {
     accessorKey: "client_name",
     header: ({ column }) => {
@@ -44,7 +45,14 @@ export const createColumns = ({ onViewDetails, onEditAnalysis }: AnalysisColumns
     header: "Type",
     cell: ({ row }) => {
       const type = row.getValue("analysis_type") as string
-      const variant = type === "soil" ? "secondary" : "default"
+      let variant: "default" | "secondary" | "destructive" | "outline";
+      if (type === "soil") {
+        variant = "secondary"; // Brown/earth color for soil
+      } else if (type === "leaf") {
+        variant = "default"; // Green color for leaf
+      } else {
+        variant = "outline"; // Default for any other types
+      }
       return <Badge variant={variant} className="capitalize">{type}</Badge>
     }
   },
@@ -55,6 +63,14 @@ export const createColumns = ({ onViewDetails, onEditAnalysis }: AnalysisColumns
   {
     accessorKey: "sample_no",
     header: "Sample No.",
+  },
+  {
+    accessorKey: "eal_lab_no",
+    header: "EAL Lab No.",
+    cell: ({ row }) => {
+      const ealLabNo = row.getValue("eal_lab_no") as string;
+      return ealLabNo || '-';
+    }
   },
   {
     accessorKey: "test_count",
@@ -133,6 +149,13 @@ export const createColumns = ({ onViewDetails, onEditAnalysis }: AnalysisColumns
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => onEditAnalysis(analysis)}>
               Edit analysis
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem 
+              onClick={() => onDeleteAnalysis(analysis)}
+              className="text-red-600"
+            >
+              Delete analysis
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

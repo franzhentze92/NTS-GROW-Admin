@@ -1,0 +1,3318 @@
+{
+  "product_name": "NTS Liquid Humus™",
+  "nutrients": ["Potassium humate"],
+  "application": [
+    "Foliar",
+    "Fertigation",
+    "Soil Ameliorant",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "A rich, dark‑brown liquid humic acid derived from potassium humates—serving as a fertiliser, soil conditioner, growth promoter, nutrient magnifier, and microbial activator.",
+  "analysis": {
+    "Potassium humate": "12.6%",
+    "SG": "1.1",
+    "pH": "10.5–11.5",
+    "conductivity": "25–35 mS/cm",
+    "appearance": "Dark brown liquid"
+  },
+  "application_rates": {
+    "vegetables_foliar": "1 L per 100 L water (up to 5 L/ha), weekly or as required",
+    "orchards_vineyards_foliar": "1 L per 100 L water (up to 7 L/ha), every 2–4 weeks",
+    "ornamentals_turf_foliar": "1 L per 100 L water (up to 5 L/ha), every 2–4 weeks",
+    "broadacre_pasture_spot": "1 L per 100 L water (spot‑spray: 50 mL per 10 L), as required",
+    "soil_fertigation": "10–30 L/ha, higher for soil amelioration",
+    "home_garden_soil": "45 mL per 9 L watering can (1 L/m²), fortnightly or as required"
+  },
+  "benefits": [
+    "Detoxifies heavy metals and chemical residues",
+    "Stabilises urea and enhances nitrogen longevity",
+    "Complexes nutrients and improves uptake",
+    "Feeds beneficial fungi and boosts soil microbiology",
+    "Improves soil structure and root development",
+    "Certifiable for organic production (ACO Registered)"
+  ],
+  "instructions": "Shake or stir before use and maintain agitation. Do not exceed max ha rate. Test‑spray sensitive plants. Avoid spraying near harvest if staining is possible. Conduct jar‑test for tank mixes.",
+  "storage_handling": "Store cool, dry, shaded. Stable down to 5 °C; sedimentation/crystallisation may occur. Do not premix or store diluted. Reseal cap tightly after use.",
+  "link": "https://nutri-tech.com.au/products/liquid-humus",
+  "image": "/src/assets/liquid-humus.webp"
+},
+{
+  "product_name": "NTS Fast Fulvic™",
+  "nutrients": ["Fulvic acid"],
+  "application": [
+    "Foliar",
+    "Fertigation",
+    "Broadacre crops",
+    "Pasture",
+    "Turf",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "A concentrated, 8 % fulvic acid liquid extract from humates acting as a natural chelator and yield enhancer—boosts nutrient uptake, microbe stimulation, mineral availability, and crop quality.",
+  "analysis": {
+    "Fulvic Acid": "8%",
+    "SG": "1.06",
+    "pH": "3.5–4.5",
+    "conductivity": "20–40 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "foliar_horticulture_turf": "0.5 L per 100 L water (up to 3 L/ha), weekly or as required",
+    "foliar_broadacre_crops": "1 L/ha in 60–100 L water",
+    "foliar_pasture": "1–2 L/ha in 60–100 L water",
+    "spot_spray": "50 mL per 10 L water",
+    "fertigation_horticulture_turf": "3–5 L/ha, weekly or as required",
+    "home_garden": "15 mL per 9 L watering can (1 L/m²), fortnightly or as required"
+  },
+  "benefits": [
+    "Natural chelator that enhances nutrient uptake",
+    "Stimulates beneficial soil microbes",
+    "Improves rock mineral availability",
+    "Increases crop yield and quality",
+    "Compatible with a wide range of inputs"
+  ],
+  "instructions": "Shake or stir well before use and maintain agitation. Do not exceed max ha rate. Test on sensitive foliage. Ensure suitable spray conditions. Jar-test before tank mixing; avoid spraying near harvest if produce stains.",
+  "storage_handling": "Store in a cool, dry, shaded area above 5 °C. Do not premix or store diluted. Seal cap tightly after use.",
+  "link": "https://nutri-tech.com.au/products/fast-fulvic",
+  "image": "/src/assets/fast-fulvic.webp"
+},
+{
+  "product_name": "NTS Fulvic Acid Powder™",
+  "nutrients": ["Fulvic acid", "N (organic)", "P", "K (organic)", "S", "Mg", "Ca"],
+  "application": [
+    "Fertigation",
+    "Foliar (Horticulture)",
+    "Foliar (Broadacre)"
+  ],
+  "product_form": "Solid (very fine powder)",
+  "organic_certified": true,
+  "description": "A highly concentrated 70 % fulvic acid powder—natural chelator and bio‑stimulant, promoting nutrient uptake, microbial activity, and mineral mobilization across all growth stages in a freight‑friendly form.",
+  "analysis": {
+    "Fulvic Acid": "70 %",
+    "N (organic)": "2.5 %",
+    "P (water soluble)": "0.1 %",
+    "K (organic)": "6.9 %",
+    "S": "3.9 %",
+    "Mg": "1.8 %",
+    "Ca": "1.0 %",
+    "Solubility": "> 90 %",
+    "Particle Size": "Very fine powder"
+  },
+  "application_rates": {
+    "fertigation": "500 g–1 kg/ha",
+    "foliar_horticulture": "300–500 g/ha",
+    "foliar_broadacre": "80–150 g/ha"
+  },
+  "benefits": [
+    "Natural chelating agent enhances nutrient availability",
+    "Boosts plant nutrient uptake and yield",
+    "Stimulates beneficial soil microbes",
+    "Mobilizes locked-up rock minerals",
+    "Highly soluble (> 90 %) and compatible with most dry/dissolved blends"
+  ],
+  "instructions": "Dissolve into a slurry before full dilution; agitate vigorously and allow to sit ~1 hr. Pre-mix slowly into agitated systems. Pre-filter for fine spray equipment. Prepare fresh solution; do not store. Perform jar test for compatibility.",
+  "storage_handling": "Store in cool, dry, shaded area. Avoid dust; wear protective gear. Seal packaging tightly after use.",
+  "link": "https://nutri-tech.com.au/products/fulvic-acid-powder",
+  "image": "/src/assets/fulvic-acid-powder.webp"
+},
+{
+  "product_name": "NTS FulvX™ Powder",
+  "nutrients": ["Fulvic acid", "Humic acid", "K", "S", "Ca", "Micronutrients"],
+  "application": [
+    "Fertigation",
+    "Foliar (broadacre)",
+    "Foliar (orchard)",
+    "Foliar (horticulture)",
+    "Seed treatment",
+    "Liquid Inject"
+  ],
+  "product_form": "Solid (very fine powder)",
+  "organic_certified": true,
+  "description": "A highly soluble leonardite‑derived humic/fulvic acid powder (44.7 % fulvic, 41 % humic) that magnifies nutrient uptake, stimulates soil microbes, promotes phytohormone response, increases phosphate availability, and enhances abiotic stress tolerance.",
+  "analysis": {
+    "Fulvic Acid": "44.7%",
+    "Humic Acid": "41%",
+    "K": "12%",
+    "S": "0.3%",
+    "Ca": "0.9%",
+    "Micronutrients": "1.1%",
+    "Particle Size": "Very fine powder"
+  },
+  "application_rates": {
+    "fertigation": "500 g–2 kg/ha",
+    "foliar_broadacre": "100–400 g per 100 L water",
+    "foliar_orchard": "500 g–1 kg/ha",
+    "foliar_horticulture": "300 g–1 kg/ha",
+    "seed_treatment": "4 kg/tonne seed",
+    "liquid_inject": "1–2 kg/ha"
+  },
+  "benefits": [
+    "Strong chelation enhancing foliar and root nutrient uptake",
+    "Stimulates humic‑induced phytohormone responses (auxins, cytokinins, gibberellins)",
+    "Releases phosphate from locked-up sources",
+    "Improves drought and abiotic stress tolerance",
+    "Stabilizes and amplifies fertigation and foliar inputs",
+    "Stimulates soil microbial activity"
+  ],
+  "instructions": "Slowly add to tank with vigorous agitation or pre-mix smaller batches. Promptly use the solution; do not store. Pre-filter for sensitive equipment. Perform a jar test and sample spray on sensitive crops.",
+  "storage_handling": "Store in a cool, dry, shaded area. Avoid moisture. Seal packaging after use. Wear respiratory protection when handling powder.",
+  "link": "https://nutri-tech.com.au/products/nts-fulvx-powder",
+  "image": "/src/assets/nts-fulvx-powder.webp"
+},
+{
+  "product_name": "NTS Soluble Humate Granules™",
+  "nutrients": ["Potassium humate"],
+  "application": [
+    "Soil conditioner",
+    "Broadacre planting blends",
+    "Granular fertiliser additive",
+    "DIY liquid humus (foliar/fertigation)"
+  ],
+  "product_form": "Solid (granules 2–5 mm)",
+  "organic_certified": true,
+  "description": "High‑quality leonardite-derived, soluble potassium humate granules (≥70%), designed to enhance nutrient efficiency, stimulate beneficial fungi, improve soil structure, buffer pH and toxins, and assist seed germination and nitrogen stability.",
+  "analysis": {
+    "Potassium humate": "≥70%",
+    "Solubility": "≈85%",
+    "Particle_Size": "2–5 mm (>90%)"
+  },
+  "application_rates": {
+    "broadacre_planting": "2 – 5 kg/ha",
+    "granular_fertiliser_blend": "5% of blend (e.g. 5 kg per 100 kg urea/DAP; max 10 kg/ha banded or 20 kg/ha broadcast)",
+    "diy_liquid_foliar": "2 – 10 L/ha (via 6% slurry)",
+    "diy_liquid_fertigation": "20 – 50 L/ha (via 6% slurry)"
+  },
+  "benefits": [
+    "Stimulates beneficial fungi including VAM",
+    "Stabilises nitrogen—enhanced urea efficiency",
+    "Chelates phosphate and prevents lock‑up",
+    "Natural chelator boosting nutrient uptake",
+    "Buffers pH extremes, sodium, heavy metals and toxins",
+    "Improves moisture retention and soil wetting",
+    "Enhances seed germination and root growth",
+    "Promotes crumb soil structure through fungal activity",
+    "Microbe-friendly and certified organic"
+  ],
+  "instructions": "For slurry: add 1 kg to 10 L water, agitate, let settle, siphon soluble. Maintain tank agitation in blends. Avoid using near harvest-sensitive produce; may stain. Jar test before tank mixes.",
+  "storage_handling": "Store in cool, dry, shaded area. Reseal packaging; avoid dust; use respiratory protection.",
+  "link": "https://nutri-tech.com.au/products/soluble-humate-granules",
+  "image": "/src/assets/soluble-humate-granules.webp"
+},
+{
+  "product_name": "NTS Stabilised Boron Granules™",
+  "nutrients": ["Boron", "Humic acid"],
+  "application": [
+    "Soil broadcast",
+    "Planting blends",
+    "Pre‑plant",
+    "Planting",
+    "Vegetative growth",
+    "Pre‑flower",
+    "Flowering",
+    "Fruit set & fill"
+  ],
+  "product_form": "Solid (granules 2–4 mm)",
+  "organic_certified": true,
+  "description": "Humic‑acid-complexed boron (3.23%) in a granule form that provides sustained-release of this highly leachable nutrient, ensuring continuous availability throughout the crop cycle.",
+  "analysis": {
+    "Humic acid": "57.2%",
+    "Boron": "3.23%",
+    "Particle_size": "2–4 mm"
+  },
+  "application_rates": {
+    "soil_broadcast": "10–30 kg/ha",
+    "planting_blend": "5–10% of fertiliser rate (e.g., 5–10 kg per 100 kg); max 15 kg/ha banded or 30 kg/ha broadcast"
+  },
+  "benefits": [
+    "Provides sustained‑release boron that resists leaching",
+    "Supports pollination, fruit set and filling",
+    "Improves calcium efficiency and cell‑wall strength",
+    "Humic acid boosts soil structure, microbial health, phosphate and nitrogen retention",
+    "Safe to include in granular blends",
+    "Certified for organic use (restricted)"
+  ],
+  "instructions": "Include in granular fertiliser blends or broadcast. Obey rate limits. Read safety directions. Use only with documented boron need in ACO systems.",
+  "storage_handling": "Store in cool, dry place; keep bag sealed; read SDS and packaging directions.",
+  "link": "https://nutri-tech.com.au/products/stabilised-boron-granules",
+  "image": "/src/assets/stabilised-boron-granules.webp"
+},
+{
+  "product_name": "NTS Super Soluble Humates™",
+  "nutrients": ["Potassium humate"],
+  "application": [
+    "Soil conditioner",
+    "DIY liquid humus",
+    "Fertigation",
+    "Foliar spray",
+    "Root growth stimulant",
+    "Fungal stimulant"
+  ],
+  "product_form": "Solid (granules 0.2–1 mm)",
+  "organic_certified": true,
+  "description": "Highly soluble potassium humate granules (≈95%) in user-friendly 0.2–1 mm size, ideal for making liquid humus and blending with fertilisers to stabilize urea, chelate nutrients, buffer sodium and heavy metals, and support soil biology.",
+  "analysis": {
+    "Potassium humate": "95%",
+    "Particle_size": "0.2–1 mm",
+    "Solubility": "≈95%"
+  },
+  "application_rates": {
+    "diy_liquid_foliar": "2–10 L/ha via 6% slurry (500 g–1 kg per 100 L water)",
+    "diy_liquid_fertigation": "20–50 L/ha via 6% slurry",
+    "fertigation": "2–4 kg/ha dry broadcast",
+    "foliar": "500 g–1 kg/ha"
+  },
+  "benefits": [
+    "Promotes root growth & fungal activity",
+    "Stabilises urea and increases nutrient longevity",
+    "Chelates and buffers sodium & heavy metals",
+    "Enhances soil conditioning & nutrient release",
+    "Ideal for DIY liquid humus production"
+  ],
+  "instructions": "To make 6% liquid: add about 750 g to 10 L water, agitate thoroughly, let settle, then siphon off clear solution. Use slurry in fertigation or foliar; maintain agitation during use.",
+  "storage_handling": "Store in cool, dry, shaded area; avoid moisture and direct sun; reseal bag to maintain freshness.",
+  "link": "https://nutri-tech.com.au/products/super-soluble-humates",
+  "image": "/src/assets/super-soluble-humates.webp"
+},
+{
+  "product_name": "Activated Char Condensate (ACC)™",
+  "nutrients": ["Pyroligneous Acid", "Organic Carbon Compounds (phenolics, karrikins)", "LipoZoom® carrier"],
+  "application": [
+    "Foliar",
+    "Soil",
+    "Fertigation",
+    "Seed treatment",
+    "Compost‑tea starter",
+    "Post‑harvest dip"
+  ],
+  "product_form": "Liquid (condensate)",
+  "organic_certified": true,
+  "description": "Concentrated wood vinegar (99.5% pyroligneous acid) enhanced with LipoZoom® liposomal activation—releasing karrikins, phenolic compounds, and other bioactives to promote germination, plant growth, microbial stimulation, pest resistance, and improved nutrient performance.",
+  "analysis": {
+    "Pyroligneous Acid": "99.5%",
+    "Organic Carbon Compounds (phenolics, karrikins)": "OCC 0.5%",
+    "Conductivity": "10–18 mS/cm",
+    "Specific Gravity (SG)": "1.1",
+    "pH": "4.5–6.5"
+  },
+  "application_rates": {
+    "horticulture_foliar": "0.5 L per 100 L water (up to 5 L/ha)",
+    "horticulture_fertigation": "5–10 L/ha",
+    "broadacre_foliar": "300 mL–1 L per 100 L water",
+    "broadacre_liquid_inject": "500 mL–1 L/ha",
+    "pasture_turf_foliar": "1 L per 100 L",
+    "pasture_turf_fertigation": "5–10 L/ha",
+    "seed_treatment": "1:100 dilution; apply 10 L/tonne seed",
+    "post_harvest_dip": "Use neat or dilute per label"
+  },
+  "benefits": [
+    "Triggers germination via karrikins",
+    "Boosts pest resistance and stress resilience",
+    "Stimulates soil microbial communities",
+    "Enhances fertiliser performance",
+    "Prolongs post‑harvest shelf life",
+    "Supports compost‑tea biological activity"
+  ],
+  "instructions": "Shake or stir before use. Maintain agitation during spray or irrigation. Always jar‑test when mixing. For seed‑treatment, dilute 1:100 and apply at 10 L/tonne seed. Confirm compatibility prior to tank‑mix.",
+  "storage_handling": "Store in a cool, dry, shaded area. Above 5 °C to prevent sedimentation. Reseal cap after use.",
+  "link": "https://nutri-tech.com.au/products/acc",
+  "image": "/src/assets/acc.webp"
+},
+{
+  "product_name": "Aloe‑Tech™",
+  "nutrients": [
+    "Whole‑leaf Aloe vera"
+  ],
+  "application": [
+    "Foliar",
+    "Fertigation",
+    "Microbe brewing",
+    "Seed treatment",
+    "Post‑harvest dip",
+    "Compost tea starter"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "A powerful botanical activator and growth promotant derived from a 500%‑strength, whole‑leaf Aloe vera concentrate. Known for its potent fungi‑boosting effects and immune‑eliciting properties in soil and plants.",
+  "analysis": {
+    "Whole‑leaf Aloe vera": "100%",
+    "SG": "1.01",
+    "pH": "3.7 – 4.5",
+    "Conductivity": "2 mS/cm",
+    "Appearance": "Light brown liquid"
+  },
+  "application_rates": {
+    "fertigation_vegetables_ornamentals_turf": "3–5 L/ha",
+    "fertigation_orchards_vineyards": "5–15 L/ha",
+    "foliar_vegetables_ornamentals_turf": "1 L per 100 L water (up to 5 L/ha)",
+    "foliar_orchards_vineyards": "1 L per 100 L water (up to 7 L/ha)",
+    "foliar_broadacre_crops": "1–2 L/ha in 60–100 L water",
+    "foliar_pasture": "Up to ? L/ha (not specified)",
+    "microbe_brewing": "1% v/v (1 L per 100 L)",
+    "seedling_dip": "As label suggests",
+    "post_harvest_dip": "Neat or dilute per label"
+  },
+  "benefits": [
+    "Boosts microbial biomass by >1000% in soil, foliar zone, and brewing",
+    "Contains gibberellins and indole acetic acid (auxins)",
+    "Rich in polysaccharides (chelators) and B‑group vitamins",
+    "Contains aloins – bio‑balancing agents",
+    "Has saponins – fungal stimulants",
+    "Elicits phytoalexin production and induced systemic resistance (ISR)",
+    "Certified organic (ACO Registered Input 456AI)"
+  ],
+  "instructions": "Shake/stir thoroughly before use; maintain agitation during application. Do not exceed suggested rates (can be fungicidal at high concentrations). Avoid application close to harvest on edible crops (aloins may impart bitterness). Conduct jar‑test before tank‑mixing.",
+  "storage_handling": "Store in a cool, dry, shaded location; stable at ambient temps. Reseal cap after use.",
+  "link": "https://nutri-tech.com.au/products/aloe-tech",
+  "image": "/src/assets/aloe-tech.png"
+},
+{
+  "product_name": "Amino‑Max™",
+  "nutrients": ["N (organic)", "Total Amino Acids", "Free Amino Acids"],
+  "application": [
+    "Foliar – Vegetables & Leafy Greens",
+    "Foliar – Orchards & Vineyards",
+    "Foliar – Ornamentals & Turf",
+    "Foliar – Broadacre Crops",
+    "Foliar – Pasture",
+    "Spot Spray"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "A powerful, enzymatically‑derived amino acid concentrate (hydrolysed plant protein) that offers instant nitrogen and chelation benefits, enhances growth, immunity, ripening, quality, and shelf‑life.",
+  "analysis": {
+    "N (organic)": "8.3%",
+    "Total Amino Acids": "45.4%",
+    "Free Amino Acids": "28.27%",
+    "SG": "1.1",
+    "pH": "5–7",
+    "Conductivity": "15–35 mS/cm",
+    "Appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "vegetables_leafy": "1 L per 100 L (up to 5 L/ha); at flowering, repeat fortnightly (leafy 5th leaf + 2 weeks)",
+    "orchards_vineyards": "1 L per 100 L (up to 5 L/ha); apply at flowering, fruit‑set, once during fruit‑fill",
+    "ornamentals_turf": "1 L per 100 L water; every 4 weeks or as required",
+    "broadacre_crops": "300 mL–1 L/ha in 60–100 L water; one or two sprays pre‑flowering",
+    "pasture": "300 mL–1 L/ha in 60–100 L water; as required",
+    "spot_spray": "50 mL per 10 L water; as required"
+  },
+  "benefits": [
+    "Instant organic nitrogen source – energy‑efficient for plants",
+    "Powerful natural chelation (glycine-rich)",
+    "Supports protein building and enzyme synthesis",
+    "Boosts plant immunity and stress resilience",
+    "Enhances ripening, coloration, shelf‑life and quality",
+    "Promotes stomatal function and fertiliser uptake"
+  ],
+  "instructions": "Shake/stir well before and during application. Use jar‑test for tank‑mixes. Follow crop‑specific rates; avoid exceeding ha limits.",
+  "storage_handling": "Store in a cool, dry, shaded area; stable to ambient temps. Reseal cap after use.",
+  "link": "https://nutri-tech.com.au/products/amino-max",
+  "image": "/src/assets/amino-max.webp"
+},
+{
+  "product_name": "Brix‑Fix™",
+  "nutrients": [
+    "Natural acids",
+    "Phenolic compounds",
+    "Amino acids",
+    "Cytokinins",
+    "Gibberellins",
+    "Auxins",
+    "Betaines",
+    "Mannitol",
+    "N (Total Nitrogen)",
+    "K (Total Potassium)",
+    "S (Sulfur)",
+    "Mg (Magnesium)"
+  ],
+  "application": [
+    "Foliar – Vegetables & Leafy Greens",
+    "Foliar – Orchards & Vineyards",
+    "Foliar – Broadacre Crops",
+    "Foliar – Pasture",
+    "Ground application",
+    "Liquid inject"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "A concentrated fusion of natural chelators, plant-growth promotants and trace minerals—designed as a cost-effective yield builder that promotes vigorous growth, relieves stress, boosts flowering, builds Brix and supports soil biology.",
+  "analysis": {
+    "Natural acids, phenolic compounds, amino acids, cytokinins, gibberellins, auxins, betaines, mannitol": "17.5%",
+    "Total Nitrogen (N)": "0.26%",
+    "Total Potassium (K)": "1.65%",
+    "Sulfur (S)": "0.37%",
+    "Magnesium (Mg)": "0.15%",
+    "SG": "1.0",
+    "pH": "5–5.8",
+    "Conductivity": "30–50 mS/cm",
+    "Appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "vegetables_leafy_foliar": "2 L/ha in ~100 L water, repeat every 10–14 days or as required",
+    "orchards_vineyards_foliar": "2 L/ha, repeat monthly or as drought dictates",
+    "broadacre_crops_foliar": "2 L/ha in 80–100 L water",
+    "pasture_foliar": "2 L/ha in 80–100 L water; irrigated pasture 5 L/ha",
+    "liquid_inject": "2 L/ha at planting",
+    "ground_application": "Apply to soil to stimulate soil biology (rates match foliar)"
+  },
+  "benefits": [
+    "Promotes vigorous plant growth and builds Brix",
+    "Relieves multiple stress types (transplant, heat, frost, pests)",
+    "Boosts flowering and fruit set",
+    "Encourages beneficial soil microbiology",
+    "Contains potent growth hormone triacontanol + auxins, cytokinins, gibberellins"
+  ],
+  "instructions": "Shake or stir thoroughly before and during application; maintain agitation. Conduct jar test before mixing with other products. Use foliar in optimal environmental conditions; avoid spritz near harvest if possible.",
+  "storage_handling": "Store in cool, shaded, dry conditions. Avoid freezing; seal tightly after use.",
+  "link": "https://nutri-tech.com.au/products/brix-fix",
+  "image": "/src/assets/Brix-Fix20L.png"
+},
+{
+  "product_name": "Micro Amino Drive™ (MAD)",
+  "nutrients": [
+    "Glycine",
+    "Valine",
+    "Phenylalanine",
+    "Proline",
+    "Alanine",
+    "Aspartic acid",
+    "Arginine",
+    "Glutamic acid",
+    "Lysine",
+    "Leucine",
+    "Isoleucine",
+    "Methionine",
+    "Serine",
+    "Threonine",
+    "Histidine",
+    "Glycocoll",
+    "Tyrosine",
+    "Glutamine",
+    "Cystine",
+    "Other amino acids"
+  ],
+  "application": [
+    "Foliar – Vegetables & Leafy Greens",
+    "Foliar – Orchards & Vineyards",
+    "Foliar – Ornamentals & Turf",
+    "Foliar – Broadacre Crops",
+    "Foliar – Pasture",
+    "Spot spray"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "Ultra‑low molecular weight (≈5 kDa) amino acid blend derived from bacterial fermentation—delivering 100% chelation capacity, rapid nutrient and detox enzyme delivery, growth promotion, resilience, and yield enhancement.",
+  "analysis": {
+    "Glycine": "1.80%",
+    "Valine": "5.10%",
+    "Phenylalanine": "4.20%",
+    "Proline": "8.40%",
+    "Alanine": "13.21%",
+    "Aspartic acid": "4.50%",
+    "Arginine": "8.40%",
+    "Glutamic acid": "0.90%",
+    "Lysine": "16.51%",
+    "Leucine": "4.50%",
+    "Isoleucine": "5.10%",
+    "Methionine": "3.90%",
+    "Serine": "3.00%",
+    "Threonine": "3.00%",
+    "Histidine": "9.60%",
+    "Glycocoll": "1.50%",
+    "Tyrosine": "0.90%",
+    "Glutamine": "0.30%",
+    "Cystine": "0.30%",
+    "Other amino acids": "0.08%",
+    "Free amino acids": "18%",
+    "SG": "1.1",
+    "pH": "7–8"
+  },
+  "application_rates": {
+    "vegetables_leafy": "1–2 L/ha foliar weekly or as required",
+    "orchards_vineyards": "2 L/ha foliar every two weeks",
+    "ornamentals_turf": "1–2 L/ha weekly",
+    "broadacre_crops": "500 mL–1 L/ha in 100 L water, minimum two sprays pre‑flowering",
+    "pasture": "500 mL–2 L/ha",
+    "spot_spray": "50–100 mL per 10 L water"
+  },
+  "benefits": [
+    "100% chelation capacity with rapid mineral uptake",
+    "Extremely small molecules (5 kDa) for fast delivery",
+    "Stimulates detox enzymes and plant resilience",
+    "Enhances growth rate and yield",
+    "Supports protein/enzyme synthesis and stress tolerance",
+    "Australian Certified Organic (ACO Input 456AI)"
+  ],
+  "instructions": "Shake/stir well; maintain agitation. Do not exceed maximum hectare rate. For sensitive crops, test spray. Jar-test before tank mixing. Apply under suitable conditions.",
+  "storage_handling": "Store in cool, dry, shaded place above 5 °C. Crystallisation may occur below. Do not premix or store diluted. Seal cap tight.",
+  "link": "https://nutri-tech.com.au/products/micro-amino-drive-mad",
+  "image": "/src/assets/Micro-Amino-Drive-MAD.webp"
+},
+{
+  "product_name": "Nutri‑Sea Liquid Fish™",
+  "nutrients": [
+    "N (organic)",
+    "P (water soluble)",
+    "K (organic)",
+    "S",
+    "Ca",
+    "Mg"
+  ],
+  "application": [
+    "Foliar – Vegetables & Leafy Greens",
+    "Foliar – Orchards & Vineyards",
+    "Foliar – Ornamentals & Turf",
+    "Foliar – Broadacre Crops",
+    "Foliar – Pasture",
+    "Fertigation",
+    "Seedling treatment",
+    "Soil injection",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "A high‑analysis, organically certified (ACO) fish fertiliser derived from 42% fish solids (NZ deep‑water species), offering natural N‑P‑K, amino acids, fatty acids, vitamins, trace elements, and microbial stimulation. Supports soil life and plant performance from planting through to harvest.",
+  "analysis": {
+    "N (organic)": "5.04%",
+    "P (water soluble)": "0.65%",
+    "K (organic)": "1.32%",
+    "S": "1.65%",
+    "Ca": "0.19%",
+    "Mg": "0.11%",
+    "SG": "1.1",
+    "pH": "2.2–4.2",
+    "conductivity": "20–40 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "vegetables_leafy_foliar": "1 L per 100 L water (up to 5 L/ha), weekly or as required",
+    "orchards_vineyards_foliar": "1 L per 100 L water (up to 7 L/ha), every 2–4 weeks or as required",
+    "ornamentals_turf_foliar": "1 L per 100 L water (up to 5 L/ha), every 2–4 weeks or as required",
+    "broadacre_crops_foliar": "2–3 L/ha in 60–100 L water, depending on canopy",
+    "pasture_foliar": "2–3 L/ha in 60–100 L water, as required",
+    "fertigation": "10–30 L/ha per cycle",
+    "home_garden": "45 mL per 9 L watering can (~1 L/m²), fortnightly or as required"
+  },
+  "benefits": [
+    "Provides exceptionally high natural organic nitrogen",
+    "Delivers balanced N‑P‑K plus amino acids, fatty acids, vitamins, and trace minerals",
+    "Stimulates soil microbes and earthworms",
+    "Supports sustained vegetative growth, flowering, fruit‑set and fill",
+    "Certified organic and sustainably sourced from deep‑water fish"
+  ],
+  "instructions": "Shake/stir well before and during use. Maintain agitation. Conduct jar test prior to mixing with other inputs. Apply under suitable environmental conditions.",
+  "storage_handling": "Store in a cool, dry, shaded place; stable to 5 °C—crystallisation or sedimentation may occur below this. Do not store diluted.",
+  "link": "https://nutri-tech.com.au/products/nutri-sea-liquid-fish",
+  "image": "/src/assets/nutri-sea-liquid-fish.webp"
+},
+{
+  "product_name": "Nutri‑Stim Saponins™",
+  "nutrients": ["Saponins"],
+  "application": [
+    "Foliar (with fertilisers)",
+    "Hydroponics",
+    "Soil"
+  ],
+  "product_form": "Solid (light yellow powder)",
+  "organic_certified": true,
+  "description": "Certified organic (ACO 456AI) plant-derived saponin concentrate (70%) used as a natural surfactant, wetting agent, and immunity booster that enhances spray coverage, root growth, microbial activity, and plant health.",
+  "analysis": {
+    "Saponins": "70%",
+    "Appearance": "Light yellow powder"
+  },
+  "application_rates": {
+    "foliar_with_fertilisers": "50 g per 100 L water (to 200 g/ha)",
+    "hydroponics": "4 g per 1,000 L nutrient solution",
+    "hydroponics_partA": "100 g per 50 L",
+    "soil": "1 kg/ha"
+  },
+  "benefits": [
+    "Acts as a natural non-ionic surfactant/wetting agent",
+    "Improves spray coverage and target interception",
+    "Can increase cell-wall permeability",
+    "Enhances root development",
+    "Promotes healthy plant growth",
+    "Increases microbial activity",
+    "Certified organic"
+  ],
+  "instructions": "Always jar‑test before mixing with other products. Use under suitable spray conditions. Test on sensitive foliage. Do not exceed max rates. Use gloves and dust protection when handling.",
+  "storage_handling": "Store in cool, dry area out of direct sunlight. Do not premix or store diluted.",
+  "link": "https://nutri-tech.com.au/products/nutri-stim-saponins",
+  "image": "/src/assets/Nutri-Stim-Saponins.jpg"
+},
+{
+  "product_name": "Nutri‑Stim Triacontanol™",
+  "nutrients": ["Triacontanol"],
+  "application": [
+    "Foliar – Vegetables & Leafy Greens",
+    "Foliar – Orchards, Vineyards, Ornamentals & Turf",
+    "Foliar – Broadacre Crops",
+    "Foliar – Pasture",
+    "Spot Spray",
+    "Hydroponics",
+    "Fertigation"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "A concentrated 2.5% natural triacontanol solution that acts as a powerful plant growth promoter—enhancing photosynthesis, cell division, root and shoot mass, flowering, fruit‑set, brix and early maturity.",
+  "analysis": {
+    "Triacontanol": "2.5%",
+    "SG": "1.0",
+    "pH": "8–9",
+    "Conductivity": "0.6–0.8 mS/cm",
+    "Appearance": "Milky viscous liquid"
+  },
+  "application_rates": {
+    "vegetables_leafy_foliar": "8 mL per 100 L water (≈200 mL/ha), weekly or as required",
+    "orchards_vineyards_ornamentals_turf": "8 mL per 100 L water (≈200 mL/ha), every 2–4 weeks or as required",
+    "broadacre_crops": "30 mL per 100 L water, once or twice before flowering",
+    "pasture": "30 mL per 100 L water, as required",
+    "spot_spray": "8 mL per 100 L water",
+    "hydroponics": "4 mL per 1000 L nutrient solution (add to Part C or return tank)",
+    "fertigation": "200 mL/ha per cycle"
+  },
+  "benefits": [
+    "Enhances photosynthesis via chlorophyll density and enzyme activation",
+    "Increases cell division leading to greater root and shoot mass",
+    "Boosts flowering, fruit‑set and brix levels",
+    "Promotes early maturity",
+    "Improves mineral uptake and moisture permeability",
+    "Counters abiotic stress including salt",
+    "Stimulates protein synthesis",
+    "Encourages tillering, branching and reduced fruit/flower drop"
+  ],
+  "instructions": "Stir well before and during application. Pre‑dilute 1:10 with water. For foliar use, do not exceed maximum rate/ha. Jar‑test before mixing. Test spray sensitive crops. Apply under good environmental conditions.",
+  "storage_handling": "Store in cool, dry, shaded area above 5 °C. Seal cap after use. Do not store diluted.",
+  "link": "https://nutri-tech.com.au/products/nutri-stim-triacontanol",
+  "image": "/src/assets/Nutri-StimTriacontanol20L.png"
+},
+{
+  "product_name": "Nutri‑Tech Black Gold®",
+  "nutrients": [
+    "N (organic)",
+    "P (water soluble)",
+    "K (organic)",
+    "S",
+    "Ca",
+    "Fe",
+    "Mg"
+  ],
+  "application": [
+    "Foliar – Vegetables & Leafy Greens",
+    "Foliar – Orchards & Vineyards",
+    "Foliar – Ornamentals & Turf",
+    "Foliar – Broadacre Crops",
+    "Foliar – Pasture",
+    "Fertigation",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "A broad-spectrum plant growth promoter combining fish proteins, high‑analysis kelp, humates, fulvic acid, liquid vermicast, triacontanol and plant extracts—designed to build Brix, improve stress and frost resistance, chelate minerals and support soil biology.",
+  "analysis": {
+    "N (organic)": "3.07%",
+    "P (water soluble)": "0.39%",
+    "K (organic)": "1.67%",
+    "S": "1.05%",
+    "Ca": "0.14%",
+    "Fe": "0.11%",
+    "Mg": "791 mg/L",
+    "SG": "1.1",
+    "pH": "4.8–5.8",
+    "Conductivity": "30–50 mS/cm",
+    "Appearance": "Black liquid with slight fish odour"
+  },
+  "application_rates": {
+    "vegetables_leafy_foliar": "1 L per 100 L water (up to 5 L/ha), weekly or as required",
+    "orchards_vineyards_foliar": "1 L per 100 L water (up to 7 L/ha), every 3–4 weeks or as required",
+    "ornamentals_turf_foliar": "1 L per 100 L water (up to 5 L/ha), every 2–4 weeks or as required",
+    "broadacre_foliar": "1 L per 100 L water",
+    "pasture_foliar": "1 L per 100 L water",
+    "spot_spray": "50 mL per 10 L water, as required",
+    "fertigation_vegetables": "10–15 L/ha, weekly or as required",
+    "fertigation_orchards": "10–20 L/ha, every 3–4 weeks or as required",
+    "fertigation_ornamentals": "10–15 L/ha, every 3–4 weeks or as required",
+    "fertigation_turf": "5–10 L/ha, every 2–4 weeks or as required",
+    "home_garden": "45 mL per 9 L watering can (~1 L/m²), fortnightly or as required"
+  },
+  "benefits": [
+    "Builds Brix and balances plant metabolism",
+    "Increases stress resilience to heat, frost, transplant shock",
+    "Che leates minerals and supports nutrient uptake",
+    "Ideal rescue remedy after stress events",
+    "Excellent broad-spectrum growth promoter with low NPK load"
+  ],
+  "instructions": "Shake or stir well before use. Maintain agitation. Test spray sensitive foliage. Jar-test for tank mixes. Do not exceed ha rates. Avoid spraying just prior to harvest on sensitive crops.",
+  "storage_handling": "Store in cool, dry, shaded area down to 5 °C. Do not store diluted. Reseal cap after use.",
+  "link": "https://nutri-tech.com.au/products/nutri-tech-black-gold",
+  "image": "/src/assets/nutri-tech-black-gold.webp"
+},
+{
+  "product_name": "Root & Shoot™",
+  "nutrients": [
+    "N (Total Nitrogen)",
+    "N (urea)",
+    "N (ammonium)",
+    "N (organic)",
+    "P (water soluble)",
+    "K (total)",
+    "K (phosphate)",
+    "K (organic)",
+    "K (hydroxide)",
+    "S",
+    "Fe",
+    "Ca",
+    "Mg",
+    "Zn",
+    "Mn",
+    "B",
+    "Cu",
+    "Mo"
+  ],
+  "application": [
+    "Soil (root drench)",
+    "Foliar",
+    "Seedling treatment",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "Formulated to promote rapid establishment after transplant or stress—enhancing root growth, shoot vigour, and rescue response across seedlings, turf, tree crops, and vegetables.",
+  "analysis": {
+    "Total Nitrogen (N)": "4.61%",
+    "Nitrogen (urea)": "1.93%",
+    "Nitrogen (ammonium)": "1.41%",
+    "Nitrogen (organic)": "1.27%",
+    "Phosphorus (P) water soluble": "3.55%",
+    "Potassium (K) total": "5.33%",
+    "Potassium (phosphate)": "3.42%",
+    "Potassium (organic)": "1.89%",
+    "Potassium (hydroxide)": "0.02%",
+    "Sulfur (S)": "0.52%",
+    "Iron (Fe)": "0.17%",
+    "Calcium (Ca)": "0.09%",
+    "Magnesium (Mg)": "0.06%",
+    "Zinc (Zn)": "254 mg/L",
+    "Manganese (Mn)": "213 mg/L",
+    "Boron (B)": "121 mg/L",
+    "Copper (Cu)": "70 mg/L",
+    "Molybdenum (Mo)": "14 mg/L",
+    "SG": "1.2",
+    "pH": "7–8",
+    "Conductivity": "75–85 mS/cm",
+    "Appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "root_drench_transplants": "1 L per 200 L water (7 L/ha) immediately after transplant",
+    "foliar": "Home garden: 45 mL/9 L watering can (~1 L/m²), fortnightly or as needed",
+    "seedling_treatment": "Dilute 1:200 and soak roots; include Tricho‑Shield™ at 500 g/100 L for strawberries",
+    "turf_transplant": "7 L/ha immediately after planting"
+  },
+  "benefits": [
+    "Promotes vigorous root growth and shoot vigour after transplant or stress",
+    "Broad‑spectrum nutrition to support early establishment",
+    "Rescue remedy for frost, hail, heat, wind or transplant shock",
+    "Improves CO₂ production, photosynthesis and stress resilience"
+  ],
+  "instructions": "Shake/stir before use and maintain agitation. Do not exceed hectare rates. Test-spray sensitive foliage. Use under suitable conditions. Conduct jar‑test for compatibility.",
+  "storage_handling": "Store in cool, dry, shaded area (≥5 °C). Do not store diluted. Seal cap securely after use.",
+  "link": "https://nutri-tech.com.au/products/root-and-shoot",
+  "image": "/src/assets/Root_Shoot20L.png"
+},
+{
+  "product_name": "SeaChange KFF™",
+  "nutrients": [
+    "N (total nitrogen, nitrate)",
+    "P (water soluble)",
+    "K (organic)",
+    "S (sulfur)",
+    "Ca (calcium)",
+    "Mg (magnesium)"
+  ],
+  "application": [
+    "Foliar – Vegetables & Leafy Greens",
+    "Foliar – Orchards & Vineyards",
+    "Foliar – Ornamentals, Natives & Turf",
+    "Foliar – Broadacre Crops",
+    "Foliar – Pasture",
+    "Fertigation",
+    "Seedling treatment",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "A unique fusion of kelp, fish and fulvic acid, boosted with plant growth promotants—designed as a rescue remedy and growth builder that supports healthy, balanced plant performance.",
+  "analysis": {
+    "Total Nitrogen (N)": "2.82%",
+    "Total Phosphorus (P)": "0.36%",
+    "Total Potassium (K)": "1.09%",
+    "Sulfur (S)": "0.96%",
+    "Calcium (Ca)": "0.16%",
+    "Magnesium (Mg)": "0.10%",
+    "SG": "1.1",
+    "pH": "2–4.5",
+    "Conductivity": "30–50 mS/cm",
+    "Appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "vegetables_leafy_foliar": "1 L per 100 L water (up to 5 L/ha), weekly or as required",
+    "orchards_vineyards_foliar": "1 L per 100 L water (up to 7 L/ha), every 2–4 weeks or as required",
+    "ornamentals_turf_foliar": "1 L per 100 L water (up to 5 L/ha), every 2–4 weeks or as required",
+    "broadacre_crops_foliar": "2–3 L/ha in 80–100 L water, depending on canopy",
+    "pasture_foliar": "2–3 L/ha in 80–100 L water, as required",
+    "seedling_treatment": "Soak seedlings/planting material in 1:200 dilution just before planting",
+    "spot_spray": "50 mL per 10 L water, as required",
+    "home_garden": "45 mL per 9 L watering can (~1 L/m²), fortnightly or as required",
+    "fertigation": "Vegetables/Orchards/Turf: 10–20 L/ha per cycle; Broadacre/pasture: as required"
+  },
+  "benefits": [
+    "Supports balanced, healthy plant growth",
+    "Acts as an effective rescue remedy after stress or deficiency",
+    "Combines kelp, fish proteins and fulvic acid for comprehensive support",
+    "Stimulates root development and soil life"
+  ],
+  "instructions": "Shake/stir well before use and maintain agitation during application. Do not exceed maximum product rate per hectare. Test on sensitive plants before full-scale use. Perform jar test for tank-mixes with other products.",
+  "storage_handling": "Store in a cool, dry, shaded area, stable down to 5 °C. Crystallisation may occur below this. Do not store diluted; reseal cap after use.",
+  "link": "https://nutri-tech.com.au/products/seachange-kff",
+  "image": "/src/assets/SeaChangeKFF.webp"
+},
+{
+  "product_name": "SeaChange Liquid Kelp™",
+  "nutrients": ["K (organic)", "Ca", "Mg", "I (iodine)"],
+  "application": [
+    "Foliar – Vegetables & Leafy Greens",
+    "Foliar – Orchards & Vineyards",
+    "Foliar – Ornamentals & Turf",
+    "Foliar – Broadacre Crops",
+    "Foliar – Pasture",
+    "Spot Spray",
+    "Fertigation"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "Cold‑composted Durvillaea potatorum bull kelp extract retaining natural minerals, amino acids, growth promotants, chelators, and complex sugars; designed as a powerful rescue remedy to support balanced plant growth and enhanced root development.",
+  "analysis": {
+    "K (organic)": "1.39%",
+    "Ca": "0.09%",
+    "Mg": "0.09%",
+    "I (iodine)": "22 mg/L",
+    "SG": "1.0",
+    "pH": "3.6–4.6",
+    "conductivity": "30–50 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "vegetables_leafy_foliar": "1 L per 100 L water (up to 5 L/ha)",
+    "orchards_vineyards_foliar": "1 L per 100 L water (up to 7 L/ha)",
+    "ornamentals_turf_foliar": "1 L per 100 L water (up to 5 L/ha)",
+    "broadacre_crops_foliar": "2–3 L/ha in 80–100 L water",
+    "pasture_foliar": "2–3 L/ha in 80–100 L water",
+    "spot_spray": "50 mL per 10 L water",
+    "fertigation": "10–20 L/ha per cycle"
+  },
+  "benefits": [
+    "Powerful rescue remedy for all stress events",
+    "Supports balanced, healthy plant growth",
+    "Enhances root growth and establishment",
+    "Improves cell strength & fruit quality (via calcium)",
+    "Supports sugar production (via magnesium)",
+    "Encourages flowering & fruit set (iodine synergy)"
+  ],
+  "instructions": "Shake/stir well before use and maintain agitation during application. Do not exceed maximum product rate/ha. Test on sensitive foliage. Apply under suitable environmental conditions.",
+  "storage_handling": "Store in a cool, dry, shaded area (stable down to 5 °C). Do not store diluted. Reseal cap tightly after use.",
+  "link": "https://nutri-tech.com.au/products/seachange-liquid-kelp",
+  "image": "/src/assets/SeaChangeLiquidKelp.webp"
+},
+{
+  "product_name": "Tri‑Kelp™",
+  "nutrients": [
+    "Alginic Acid",
+    "N (organic)",
+    "K (organic)",
+    "Fe",
+    "S",
+    "Ca",
+    "Mg",
+    "Si",
+    "Mn",
+    "Zn",
+    "B",
+    "Cu",
+    "Co",
+    "Mo"
+  ],
+  "application": [
+    "Foliar – Vegetables & Leafy Greens",
+    "Foliar – Orchards & Vineyards",
+    "Foliar – Ornamentals & Turf",
+    "Foliar – Broadacre Crops",
+    "Foliar – Pasture",
+    "Spot Spray",
+    "Rooting Powder",
+    "Seedling Treatment"
+  ],
+  "product_form": "Solid (dark brown flakes/powder)",
+  "organic_certified": true,
+  "description": "Unique soluble powder combining three kelp species—Laminaria, Sargassum & Ascophyllum nodosum—to deliver natural plant‑growth promotants, chelators and a broad spectrum of trace minerals. Enhances growth, flowering, stress relief, soil and water retention.",
+  "analysis": {
+    "Alginic Acid": "18%",
+    "Total Nitrogen (N) (as organic)": "0.89%",
+    "Total Potassium (K) (as organic)": "15.03%",
+    "Iron (Fe)": "1.07%",
+    "Sulfur (S)": "1.05%",
+    "Calcium (Ca)": "0.45%",
+    "Magnesium (Mg)": "0.17%",
+    "Silicon (Si)": "445 ppm",
+    "Manganese (Mn)": "92 ppm",
+    "Zinc (Zn)": "48 ppm",
+    "Boron (B)": "46 ppm",
+    "Copper (Cu)": "34 ppm",
+    "Cobalt (Co)": "8 ppm",
+    "Molybdenum (Mo)": "5 ppm"
+  },
+  "application_rates": {
+    "vegetables_leafy_foliar": "100 g per 100 L water (up to 750 g/ha)",
+    "orchards_vineyards_foliar": "100 g per 100 L (up to 1 kg/ha)",
+    "ornamentals_turf_foliar": "100 g per 100 L (up to 750 g/ha)",
+    "broadacre_crops_foliar": "100–200 g/ha in 60–100 L water",
+    "pasture_foliar": "100–200 g/ha in 60–100 L water",
+    "spot_spray": "10 g per 10 L water",
+    "rooting_powder": "Dip cuttings in 1 g/L solution",
+    "seedling_treatment": "Dip seedlings in 1 g/L or fertigate at 1 kg/ha; for home garden ~1 tsp per 9 L water"
+  },
+  "benefits": [
+    "Enhances plant growth & flowering",
+    "Relieves multiple stress types (frost, drought, heat)",
+    "Improves soil conditions and water retention",
+    "Stimulates soil biological activity (fungi & microbes)",
+    "Provides a spectrum of trace minerals and natural chelation"
+  ],
+  "instructions": "Slowly dissolve powder into water under agitation, filter before adding to main tank. Apply under suitable environmental conditions. Use test spray for sensitive plants; jar‑test before tank‑mixing. Prefer frequent dosing over high concentration.",
+  "storage_handling": "Store in cool, dry, shaded area. Reseal after use. Stable to 5 °C; avoid moisture clumping.",
+  "link": "https://nutri-tech.com.au/products/tri-kelp",
+  "image": "/src/assets/Tri-Kelp.png"
+},
+Fertiliser Database
+
+{
+  "product_name": "Cal‑Tech™",
+  "nutrients": ["Ca", "N", "B", "Vitamin B12"],
+  "application": ["Soil", "Foliar", "Drench", "Home Garden"],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "A premium amino‑chelated liquid calcium with boron, nitrogen and Vitamin B12—designed for rapid uptake to strengthen cell walls, improve sugar transport, support root exudation for microbial health, and enhance stress resilience.",
+  "analysis": {
+    "total_Ca": "13.36%",
+    "Ca_nitrate": "13.33%",
+    "Ca_organic": "0.03%",
+    "total_N": "11.71%",
+    "N_nitrate": "8.99%",
+    "N_organic": "2.72%",
+    "B": "0.43%",
+    "SG": "1.4",
+    "pH": "3.5–4.5",
+    "conductivity": "45–65 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "vegetables_turf": "1 L per 100 L water (≈5 L/ha), weekly or as required",
+    "orchards_vineyards": "1 L per 100 L water (≈7 L/ha), apply pre‑flowering then every 4 weeks",
+    "ornamentals": "1 L per 100 L water (≈5 L/ha), every 4 weeks or as needed",
+    "spot_spray": "50 mL per 10 L water",
+    "home_garden": "30 mL per 9 L watering can (1 L/m²), fortnightly"
+  },
+  "benefits": [
+    "Provides rapidly available calcium for strong cell structure",
+    "Calcium + boron synergy enhances sugar transport and root exudation",
+    "Includes nitrogen to support early growth phases",
+    "Vitamin B12 improves calcium uptake and bioavailability"
+  ],
+  "instructions": "Shake/stir well before use. Test spray sensitive foliage. Do not exceed recommended rates. Not compatible with phosphate/sulfate inputs. Avoid use close to harvest if staining is possible. Seal promptly after use.",
+  "storage_handling": "Store in cool, dry area; product stable to 5 °C. Avoid pre‑mixing or diluting; crystallisation may occur below 5 °C.",
+  "link": "https://nutri-tech.com.au/products/cal-tech",
+  "image": "/src/assets/cal-tech.webp"
+},
+{
+  "product_name": "Farm Saver® Calcium Fulvate",
+  "nutrients": [
+    "Ca",
+    "N",
+    "K",
+    "S",
+    "Mn",
+    "Fe",
+    "Zn",
+    "Cu",
+    "B",
+    "Mo",
+    "Fulvic acid",
+    "Kelp"
+  ],
+  "application": [
+    "Soil",
+    "Foliar",
+    "Fertigation",
+    "Broadacre Crops",
+    "Pasture",
+    "Ornamentals",
+    "Turf",
+    "Spot Spray"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "A fulvic-enhanced liquid calcium formulation with broad-spectrum macro and micronutrients. Designed for enhanced calcium uptake, soil conditioning, enzyme activation, root strength, stress resilience, and background plant nutrition.",
+  "analysis": {
+    "Ca_nitrate": "8.93%",
+    "total_N": "6.78%",
+    "N_nitrate": "6.57%",
+    "N_organic": "0.21%",
+    "total_K": "1.32%",
+    "K_organic": "0.87%",
+    "K_nitrate": "0.45%",
+    "S": "0.54%",
+    "Mn": "0.21%",
+    "Fe": "0.17%",
+    "Zn": "807 mg/L",
+    "Cu": "785 mg/L",
+    "B": "207 mg/L",
+    "Mo": "102 mg/L",
+    "SG": "1.3",
+    "pH": "2.0–3.5",
+    "conductivity": "95–115 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "foliar_vegetables": "1 L per 100 L water (≈5 L/ha), weekly or as required",
+    "foliar_orchards_vineyards": "1 L per 100 L water (≈7 L/ha), every 2–4 weeks or as required",
+    "foliar_ornamentals_turf": "1 L per 100 L water (≈5 L/ha), every 2–4 weeks or as required",
+    "foliar_broadacre_pasture": "1–3 L/ha in 60–100 L water, as required",
+    "fertigation_vegetables": "5–20 L/ha, weekly or as required",
+    "fertigation_orchards_vineyards": "5–20 L/ha, every 2–4 weeks or as required",
+    "fertigation_ornamentals": "5–15 L/ha, every 2–4 weeks or as required",
+    "fertigation_turf": "5–10 L/ha, every 2–4 weeks or as required",
+    "fertigation_pasture": "3–5 L/ha, as required",
+    "spot_spray": "50 mL per 10 L water, as required"
+  },
+  "benefits": [
+    "Fulvic-enhanced calcium uptake and soil conditioning",
+    "Supplies balanced macro-nutrition (Ca, N, K, S)",
+    "Offers comprehensive micronutrient support",
+    "Biostimulants from kelp improve plant resilience"
+  ],
+  "instructions": "Stir well before use. Do not exceed max rate per hectare. Test spray sensitive foliage first. Adjust frequency per monitoring. Ensure good coverage conditions. Jar test for compatibility. Avoid mixing with phosphate or sulfate inputs.",
+  "storage_handling": "Store in cool dry area out of direct sunlight. Stable to 5 °C; crystallisation or sedimentation may occur below 5 °C. Do not pre-mix or dilute. Seal lid immediately after use.",
+  "link": "https://nutri-tech.com.au/products/farm-saver-calcium-fulvate",
+  "image": "/src/assets/calcium-fulvate.webp"
+},
+{
+  "product_name": "Citrus‑Tech Triple Ten™",
+  "nutrients": [
+    "N", "P", "K", "Ca",
+    "S", "Fe", "Zn", "Mn", "B", "Se", "Cu", "Mo",
+    "Fulvic acid", "Seaweed", "Amino acids", "Triacontanol", "Vitamins"
+  ],
+  "application": ["Soil", "Foliar", "Fertigation"],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "High-energy fusion N-P-K liquid (10-10-10) enriched with calcium, sulphur, trace minerals, fulvic acid, seaweed, amino acids, triacontanol and vitamins. Designed to enhance fruit set, yield, crop uniformity, flavor, colour and shelf life.",
+  "analysis": {
+    "total_N": "10.48%",
+    "N_urea": "5.75%",
+    "N_ammonium": "4.20%",
+    "N_organic": "0.53%",
+    "total_P": "10.23%",
+    "total_K": "10.69%",
+    "K_phosphate": "10.20%",
+    "K_organic": "0.42%",
+    "K_hydroxide": "0.05%",
+    "K_silicate": "0.02%",
+    "S": "0.22%",
+    "Fe": "1459 mg/L",
+    "Zn": "743 mg/L",
+    "Mn": "607 mg/L",
+    "Ca": "558 mg/L",
+    "B": "347 mg/L",
+    "Se": "198 mg/L",
+    "Cu": "197 mg/L",
+    "Mo": "39 mg/L",
+    "SG": "1.3",
+    "pH": "7–8",
+    "conductivity": "80–100 mS/cm",
+    "appearance": "Thin black liquid"
+  },
+  "application_rates": {
+    "foliar_citrus": "1 L per 100 L water (≈7 L/ha), monthly or as required",
+    "spot_spray": "50 mL per 10 L water, monthly or as required",
+    "fertigation": "5–10 L/ha, monthly or as required"
+  },
+  "benefits": [
+    "Promotes fruit set and reduces dropping/splitting",
+    "Improves taste, yield, uniformity and shelf life",
+    "Supports vigorous, healthy vegetative growth",
+    "Includes low-biuret formulation for citrus safety",
+    "Contains biostimulants for enhanced metabolism and stress tolerance"
+  ],
+  "instructions": "Shake or stir well before use. Do not exceed maximum per hectare. Test spray sensitive foliage. Use jar test when mixing. Avoid near-harvest if risk of staining. Not compatible with phosphate or sulfate-based calcium inputs. Do not foliar spray seedlings < 15 cm tall.",
+  "storage_handling": "Store in a cool dry area away from sunlight. Stable down to 5 °C; crystallisation or sedimentation may occur below this. Do not pre-mix or dilute. Seal cap immediately after use.",
+  "link": "https://nutri-tech.com.au/products/citrus-tech-triple-ten",
+  "image": "/src/assets/citrus-tech-triple-ten.webp"
+},
+{
+  "product_name": "Cloak™ Spray Oil",
+  "nutrients": ["Emulsified cold‑pressed canola oil", "Omega‑3 fish oil"],
+  "application": ["Foliar"],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "A high‑quality organic spreader‑sticker‑synergist combining emulsified cold‑pressed canola oil and omega‑3 fish oil. Designed to enhance foliar spray performance and improve plant nutrient uptake.",
+  "analysis": {
+    "SG": "0.9",
+    "pH": "7–8",
+    "appearance": "Golden clear liquid"
+  },
+  "application_rates": {
+    "vegetables_ornamentals_turf": "150–200 mL per 100 L water (max approx 1.5 L/ha)",
+    "orchards_vineyards": "200 mL per 100 L water (max approx 1.5 L/ha)",
+    "broadacre_pasture_spot": "150 mL per 100 L water"
+  },
+  "benefits": [
+    "Improves foliar spray droplet spreading and coverage",
+    "Enhances rainfastness and penetration of foliar sprays",
+    "Reduces spray drift and evaporation",
+    "Minimizes odour",
+    "Provides improved systemic nutrient response",
+    "Helps stabilise spray on leaf surfaces under sub‑optimal conditions"
+  ],
+  "instructions": "Shake or stir well before use. Do not exceed maximum rate. Test spray sensitive foliage first. Ensure suitable spray conditions. Jar‑test for compatibility when mixing with other products. Avoid use near harvest if staining is possible.",
+  "storage_handling": "Store in cool, dry area away from direct sunlight. Stable to 5 °C; may separate or crystallize below this. Do not pre‑mix or dilute; reseal cap promptly after use.",
+  "link": "https://nutri-tech.com.au/products/cloak-spray-oil",
+  "image": "/src/assets/cloak-spray-oil.webp"
+},
+{
+  "product_name": "K‑Rich™",
+  "nutrients": [
+    "K"
+  ],
+  "application": [
+    "Foliar",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals",
+    "Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "High‑analysis, pH‑buffered liquid potassium citrate (~33.3% K), designed for foliar application during the potassium-demanding fruit/seed-fill stages. Promotes flower/fruit size, color, flavor, yield and shelf life.",
+  "analysis": {
+    "K_as_citrate": "33.29%",
+    "SG": "1.5",
+    "pH": "7–8",
+    "conductivity": "20–40 mS/cm",
+    "appearance": "Clear liquid"
+  },
+  "application_rates": {
+    "vegetables": "1 L per 100 L water (≈5 L/ha), weekly from fruit‑set until harvest or as required",
+    "orchards_vineyards": "1 L per 100 L water (≈7 L/ha), every 2–4 weeks from fruit‑set until harvest or as required",
+    "ornamentals": "1 L per 100 L water (≈5 L/ha), every 2–4 weeks from fruit‑set until harvest or as required",
+    "turf": "1 L per 100 L water (≈5 L/ha), every 2–4 weeks or as required",
+    "broadacre_crops": "2–3 L/ha in 60–120 L water, as required",
+    "pasture": "2–3 L/ha in 60–120 L water, as required",
+    "spot_spray": "50 mL per 10 L water, as required",
+    "home_garden": "30 mL per 9 L watering can (1 L/m²), fortnightly or as required"
+  },
+  "benefits": [
+    "High‑analysis potassium essential for fruit/seed production",
+    "Buffered citrate form enhances uptake and reduces burn risk",
+    "Clear formulation suitable across crop stages",
+    "Improves fruit/flower size, colour, taste and shelf‑life"
+  ],
+  "instructions": "Shake or stir well before use. Do not exceed maximum per hectare. Test spray sensitive foliage first. Adjust frequency with crop monitoring. Ensure suitable spray conditions. Jar test for tank‑mixing compatibility. Avoid use near harvest if staining is possible.",
+  "storage_handling": "Store in cool, dry, sunlight‑protected place. Stable down to 5 °C; crystallisation may occur below. Do not pre‑mix or store diluted. Reseal cap immediately after use.",
+  "link": "https://nutri-tech.com.au/products/k-rich",
+  "image": "/src/assets/k-rich.webp"
+},
+{
+  "product_name": "Nutri‑Carb‑N™",
+  "nutrients": ["N", "K", "Humic acid (organic carbon)"],
+  "application": [
+    "Soil",
+    "Foliar",
+    "Fertigation",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals & Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "A humic‑acid‑stabilised nitrogen formulation pairing urea‑based N with organic carbon to improve nitrogen retention, reduce leaching, build soil structure, and feed microbial activity.",
+  "analysis": {
+    "total_N (as urea)": "15.18%",
+    "total_K (organic)": "1.10%",
+    "SG": "1.1",
+    "pH": "9.0–11.5",
+    "conductivity": "10–15 mS/cm",
+    "appearance": "Black liquid"
+  },
+  "application_rates": {
+    "foliar_vegetables": "1 L per 100 L water (max ≈3 L/ha), weekly or as required",
+    "foliar_orchards_vineyards": "1 L per 100 L water (max ≈5 L/ha), every 4 weeks or as required",
+    "foliar_ornamentals_turf": "1 L per 100 L water (max ≈3 L/ha), every 4 weeks or as required",
+    "broadacre_crops": "2 L/ha in 60–100 L water, as required",
+    "pasture": "2 L/ha in 60–100 L water, as required",
+    "spot_spray": "50 mL per 10 L water, as required",
+    "fertigation_vegetables": "10–20 L/ha, weekly or as required",
+    "fertigation_orchards_vineyards_ornamentals_turf": "10–20 L/ha every 4 weeks or as required",
+    "home_garden": "30 mL per 9 L watering can (1 L/m²), fortnightly or as required"
+  },
+  "benefits": [
+    "Improves nitrogen retention in the root zone, reducing leaching",
+    "Delivers organic carbon to support soil microorganisms",
+    "Enhances soil structure and nutrient cycling",
+    "Humic acid boosts performance of other fertilisers"
+  ],
+  "instructions": "Shake/stir well before use. Do not exceed maximum rates. Test spray sensitive foliage before full application. Adjust rates based on crop monitoring. Use jar test when mixing. Not compatible with acidic inputs. Avoid spraying close to harvest if produce may stain.",
+  "storage_handling": "Store in a cool, dry, sunlight‑protected area. Stable to 5 °C; separation may occur below this. Do not pre‑mix or store diluted. Seal lid immediately after use.",
+  "link": "https://nutri-tech.com.au/products/nutri-carb-n",
+  "image": "/src/assets/nutri-carb-n.webp"
+},
+{
+  "product_name": "Phos‑Force™",
+  "nutrients": ["N", "P", "K", "Ca"],
+  "application": ["Foliar", "Vegetables", "Orchards & Vineyards", "Broadacre Crops", "Spot Spray"],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "A high‑phosphorus foliar spray formulated to boost brix, improve root vigor, photosynthesis, protein/dry matter, and shelf‑life through balanced N–P–K–Ca nutrition.",
+  "analysis": {
+    "total_N": "4.20%",
+    "N_nitrate": "3.00%",
+    "N_urea": "1.20%",
+    "total_P": "14.30%",
+    "total_K": "3.50%",
+    "Ca": "4.30%",
+    "SG": "1.4",
+    "pH": "0.2–1.2",
+    "conductivity": "107–127 mS/cm",
+    "appearance": "Clear liquid"
+  },
+  "application_rates": {
+    "vegetables": "1 L per 100 L water (up to 4 L/ha), every 2–3 weeks or as required",
+    "orchards_vineyards": "1 L per 100 L water (up to 5 L/ha), every 4 weeks or as required",
+    "broadacre_crops": "1–2 L/ha in 60–100 L water, as required",
+    "spot_spray": "50 mL per 10 L water, as required"
+  },
+  "benefits": [
+    "Exceptional Brix-building capacity",
+    "Enhances calcium and phosphate utilization",
+    "Improves root development and photosynthesis",
+    "Promotes vigor, protein and dry matter accumulation",
+    "Increases taste, shelf life, and yield"
+  ],
+  "instructions": "Stir well before use. Do not exceed maximum rate per hectare. Test‑spray sensitive foliage first. Adjust spray frequency based on crop monitoring. Jar‑test before tank‑mixing. Ensure recommended spray conditions. Remove from harvest zone if crop may stain.",
+  "storage_handling": "Warning: Dangerous Goods—handle with care. Store locked in cool, dry place, out of sunlight. Product remains stable to 5 °C; crystallisation may occur below. Do not pre‑mix or store diluted. Reseal cap immediately after use. Dispose per local regulations.",
+  "link": "https://nutri-tech.com.au/products/phos-force",
+  "image": "/src/assets/phos-force.webp"
+},
+{
+  "product_name": "Photo‑Finish™",
+  "nutrients": ["K", "Si", "Humic acid", "Kelp"],
+  "application": [
+    "Foliar",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals & Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "A multidimensional foliar fertiliser with high silicon for cell strength, potassium for brix-building, plus humic acid and kelp to enhance photosynthesis, resilience, and overall crop quality.",
+  "analysis": {
+    "total_K": "10.60%",
+    "K_silicate": "9.18%",
+    "K_organic": "1.42%",
+    "Si": "10.38%",
+    "SG": "1.3",
+    "pH": "11–12",
+    "conductivity": "65–75 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "vegetables": "0.5 L per 100 L water (max ~3 L/ha), every 2 weeks or as required",
+    "orchards_vineyards": "0.5 L per 100 L water (max ~5 L/ha), every 4 weeks or as required",
+    "ornamentals_turf": "0.5 L per 100 L water (max ~3 L/ha), every 4 weeks or as required",
+    "broadacre_crops": "2–3 L/ha in 80–120 L water, as required",
+    "pasture": "2–3 L/ha in 80–120 L water, as required",
+    "spot_spray": "25 mL per 10 L water, as required"
+  },
+  "benefits": [
+    "Strengthens cell walls to deter pests and improve lodging resistance",
+    "Boosts photosynthesis and brix levels in leaves and fruit",
+    "Enhances recovery in plants under pathogen damage",
+    "Helps neutralise manganese, aluminium, and sodium toxicity",
+    "Improves flower fertility, pollination, yield, and quality"
+  ],
+  "instructions": "Shake/stir well. Do not exceed max rate. Test-spray sensitive foliage first. Ensure suitable spray conditions. Jar test before mixing. Not compatible with acidic inputs. Avoid spraying during flowering or close to harvest if produce may stain.",
+  "storage_handling": "Store in cool, dry, shaded area. Stable to 5 °C; may crystallise below this. Do not premix or dilute. Seal cap after use.",
+  "link": "https://nutri-tech.com.au/products/photo-finish",
+  "image": "/src/assets/photo-finish.webp"
+},
+{
+  "product_name": "Potassium Silicate",
+  "nutrients": ["K", "Si"],
+  "application": [
+    "Foliar",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals & Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "A high-strength liquid source of potassium and silica designed to strengthen cell walls, improve photosynthesis, enhance brix, support pollination, and boost plant resilience.",
+  "analysis": {
+    "total_K": "15.3%",
+    "Si": "17.3%",
+    "SG": "1.4",
+    "pH": "11.3–12.3",
+    "conductivity": "70–90 mS/cm",
+    "appearance": "Clear liquid"
+  },
+  "application_rates": {
+    "vegetables": "0.3 L per 100 L water (up to 2 L/ha), every 2 weeks or as required",
+    "orchards_vineyards": "0.3 L per 100 L water (up to 3 L/ha), every 4 weeks or as required",
+    "ornamentals_turf": "0.3 L per 100 L water (up to 2 L/ha), every 4 weeks or as required",
+    "spot_spray": "25 mL per 10 L water as required"
+  },
+  "benefits": [
+    "Strengthens cell walls and improves tissue resilience",
+    "Enhances photosynthesis and increases brix levels",
+    "Mitigates aluminium, sodium and manganese toxicity",
+    "Improves fruit/pollen quality and shelf‑life",
+    "Creates a protective silica barrier to discourage disease and insects"
+  ],
+  "instructions": "Shake or stir well before use. Do not spray during flowering. Test on sensitive foliage before full‑scale application. Jar‑test compatibility when mixing. Avoid acidic inputs and exceedance of max rates.",
+  "storage_handling": "Store locked in a cool, dry area out of direct sunlight. Stable to 5 °C; crystallisation or sedimentation may occur below this. Do not pre‑mix or store diluted. Seal cap immediately after use.",
+  "link": "https://nutri-tech.com.au/products/potassium-silicate",
+  "image": "/src/assets/potassium-silicate.webp"
+},
+{
+  "product_name": "Seed‑Start™",
+  "nutrients": [
+    "K",
+    "Ca",
+    "S",
+    "Mg",
+    "Fe",
+    "Zn",
+    "Mn",
+    "Mo",
+    "Humic acid"
+  ],
+  "application": [
+    "Seed treatment",
+    "Seedling treatment",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "A fusion of germination enhancers and seedling kick-starters that speed up germination, increase early root & shoot mass, and promote vigorous seedling establishment.",
+  "analysis": {
+    "K_organic": "2667 mg/L",
+    "Ca_total": "4.13%",
+    "S": "1.24%",
+    "Mg": "734 mg/L",
+    "Fe": "160 mg/L",
+    "Zn": "71 mg/L",
+    "Mn": "64 mg/L",
+    "Mo": "8 mg/L",
+    "SG": "1.1",
+    "pH": "8–9",
+    "conductivity": "5–15 mS/cm",
+    "appearance": "Thick brown liquid"
+  },
+  "application_rates": {
+    "seed_treatment": "6–8 L/tonne seed, diluted to just coat",
+    "seedling_treatment": "Dip seedlings 1:100 (10 mL/L) or apply 15–30 L/ha in first fertigation",
+    "home_garden": "30 mL per 9 L watering can, apply 1 L per m² immediately after planting"
+  },
+  "benefits": [
+    "Faster germination response",
+    "Improved germination rate",
+    "Greater early shoot and root mass"
+  ],
+  "instructions": "Shake/stir well with constant agitation; premix slowly. Use 500 µm inline filter. Jar‑test tank mixes. Test spray sensitive plants before full‑scale use.",
+  "storage_handling": "Store in cool, dry, shaded area. Stable down to 5 °C; may crystallise below. Do not store diluted. Reseal cap after use.",
+  "link": "https://nutri-tech.com.au/products/seed-start",
+  "image": "/src/assets/seed-start.webp"
+},
+{
+  "product_name": "Trio (CMB)™",
+  "nutrients": ["Ca", "Mg", "N", "K", "B", "Fe", "Fulvic acid", "Mannitol (from kelp)"],
+  "application": [
+    "Foliar",
+    "Fertigation",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals",
+    "Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "A premium foliar and fertigation spray combining high-analysis calcium, magnesium, nitrogen, boron and iron, complexed with fulvic acid and mannitol from kelp, to strengthen cells, improve photosynthesis, support flowering, and enhance sugar production, taste, yield and shelf life.",
+  "analysis": {
+    "Ca (as nitrate)": "15.30% (or 17.55%)",
+    "Mg (as nitrate)": "2.38% (or 2.98%)",
+    "N (as nitrate)": "13.73% (or 15.30%)",
+    "K (organic)": "0.10% (or 0.11%)",
+    "B": "0.26%",
+    "Fe": "60 mg/L",
+    "SG": "1.5",
+    "pH": "4.0–5.2",
+    "conductivity": "30–55 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "vegetables": "1 L/100 L water (~5 L/ha), fertigation 10–30 L/ha; weekly or as required",
+    "orchards_vineyards": "1 L/100 L water (~7 L/ha), fertigation 15–30 L/ha; every 2–4 weeks or as required",
+    "ornamentals_turf": "1 L/100 L water (~5 L/ha), fertigation 5–10 L/ha; every 2–4 weeks or as required",
+    "broadacre_pasture": "2–3 L/ha in 80–120 L water; as required",
+    "spot_spray": "50 mL/10 L water; as required"
+  },
+  "benefits": [
+    "High-analysis Ca and Mg support cell strength and chlorophyll production",
+    "Boron enhances flowering, fruit set and calcium synergy",
+    "Balanced N improves plant vigour and early growth",
+    "Fulvic and kelp promote sugar translocation, photosynthesis, and resilience"
+  ],
+  "instructions": "Shake/stir well. Do not exceed maximum rates per hectare. Test sensitive foliage before use. Jar-test before tank mixing. Apply during early morning or late afternoon. Ensure suitable spray conditions. Avoid use near harvest if produce may stain. Not compatible with phosphate/sulfate calcium inputs.",
+  "storage_handling": "Store in cool, dry, shaded area. Stable to 5 °C; crystallisation may occur below this. Do not premix or store diluted. Reseal cap immediately after use.",
+  "link": "https://nutri-tech.com.au/products/trio-cmb",
+  "image": "/src/assets/trio-cmb.webp"
+},
+{
+  "product_name": "Triple Ten™",
+  "nutrients": [
+    "N",
+    "P",
+    "K",
+    "Ca",
+    "S",
+    "Fe",
+    "Zn",
+    "Mn",
+    "B",
+    "Se",
+    "Cu",
+    "Mo",
+    "Fulvic acid",
+    "Seaweed",
+    "Vitamins"
+  ],
+  "application": [
+    "Soil",
+    "Foliar",
+    "Fertigation",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals & Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Home Garden",
+    "Spot Spray"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "A state-of-the-art fusion fertiliser with balanced 10‑10‑10 N‑P‑K, enhanced with calcium, sulphur, chelated trace elements, fulvic acid, seaweed and vitamins—designed for vigorous growth, improved fruit set, yield, quality, and stress resilience.",
+  "analysis": {
+    "total_N": "10.48%",
+    "N_urea": "5.75%",
+    "N_ammonium": "4.20%",
+    "N_organic": "0.53%",
+    "total_P": "10.23%",
+    "total_K": "10.69%",
+    "K_phosphate": "10.20%",
+    "K_organic": "0.42%",
+    "K_hydroxide": "0.05%",
+    "K_silicate": "0.02%",
+    "S": "0.22%",
+    "Fe": "1459 mg/L",
+    "Zn": "743 mg/L",
+    "Mn": "607 mg/L",
+    "Ca": "558 mg/L",
+    "B": "347 mg/L",
+    "Se": "198 mg/L",
+    "Cu": "197 mg/L",
+    "Mo": "39 mg/L",
+    "SG": "1.3",
+    "pH": "7–8",
+    "conductivity": "80–100 mS/cm"
+  },
+  "application_rates": {
+    "foliar_vegetables": "1 L per 100 L water (max ~5 L/ha), apply fortnightly or as required",
+    "foliar_orchards_vineyards": "1 L per 100 L water (~7 L/ha), apply every 2‑4 weeks or as required",
+    "foliar_ornamentals_turf": "1 L per 100 L water (~5 L/ha), apply every 2‑4 weeks or as required",
+    "broadacre_crops": "5‑20 L/ha in 60‑120 L water, apply every 2‑4 weeks or as required",
+    "turf": "5‑10 L/ha in 60‑120 L water, every 2‑4 weeks or as required",
+    "home_garden": "30 mL per 9 L watering can (≈1 L/m²), apply fortnightly or as required",
+    "spot_spray": "50 mL per 10 L water, apply fortnightly or as required"
+  },
+  "benefits": [
+    "Provides balanced macro‑nutrition for vigorous growth",
+    "Chelated trace elements ensure complete nutrient uptake",
+    "Biostimulants enhance metabolism, fruit set, and stress resilience",
+    "Improves yield, quality, flavour, colour, uniformity and shelf life"
+  ],
+  "instructions": "Shake/stir well before use. Test spray on sensitive foliage. Do not exceed maximum rate per hectare. Use jar test before mixing. Apply during vegetative to fruit‑set growth stages. Avoid use near harvest if staining risk. Not compatible with phosphate/sulfate‑based calcium inputs.",
+  "storage_handling": "Store in a cool, dry, shaded place. Stable to 5 °C; crystallisation may occur below this. Do not premix or store diluted. Reseal cap immediately after use.",
+  "link": "https://nutri-tech.com.au/products/triple-ten",
+  "image": "/src/assets/triple-ten.webp"
+},
+{
+  "product_name": "Tsunami™ Super Spreader",
+  "nutrients": ["Silicon (natural tetra-siloxane)"],
+  "application": ["Foliar"],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "A patented, non-ionic, silicon-based super spreader designed to improve the wetting, sticking, and overall effectiveness of foliar sprays—especially on hard-to-wet plant surfaces.",
+  "analysis": {
+    "SG": "1.0",
+    "pH": "7.0–8.0",
+    "appearance": "Clear liquid"
+  },
+  "application_rates": {
+    "standard_foliar": "10 mL per 100 L water",
+    "hard_to_wet_surfaces": "25–50 mL per 100 L water (adjust as needed)"
+  },
+  "benefits": [
+    "Enhances foliar spray coverage and droplet spread",
+    "Improves rainfastness and spray penetration",
+    "Reduces drift and evaporation",
+    "Helps improve yields, fruit set, tuber fill, taste, and shelf-life",
+    "Naturally derived silicone is compatible with most spray products"
+  ],
+  "instructions": "Shake or stir well before use. Read safety directions. Test spray sensitive foliage first. Adjust rate based on target surface. Ensure thorough coverage.",
+  "storage_handling": "Store in cool, dry, shaded area. Product stable to 5 °C. Reseal cap immediately after use.",
+  "link": "https://nutri-tech.com.au/products/tsunami-super-spreader",
+  "image": "/src/assets/tsunami-super-spreader.webp"
+},
+{
+  "product_name": "Boron Essentials™",
+  "nutrients": ["B", "N", "K", "Fulvic acid", "Amino acids"],
+  "application": [
+    "Foliar",
+    "Fertigation",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals",
+    "Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "Organically chelated liquid boron (3.09%) with fulvic acid and amino acids to improve flowering, fruit/seed development, sugar transport, cell wall strength and calcium synergy—critical in light or sandy soils.",
+  "analysis": {
+    "B": "3.09%",
+    "N_organic": "0.05%",
+    "K_organic": "0.04%",
+    "SG": "1.1",
+    "pH": "6.7–7.7",
+    "conductivity": "10–30 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "foliar_vegetables": "0.5 L per 100 L water (≈2.5 L/ha), twice before flowering or as required",
+    "foliar_orchards_vineyards": "0.5 L per 100 L water (≈5 L/ha), twice before flowering or as required",
+    "foliar_ornamentals": "0.5 L per 100 L water (≈3 L/ha), twice before flowering or as required",
+    "foliar_turf": "0.5 L per 100 L water (≈3 L/ha), every 4 weeks or as required",
+    "broadacre_crops": "1–2 L/ha in 80–100 L water, just prior to flowering or as required",
+    "pasture": "1–2 L/ha in 80–100 L water, as required",
+    "spot_spray": "25 mL per 10 L water, as required",
+    "fertigation_vegetables": "3–7 L/ha, twice before flowering or as required",
+    "fertigation_orchards_vineyards": "5–10 L/ha, twice before flowering or as required",
+    "fertigation_ornamentals_turf": "3–7 L/ha, twice before flowering or as required"
+  },
+  "benefits": [
+    "Enhances flowering & fruit set",
+    "Improves sugar transport, cell-wall integrity and calcium synergy",
+    "Corrects widespread boron deficiencies in light/sandy soils",
+    "Includes chelators to improve boron uptake Bioactivity"
+  ],
+  "instructions": "Shake/stir well before use. Do not exceed maximum rate per hectare. Test spray sensitive foliage. Frequencies are guidelines—adjust based on crop monitoring. Ensure suitable spray conditions. Avoid acidic or sulfate inputs. Jar test for tank‑mixing compatibility. Avoid use near harvest if staining is possible.",
+  "storage_handling": "Store in cool, dry area away from sunlight; stable down to 5 °C. Do not pre‑mix or store in diluted form. Seal cap immediately after use.",
+  "link": "https://nutri-tech.com.au/products/boron-essentials",
+  "image": "/src/assets/boron-essentials.webp"
+},
+{
+  "product_name": "Copper Essentials™",
+  "nutrients": ["Cu", "N", "K", "S", "Ca", "Mg"],
+  "application": [
+    "Foliar",
+    "Fertigation",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals",
+    "Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "Organically chelated copper (4.9%) with fulvic acid and amino acids, providing essential micronutrient support for chlorophyll formation, protein synthesis, seed formation, cell strength, and overall crop resilience.",
+  "analysis": {
+    "Cu": "4.9%",
+    "N_organic": "0.12%",
+    "K_organic": "0.14%",
+    "S_sulfate": "2.55%",
+    "Ca": "247 mg/L",
+    "Mg": "352 mg/L",
+    "SG": "1.1",
+    "pH": "2.0–3.0",
+    "conductivity": "35–55 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "foliar_vegetables": "0.5 L per 100 L water (≈2.5 L/ha), up to 2.5 L/ha equivalent, as required",
+    "foliar_orchards_vineyards": "0.5 L per 100 L water (≈5 L/ha), as required",
+    "foliar_ornamentals": "0.5 L per 100 L water (≈3 L/ha), as required",
+    "foliar_turf": "0.5 L per 100 L water (≈3 L/ha), as required",
+    "broadacre_crops": "1–2 L/ha in 80–100 L water, as required",
+    "pasture": "1–2 L/ha in 80–100 L water, as required",
+    "spot_spray": "25 mL per 10 L water, as required",
+    "fertigation_vegetables": "3–7 L/ha, as required",
+    "fertigation_orchards_vineyards": "5–10 L/ha, as required",
+    "fertigation_ornamentals_turf": "3–7 L/ha, as required",
+    "home_garden": "7.5 mL per 9 L watering can (1 L/m²), up to 6 applications per year"
+  },
+  "benefits": [
+    "Supports chlorophyll formation and protein synthesis",
+    "Promotes seed formation, cell structure, and plant resilience",
+    "Organic chelation enhances uptake and reduces antagonism",
+    "Stimulates microbial activity and natural plant promotants"
+  ],
+  "instructions": "Stir well before use. Adjust rates based on crop monitoring. Do not exceed maximum per hectare. Test spray sensitive foliage. Ensure suitable conditions before foliar application. Use jar test when tank mixing with other products.",
+  "storage_handling": "Store in a cool, dry area out of direct sunlight. Product stable down to 5 °C; crystallisation may occur below this. Do not pre-mix or store diluted. Seal cap immediately after use.",
+  "link": "https://nutri-tech.com.au/products/copper-essentials",
+  "image": "/src/assets/boron-essentials.webp"
+},
+{
+  "product_name": "Iron Essentials™",
+  "nutrients": [
+    "Fe",
+    "N",
+    "K",
+    "S",
+    "Ca",
+    "Mg"
+  ],
+  "application": [
+    "Foliar",
+    "Fertigation",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals",
+    "Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "An organically chelated liquid iron (6%) with background nutrition—nitrogen, potassium, sulfur, calcium and magnesium—to rapidly correct iron chlorosis, enhance chlorophyll formation, and support essential plant metabolic reactions and microbial interactions.",
+  "analysis": {
+    "Fe": "6.00%",
+    "N_organic": "0.12%",
+    "K_organic": "0.14%",
+    "S_sulfate ": "3.49%",
+    "Ca": "247 mg/L",
+    "Mg": "351 mg/L",
+    "SG": "1.1",
+    "pH": "2.0–3.0",
+    "conductivity": "35–55 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "foliar_vegetables": "0.5 L per 100 L water (≈2.5 L/ha), single or repeat as needed",
+    "foliar_orchards_vineyards": "0.5 L per 100 L water (≈5 L/ha), single or repeat as needed",
+    "foliar_ornamentals_turf": "0.5 L per 100 L water (≈3 L/ha), single or repeat as needed",
+    "broadacre_crops": "1–2 L/ha in 80–100 L water, as required",
+    "pasture": "1–2 L/ha in 80–100 L water, as required",
+    "spot_spray": "25 mL per 10 L water, as required",
+    "fertigation": "3–7 L/ha, as required",
+    "home_garden": "7.5 mL per 9 L watering can (≈1 L/m²), up to 6 times per season"
+  },
+  "benefits": [
+    "Corrects iron chlorosis and promotes chlorophyll formation",
+    "Supports essential metabolic enzymatic reactions",
+    "Provides background nutrition (N, K, S, Ca, Mg) for balanced growth",
+    "Contains organic chelates to enhance uptake and microbial stimulation"
+  ],
+  "instructions": "Shake/stir well before use. Do not exceed maximum rate per hectare. Test spray sensitive foliage first. Adjust frequency based on tissue testing. Ensure suitable spray conditions. Jar-test for tank-mix compatibility.",
+  "storage_handling": "Store in cool, dry place out of sunlight. Stable to 5 °C; may crystallize below this. Do not pre‑mix or store diluted. Reseal cap after use.",
+  "link": "https://nutri-tech.com.au/products/iron-essentials",
+  "image": "/src/assets/iron-essentials.webp"
+},
+{
+  "product_name": "Manganese Essentials™",
+  "nutrients": ["Mn", "N", "K", "S", "Ca", "Mg"],
+  "application": [
+    "Foliar",
+    "Fertigation",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals",
+    "Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "Organically chelated liquid manganese (10.96%) with background macro nutrients—N, K, S, Ca, Mg—to correct deficiencies in light/sandy soils, support photosynthesis, enhance structural strength, stress resilience, and microbial activity.",
+  "analysis": {
+    "Mn": "10.96%",
+    "N_organic": "0.12%",
+    "K_organic": "0.13%",
+    "S_sulfate ": "6.52%",
+    "Ca": "247 mg/L",
+    "Mg": "352 mg/L",
+    "SG": "1.2",
+    "pH": "2.5–3.5",
+    "conductivity": "35–55 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "foliar_vegetables": "0.5 L per 100 L water (≈2.5 L/ha), single or repeat as required",
+    "foliar_orchards_vineyards": "0.5 L per 100 L water (≈5 L/ha), single or repeat as required",
+    "foliar_ornamentals_turf": "0.5 L per 100 L water (≈3 L/ha), single or repeat as required",
+    "broadacre_crops": "1–2 L/ha in 80–100 L water, as required",
+    "pasture": "1–2 L/ha in 80–100 L water, as required",
+    "spot_spray": "25 mL per 10 L water, as required",
+    "fertigation": "3–7 L/ha, as required"
+  },
+  "benefits": [
+    "Essential for photosynthesis enzyme functions",
+    "Strengthens plant structure and improves stress tolerance",
+    "Corrects manganese deficiencies common in light/sandy soils",
+    "Includes organic chelation to enhance uptake and microbiome stimulation"
+  ],
+  "instructions": "Shake/stir well before use. Do not exceed maximum per hectare. Test spray sensitive foliage first. Adjust frequency based on plant monitoring. Ensure suitable spray conditions. Jar‑test for tank‑mixing compatibility.",
+  "storage_handling": "Store in a cool, dry area away from sunlight; stable to 5 °C. Do not premix or store diluted. Seal cap immediately after use.",
+  "link": "https://nutri-tech.com.au/products/manganese-essentials",
+  "image": "/src/assets/manganese-essentials.webp"
+},
+{
+  "product_name": "Multi‑Boost™",
+  "nutrients": [
+    "N",
+    "P",
+    "K",
+    "S",
+    "Ca",
+    "Mg",
+    "Fe",
+    "Zn",
+    "Mn",
+    "B",
+    "Cu",
+    "Mo",
+    "Kelp (biostimulant)"
+  ],
+  "application": [
+    "Foliar",
+    "Fertigation",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals & Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "A complete blend of organic nutrients and biostimulants—for improved quality, taste, shelf‑life, and performance across a wide range of crops.",
+  "analysis": {
+    "N (organic)": "2.29%",
+    "P (water‑soluble)": "0.29%",
+    "K (organic)": "0.66%",
+    "S_sulfate ": "6.20%",
+    "Ca": "5.96%",
+    "Mg": "0.64%",
+    "Fe": "708 mg/L",
+    "Zn": "536 mg/L",
+    "Mn": "483 mg/L",
+    "B": "330 mg/L",
+    "Cu": "245 mg/L",
+    "Mo": "130 mg/L",
+    "SG": "1.25",
+    "pH": "4–5",
+    "conductivity": "25–35 mS/cm",
+    "appearance": "Dark brown liquid"
+  },
+  "application_rates": {
+    "foliar_vegetables": "1 L per 100 L water (up to 5 L/ha), weekly or as required",
+    "foliar_orchards_vineyards": "1 L per 100 L water (up to 7 L/ha), every 2–4 weeks or as required",
+    "foliar_ornamentals_turf": "1 L per 100 L water (up to 5 L/ha), every 2–4 weeks or as required",
+    "broadacre_crops": "2–3 L/ha in 80–120 L water, as required",
+    "pasture": "2–3 L/ha in 80–120 L water, as required",
+    "spot_spray": "50 mL per 10 L water, as required",
+    "home_garden": "45 mL per 9 L watering can (1 L/m²), fortnightly or as required",
+    "foliar_fertigation_vegetables": "10–30 L/ha, weekly or as required",
+    "foliar_fertigation_orchards_vineyards": "10–30 L/ha, every 2–4 weeks or as required",
+    "foliar_fertigation_ornamentals_turf": "10–20 L/ha, every 2–4 weeks or as required"
+  },
+  "benefits": [
+    "Improves fruit/vegetable quality, taste and shelf‑life",
+    "Suitable for use across all crop types including natives",
+    "Broad-spectrum macro and micronutrient support",
+    "Contains kelp-derived biostimulant for enhanced plant performance"
+  ],
+  "instructions": "Shake or stir well before use, maintain constant agitation while spraying and fertilising. Jar-test for compatibility. Filter through 500 µm inline filter if mixing. Do not exceed maximum rates; test sensitive foliage before full application.",
+  "storage_handling": "Store in a cool, dry area out of direct sunlight. Product stable to 5 °C; may settle below this—resuspend before use. Reseal cap immediately after use.",
+  "link": "https://nutri-tech.com.au/products/multi-boost",
+  "image": "/src/assets/multi-boost.webp"
+},
+{
+  "product_name": "Multi‑Min™",
+  "nutrients": [
+    "N", "P", "K",
+    "S", "Mn", "Mg",
+    "Fe", "Zn", "Cu",
+    "B", "Mo", "Ca"
+  ],
+  "application": [
+    "Foliar", "Fertigation",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals & Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "A balanced blend of chelated trace minerals (Mn, Fe, Zn, Cu, B, Mo, Ca) fortified with nitrogen, phosphorus, potassium and sulfur—designed to boost resilience, quality, taste, shelf life, and deliver a potassium kick for vegetative or reproductive stages.",
+  "analysis": {
+    "total_N": "4.24%",
+    "N_nitrate": "2.00%",
+    "N_urea": "1.38%",
+    "N_ammonium": "0.63%",
+    "N_organic": "0.23%",
+    "total_P": "0.17%",
+    "total_K": "2.45%",
+    "K_organic": "0.85%",
+    "K_sulfate": "0.83%",
+    "K_nitrate": "0.77%",
+    "S_sulfate ": "4.12%",
+    "Mn": "2.05%",
+    "Mg": "1.49%",
+    "Fe": "1.44%",
+    "Zn": "0.81%",
+    "Cu": "0.78%",
+    "B": "0.20%",
+    "Mo": "0.10%",
+    "Ca": "186 mg/L",
+    "SG": "1.3",
+    "pH": "2.3–3.3",
+    "conductivity": "80–100 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "foliar_vegetables": "0.5 L per 100 L water (≈2.5 L/ha), every 2 weeks or as required",
+    "foliar_orchards_vineyards": "0.5 L per 100 L water (≈5 L/ha), every 3–4 weeks or as required",
+    "foliar_ornamentals_turf": "0.5 L per 100 L water (≈3 L/ha), every 3–4 weeks or as required",
+    "broadacre_crops": "2–3 L/ha in 80–100 L water, as required",
+    "pasture": "2–3 L/ha in 80–100 L water, as required",
+    "spot_spray": "25 mL per 10 L water, as required",
+    "fertigation_vegetables": "3–10 L/ha, every 2 weeks or as required",
+    "fertigation_orchards_vineyards": "5–10 L/ha, every 3–4 weeks or as required",
+    "fertigation_ornamentals_turf": "3–10 L/ha, every 3–4 weeks or as required"
+  },
+  "benefits": [
+    "Boosts resilience and crop quality",
+    "Enhances taste and shelf life",
+    "Delivers a potassium boost during growth or fruit fill",
+    "Broad-spectrum chelated trace minerals support metabolic functions"
+  ],
+  "instructions": "Stir well before use. Adjust rates by crop monitoring. Do not exceed max rate/ha. Test-spray before full application. Jar-test compatibility. Ensure suitable conditions for foliar spraying.",
+  "storage_handling": "Store in cool, dry, shaded area. Stable to 5 °C; may separate or precipitate below this. Do not pre-mix or store diluted. Reseal cap immediately after use.",
+  "link": "https://nutri-tech.com.au/products/multi-min",
+  "image": "/src/assets/multi-min.webp"
+},
+{
+  "product_name": "Multi‑Plex™",
+  "nutrients": [
+    "N",
+    "P",
+    "K",
+    "S",
+    "Fe",
+    "Zn",
+    "Mn",
+    "B",
+    "Cu",
+    "Mo",
+    "Fulvic acid",
+    "Seaweed",
+    "Amino acids"
+  ],
+  "application": [
+    "Foliar",
+    "Fertigation",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals & Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "Juiced-up complete liquid N–P–K (10–10–10) fertiliser with chelated trace elements and organic biostimulants (kelp, fulvic acid, amino acids) to enhance plant vigor, biomass, quality, taste, and shelf life.",
+  "analysis": {
+    "total_N": "10.22%",
+    "N_urea": "5.52%",
+    "N_ammonium": "4.66%",
+    "N_organic": "0.04%",
+    "total_P": "10.09%",
+    "total_K": "10.04%",
+    "K_hydroxide": "5.01%",
+    "K_phosphate": "4.62%",
+    "K_silicate": "0.02%",
+    "K_organic": "0.39%",
+    "S_sulfate ": "0.23%",
+    "Fe": "0.14%",
+    "Zn": "743 mg/L",
+    "Mn": "607 mg/L",
+    "B": "347 mg/L",
+    "Cu": "198 mg/L",
+    "Mo": "39 mg/L",
+    "SG": "1.3",
+    "pH": "7–8",
+    "conductivity": "85–105 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "foliar_vegetables": "1 L per 100 L water (max ~5 L/ha), weekly or as required",
+    "foliar_orchards_vineyards": "1 L per 100 L water (max ~7 L/ha), every 2–4 weeks or as required",
+    "foliar_ornamentals_turf": "1 L per 100 L water (max ~5 L/ha), every 2–4 weeks or as required",
+    "broadacre_crops": "2–3 L/ha in 80–100 L water, as required",
+    "pasture": "2–3 L/ha in 80–100 L water, as required",
+    "spot_spray": "50 mL per 10 L water, as required",
+    "fertigation_vegetables": "5–20 L/ha, weekly or as required",
+    "fertigation_orchards_vineyards_ornamentals_turf": "5–20 L/ha, every 2–4 weeks or as required",
+    "liquid_inject": "4–8 L/ha (dilute ≥1:3 product:water)"
+  },
+  "benefits": [
+    "Promotes healthy, vigorous growth and increased biomass",
+    "Improves fruit/veg quality, taste, and shelf life",
+    "Complete NPK with luxury levels of trace elements",
+    "Contains growth promotants (kelp, fulvic, amino acids)"
+  ],
+  "instructions": "Shake/stir well before use. Adjust rates as required. Test on sensitive foliage. Do not exceed max product rate per hectare. Use jar-test for tank mixes.",
+  "storage_handling": "Store in cool, dry, shaded area. Stable to 5 °C; may crystallize below this. Reseal cap immediately after use.",
+  "link": "https://nutri-tech.com.au/products/multi-plex",
+  "image": "/src/assets/multi-plex.webp"
+},
+{
+  "product_name": "Zinc Essentials™",
+  "nutrients": [
+    "Zn",
+    "N (organic)",
+    "K (organic)",
+    "S",
+    "Ca",
+    "Mg"
+  ],
+  "application": [
+    "Foliar",
+    "Fertigation",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals",
+    "Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "Organically chelated 7.95% zinc with fulvic acid and amino acids to correct Zn deficiencies, increase leaf size, chlorophyll production, root development, enzyme function, and microbial activity.",
+  "analysis": {
+    "Zn": "7.95%",
+    "N_organic": "0.12%",
+    "K_organic": "0.14%",
+    "S_sulfate": "3.95%",
+    "Ca": "247 mg/L",
+    "Mg": "351 mg/L",
+    "SG": "1.2",
+    "pH": "2.8–3.8",
+    "conductivity": "40–60 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "foliar_vegetables": "0.5 L per 100 L water (~2.5 L/ha), repeat as required",
+    "foliar_orchards_vineyards": "0.5 L per 100 L water (~5 L/ha), repeat as required",
+    "foliar_ornamentals": "0.5 L per 100 L water (~3 L/ha), repeat as required",
+    "foliar_turf": "0.5 L per 100 L water (~3 L/ha), repeat as required",
+    "broadacre_crops": "1–2 L/ha in 80–100 L water, repeat as required",
+    "pasture": "1–2 L/ha in 80–100 L water, repeat as required",
+    "spot_spray": "25 mL per 10 L water, repeat as required",
+    "fertigation_vegetables": "3–7 L/ha, repeat as required",
+    "fertigation_orchards_vineyards": "5–10 L/ha, repeat as required",
+    "fertigation_ornamentals_turf": "3–7 L/ha, repeat as required"
+  },
+  "benefits": [
+    "Corrects zinc deficiencies and supports chlorophyll formation",
+    "Improves leaf size and plant stature",
+    "Enhances root development and enzymatic functions",
+    "Chelated form boosts uptake and stimulates microbial growth"
+  ],
+  "instructions": "Stir thoroughly before use. Do not exceed maximum rate per hectare. Test on sensitive foliage first. Adjust frequency per crop monitoring. Jar-test for tank mixes. Use suitable environmental conditions during spraying.",
+  "storage_handling": "Store in a cool, dry, shaded place. Stable to 5 °C; may crystallise below this. Do not pre-mix or store diluted. Reseal cap immediately after use.",
+  "link": "https://nutri-tech.com.au/products/zinc-essentials",
+  "image": "/src/assets/zinc-essentials.webp"
+},
+{
+  "product_name": "CalMag‑Life Organic™",
+  "nutrients": ["Ca", "Mg", "Fulvic acid"],
+  "application": [
+    "Foliar",
+    "Fertigation",
+    "Liquid Inject",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals & Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "Micronised dolomite (suspended Ca & Mg carbonate) with fulvic acid to quickly restore luxury levels of both calcium and magnesium in leaves. Easy to apply via foliar, fertigation, inject or home garden; almost universally compatible with other products.",
+  "analysis": {
+    "Ca (as carbonate)": "20.26%",
+    "Mg (as carbonate)": "9.68%",
+    "SG": "1.5",
+    "pH": "7.5–9.5",
+    "conductivity": "1.5–2.5 mS/cm",
+    "appearance": "Thick off‑white/cream liquid with citrus odour"
+  },
+  "application_rates": {
+    "foliar_vegetables": "1 L per 100 L water (≈5 L/ha), weekly or as required",
+    "foliar_orchards_vineyards": "1 L per 100 L water (≈7 L/ha), every 2–4 weeks or as required",
+    "foliar_ornamentals_turf": "1 L per 100 L water (≈5 L/ha), every 2–4 weeks or as required",
+    "broadacre_crops": "2–3 L/ha in 60–100 L water, as required",
+    "pasture": "2–3 L/ha in 60–100 L water, as required",
+    "spot_spray": "50 mL per 10 L water, as required",
+    "fertigation": "10–30 L/ha, higher rates for soil amelioration",
+    "liquid_inject": "2–3 L/ha (dilute min 1:3 product:water)",
+    "home_garden": "45 mL per 9 L watering can (≈1 L/m²), every 2–4 weeks"
+  },
+  "benefits": [
+    "Rapidly restores luxury levels of calcium and magnesium in foliage",
+    "Micronised carbonate form enhances plant availability",
+    "Fulvic acid aids uptake and mobile tissue translocation",
+    "Broad compatibility via foliar, fertigation, injection, or home-garden use"
+  ],
+  "instructions": "Shake or stir well; keep agitation during mixing. Can pass 200 µm filter but use ≥500 µm inline filter recommended. Test spray sensitive foliage. Avoid near-harvest if produce prone to staining. Limit foliar rate to max 5–7 L/ha. Frequencies should follow crop monitoring.",
+  "storage_handling": "Store in cool, dry, shaded area. Stable to 5 °C; may sediment or thicken below this. Do not pre-mix or store diluted. Reseal lid after use.",
+  "link": "https://nutri-tech.com.au/products/calmag-life-organic",
+  "image": "/src/assets/calmag-life-organic.webp"
+},
+{
+  "product_name": "Dia‑Life Organic™",
+  "nutrients": ["Si", "B", "Fe", "Ca", "Mg"],
+  "application": [
+    "Foliar",
+    "Fertigation",
+    "Liquid Inject",
+    "Horticulture",
+    "Orchards & Vineyards",
+    "Ornamentals & Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "Micronised diatomaceous earth provides plant‑available amorphous silica with chelated micronutrients and boron synergy—enhancing cell strength, flowering, fruit‑set, photosynthesis, yield, quality, and stress resilience.",
+  "analysis": {
+    "Si": "12.51%",
+    "B": "0.68%",
+    "Fe": "0.32%",
+    "Ca": "0.16%",
+    "Mg": "221 mg/L",
+    "SG": "1.2",
+    "pH": "4.5–6",
+    "conductivity": "2.5–4 mS/cm",
+    "appearance": "Thick light‑brown/grey liquid with citrus odour"
+  },
+  "application_rates": {
+    "foliar_horticulture_turf": "1 L per 100 L water (≈5 L/ha), every 2–4 weeks or as required",
+    "broadacre_crops": "2–3 L/ha in 60–100 L water, as required",
+    "pasture": "2–3 L/ha in 60–100 L water, as required",
+    "spot_spray": "50 mL per 10 L water, as required",
+    "fertigation": "5–20 L/ha, as required",
+    "liquid_inject": "1–2 L/ha",
+    "home_garden": "45 mL per 9 L watering can (≈1 L/m²), every 2–4 weeks"
+  },
+  "benefits": [
+    "Micronisation ensures plant‑available silica for cell‑wall strength and disease resistance",
+    "Silicon enhances flowering, fruit‑set, photosynthesis, yield and quality",
+    "Boron acts as a silica synergist and supports reproduction",
+    "Provides trace Fe, Ca and Mg for balanced micronutrition",
+    "Ideal for turf, pastures, broadacre, horticulture and garden use"
+  ],
+  "instructions": "Shake/stir well with agitation; premix slowly to avoid settling. Use ≥500 µm inline filter. Products leave a visible residue—avoid spraying near harvest if staining possible. Test spray sensitive foliage. Jar test for mixes. Adjust frequency with monitoring and crop stage.",
+  "storage_handling": "Read safety directions. Store in cool, dry, shaded location above 10 °C. Do not premix or store diluted. Resin settles; resuspend before use. Product heavy—handle with care to avoid injury.",
+  "link": "https://nutri-tech.com.au/products/dia-life-organic",
+  "image": "/src/assets/dia-life-organic.webp"
+},
+{
+  "product_name": "Gyp‑Life Organic™",
+  "nutrients": ["Ca", "S", "Fulvic acid"],
+  "application": [
+    "Soil ameliorant",
+    "Foliar",
+    "Fertigation",
+    "Liquid Inject",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals & Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "Micronised liquid gypsum (natural CaSO₄) enhanced with fulvic acid to act as a “clay‑buster,” improve soil structure, manage sodium/magnesium, and supply fast‑acting calcium and sulfur.",
+  "analysis": {
+    "Ca (as sulfate)": "19.55%",
+    "S": "15.31%",
+    "SG": "1.5",
+    "pH": "6.8–7.8",
+    "conductivity": "1–5 mS/cm",
+    "appearance": "Thick off‑white/cream liquid with citrus odour"
+  },
+  "application_rates": {
+    "vegetables": "1 L per 100 L water (≈5 L/ha), weekly or as required",
+    "orchards_vineyards": "1 L per 100 L water (≈7 L/ha), every 2–4 weeks or as required",
+    "ornamentals_turf": "1 L per 100 L water (≈5 L/ha), every 2–4 weeks or as required",
+    "broadacre_crops": "2–3 L/ha in 60–100 L water, as required",
+    "pasture": "2–3 L/ha in 60–100 L water, as required",
+    "spot_spray": "50 mL per 10 L water, as required",
+    "soil_ameliorant_fertigation": "10–50 L/ha, as required",
+    "liquid_inject": "2–5 L/ha (dilute min 1:3 product:water)",
+    "home_garden": "45 mL per 9 L watering can (≈1 L/m²), every 2–4 weeks"
+  },
+  "benefits": [
+    "Rapid‑acting source of calcium and sulfur",
+    "“Clay‑buster” effect to improve soil structure and aeration",
+    "Helps manage sodium and magnesium toxicity",
+    "Fulvic acid enhances plant and microbial response",
+    "Convenient liquid alternative to bulk gypsum"
+  ],
+  "instructions": "Shake/stir well before use. Maintain agitation while mixing. Use ≥500 µm inline filter. Test spray sensitive foliage. Avoid spraying near harvest if staining may occur.",
+  "storage_handling": "Store in cool, dry, shaded area; stable to 5 °C. May settle—resuspend before use. Seal cap immediately after use.",
+  "link": "https://nutri-tech.com.au/products/gyp-life-organic",
+  "image": "/src/assets/gyp-life-organic.webp"
+},
+{
+  "product_name": "Lime‑Life Organic™",
+  "nutrients": ["Ca", "Mg", "Fulvic acid"],
+  "application": [
+    "Soil ameliorant",
+    "Foliar",
+    "Fertigation",
+    "Liquid Inject",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals & Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "Micronised calcite with fulvic acid—a high‑analysis, fast‑acting liquid lime that delivers luxury calcium levels to address deficiencies without added nitrogen, ideal for pre‑plant through fruit‑fill stages.",
+  "analysis": {
+    "Ca (as carbonate)": "39.37%",
+    "Mg": "1.05%",
+    "SG": "1.6",
+    "pH": "8.6–9.6",
+    "conductivity": "4–15 mS/cm",
+    "appearance": "Thick off‑white/beige liquid with citrus odour"
+  },
+  "application_rates": {
+    "foliar_vegetables": "1 L per 100 L water (up to 5 L/ha), weekly or as required",
+    "foliar_orchards_vineyards": "1 L per 100 L water (up to 7 L/ha), every 2–4 weeks or as required",
+    "foliar_ornamentals_turf": "1 L per 100 L water (up to 5 L/ha), every 2–4 weeks or as required",
+    "broadacre_crops": "2–3 L/ha in 60–100 L water, as required",
+    "pasture": "2–3 L/ha in 60–100 L water, as required",
+    "spot_spray": "50 mL per 10 L water, as required",
+    "home_garden": "45 mL per 9 L watering can (≈1 L/m²), every 2–4 weeks as required",
+    "soil_ameliorant_fertigation": "10–50 L/ha as required",
+    "liquid_inject": "2–5 L/ha (min 1:3 dilution)"
+  },
+  "benefits": [
+    "Luxury-level calcium without added nitrogen",
+    "Micronised lime for faster plant availability",
+    "Enhances uptake of other minerals—‘trucker effect’",
+    "Convenient liquid lime vs bulk aglime",
+    "Fulvic acid improves plant response"
+  ],
+  "instructions": "Shake/stir well and maintain agitation. Pre‑mix slowly to prevent settling. Use ≥500 µm inline filter. Test spray sensitive foliage. Avoid near-harvest below canopy. Ensure proper mix conditions.",
+  "storage_handling": "Store in cool, dry, shaded area. Stable to 5 °C; may settle below this—resuspend before use. Cap tightly after use.",
+  "link": "https://nutri-tech.com.au/products/lime-life-organic",
+  "image": "/src/assets/lime-life-organic.webp"
+},
+{
+  "product_name": "Mag‑Life Organic™",
+  "nutrients": ["Mg", "Fulvic acid"],
+  "application": [
+    "Foliar",
+    "Fertigation",
+    "Soil Ameliorant",
+    "Liquid Inject",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals & Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "Micronised magnesium carbonate in a free‑flowing suspension with fulvic acid—providing high‑analysis magnesium (21.33%) to support photosynthesis, structural strength, microbial health, and optimal growth.",
+  "analysis": {
+    "Mg (as carbonate)": "21.33%",
+    "SG": "1.5",
+    "pH": "8.4–9.4",
+    "conductivity": "2–10 mS/cm",
+    "appearance": "Thick off‑white liquid with citrus odour"
+  },
+  "application_rates": {
+    "foliar_vegetables": "1 L per 100 L water (max ≈5 L/ha), weekly or as required",
+    "foliar_orchards_vineyards": "1 L per 100 L water (max ≈7 L/ha), every 2–4 weeks or as required",
+    "foliar_ornamentals_turf": "1 L per 100 L water (max ≈5 L/ha), every 2–4 weeks or as required",
+    "broadacre_crops": "1–3 L/ha in 60–100 L water, as required",
+    "pasture": "1–3 L/ha in 60–100 L water, as required",
+    "spot_spray": "50 mL per 10 L water, as required",
+    "fertigation_soil_ameliorant": "10–30 L/ha as required",
+    "liquid_inject": "2–3 L/ha (dilute ≥1:3 product:water)",
+    "home_garden": "45 mL per 9 L watering can (≈1 L/m²), fortnightly or as required"
+  },
+  "benefits": [
+    "Magnesium is central to chlorophyll and photosynthesis",
+    "Enhances plant structural resilience and stress tolerance",
+    "Acts as a phosphate synergist for nutrient efficiency",
+    "Contains a slow‑release trickle to maintain luxury tissue levels",
+    "Includes fulvic acid to stimulate microbial health and uptake"
+  ],
+  "instructions": "Shake/stir well and maintain agitation. Premix slowly to prevent settling. Use ≥500 µm inline filter; will pass 200 µm under ideal conditions. Avoid foliar use near harvest if staining is a risk. Test spray sensitive foliage before widespread use. Adjust frequency based on crop monitoring. Jar‑test for compatibility.",
+  "storage_handling": "Store in cool, dry, shaded area. Stable to 5 °C; sedimentation may occur below this. Do not premix or store in diluted form. Product is heavy—handle with care. Reseal cap promptly after use.",
+  "link": "https://nutri-tech.com.au/products/mag-life-organic",
+  "image": "/src/assets/mag-life-organic.webp"
+},
+{
+  "product_name": "Phos‑Life Organic™",
+  "nutrients": [
+    "Ca",
+    "P",
+    "Si",
+    "K",
+    "Mn",
+    "Fe",
+    "Mg",
+    "Zn",
+    "Cu"
+  ],
+  "application": [
+    "Soil ameliorant",
+    "Foliar",
+    "Fertigation",
+    "Liquid Inject",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals & Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "An organic, high‑analysis, non‑ionic micronised guano suspension delivering both calcium and plant‑available phosphate in a single product—enhanced with trace minerals for fast support of photosynthesis and Brix-building.",
+  "analysis": {
+    "Ca": "24.56%",
+    "P_total": "10.71%",
+    "P_citrate_insoluble": "7.56%",
+    "P_citrate_soluble": "3.15%",
+    "P_water_soluble": "20 mg/L",
+    "Si": "10.73%",
+    "K_organic": "0.15%",
+    "Mn": "1.66%",
+    "Fe": "0.86%",
+    "Mg": "0.34%",
+    "Zn": "0.14%",
+    "Cu": "162 mg/L",
+    "SG": "1.5",
+    "pH": "6.5–8.5",
+    "conductivity": "1–5 mS/cm",
+    "appearance": "Thick mid‑brown liquid, citrus odour"
+  },
+  "application_rates": {
+    "soil_ameliorant_fertigation": "10–30 L/ha, higher for soil remediation",
+    "liquid_inject": "2–5 L/ha (min 1:3 dilution)",
+    "foliar_vegetables": "1 L per 100 L water (~5 L/ha), weekly or as required",
+    "foliar_orchards_vineyards": "1 L per 100 L water (up to 10 L/ha), every 2–4 weeks",
+    "foliar_ornamentals_turf": "1 L per 100 L water (up to 7 L/ha), every 2–4 weeks",
+    "broadacre_crops": "2–3 L/ha in 60–100 L water, as required",
+    "pasture": "2–3 L/ha in 60–100 L water, as required",
+    "spot_spray": "50 mL per 10 L water, as required",
+    "home_garden": "45 mL per 9 L watering can (~1 L/m²), repeat every 2–4 weeks"
+  },
+  "benefits": [
+    "Combines calcium and phosphate in plant‑available form to support Brix and photosynthesis",
+    "Micronised non‑ionic suspension allows rapid uptake within days",
+    "Includes trace minerals for balanced plant nutrition",
+    "Tank‑mix compatible with most fertilisers",
+    "Ideal when nitrogen is not needed alongside P & Ca"
+  ],
+  "instructions": "Shake/stir well and maintain agitation; premix slowly to prevent settling. Use ≥500 µm filter (can pass 200 µm when ideal). Will leave residue on foliage—avoid near harvest if produce stains. Test‑spray sensitive crops. Adjust frequency based on crop monitoring. Do not exceed maximum per hectare.",
+  "storage_handling": "Store in cool, dry, shaded place. Stable to 5 °C; sedimentation may occur below. Do not pre‑mix or store diluted. Handle carefully—product is dense and heavy. Reseal cap after use.",
+  "link": "https://nutri-tech.com.au/products/phos-life-organic",
+  "image": "/src/assets/phos-life-organic.webp"
+},
+{
+  "product_name": "Sili‑Cal™ (B)",
+  "nutrients": ["Ca", "Si", "B"],
+  "application": [
+    "Foliar",
+    "Soil ameliorant",
+    "Fertigation",
+    "Liquid Inject",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals & Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": true,
+  "description": "A synergistic blend of luxury‑level silica, calcium and boron in a non‑ionic, highly compatible liquid form—designed to strengthen cell walls, improve pest and disease resistance, and enhance overall crop resilience.",
+  "analysis": {
+    "SG": "≈1.0–1.1 (typical)",
+    "pH": "Neutral (~7–8)",
+    "appearance": "Slurry/suspension"
+  },
+  "application_rates": {
+    "vegetables": "1 L per 100 L water (up to 3 L/ha), weekly or as required",
+    "orchards_vineyards": "1 L per 100 L water (up to 5 L/ha), every 2–4 weeks or as required",
+    "ornamentals_turf": "1 L per 100 L water (up to 3 L/ha), every 2–4 weeks or as required",
+    "broadacre_crops": "2–3 L/ha in 60–100 L water, as required",
+    "pasture": "2–3 L/ha in 60–100 L water, as required",
+    "soil_ameliorant_fertigation": "10–30 L/ha as required; higher rate for soil remediation",
+    "liquid_inject": "2–5 L/ha (min 1:3 dilution)",
+    "home_garden": "45 mL per 9 L watering can (~1 L/m²), repeat every 2–4 weeks",
+    "spot_spray": "1 L per 100 L water"
+  },
+  "benefits": [
+    "Strengthens plant cell walls for improved pest and disease resistance",
+    "Calcium supports structure; silica enhances lodging and sun tolerance",
+    "Boron acts as a calcium synergist, enhancing cell-wall integrity",
+    "Highly compatible non‑ionic formula blends with most sprays"
+  ],
+  "instructions": "Shake/stir thoroughly before use and maintain agitation. Use ≥500 µm inline filtration. Avoid spraying close to harvest if residue may be visible. Conduct a test spray on sensitive crops.",
+  "storage_handling": "Store in a cool, dry, shaded environment. Stable to ~5 °C; resuspend before use. Seal cap tightly after use.",
+  "link": "https://nutri-tech.com.au/products/sili-cal-b",
+  "image": "/src/assets/sili-cal-b.webp"
+},
+{
+  "product_name": "Nutri‑Key Boron Shuttle™",
+  "nutrients": [
+    "B",
+    "N",
+    "K",
+    "C (Shuttle® chelator)",
+    "S",
+    "Fe",
+    "Zn",
+    "Mn",
+    "Mg",
+    "Cu",
+    "Mo"
+  ],
+  "application": [
+    "Foliar",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals",
+    "Turf",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "Complexed boron (~3.6%) in a superior Shuttle® chelate formulation, delivering boron and background nutrients to enhance flowering, fruit‑set, pollen viability, calcium use, and root development.",
+  "analysis": {
+    "B": "3.61%",
+    "N (organic)": "0.29%",
+    "K total": "0.51%",
+    "C (Shuttle® chelator)": "3.38%",
+    "S": "0.53%",
+    "Fe": "0.31%",
+    "Zn": "0.19%",
+    "Mn": "0.15%",
+    "Mg": "938 mg/L",
+    "Cu": "490 mg/L",
+    "Mo": "98 mg/L",
+    "SG": "1.2",
+    "pH": "6.4–7.4",
+    "conductivity": "20–40 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "vegetables": "0.5 L per 100 L water (≈2.5 L/ha), twice before flowering",
+    "ornamentals": "0.5 L per 100 L water (≈3 L/ha), twice before flowering",
+    "orchards_vineyards": "0.5 L per 100 L water (≈5 L/ha), twice before flowering",
+    "turf": "0.5 L per 100 L water (≈3 L/ha), every 4 weeks",
+    "spot_spray": "25 mL per 10 L water as required",
+    "home_garden": "7.5 mL per 9 L watering can (~1 L/m²), maximum 6 applications/year"
+  },
+  "benefits": [
+    "Supports flowering, fruit‑set and pollen viability",
+    "Synergises with calcium to strengthen cell walls",
+    "Boron chelate resists leaching and improves uptake",
+    "Background nutrients reduce deficiency antagonism",
+    "Shuttle® chelator enhances foliar nutrient delivery"
+  ],
+  "instructions": "Shake/stir thoroughly before use; maintain agitation. Do not exceed 0.5 L/100 L water or crop‑specific max L/ha. Test spray sensitive plants. Apply under suitable conditions. Jar‑test before tank‑mixing.",
+  "storage_handling": "Store in cool, dry, shaded area above 7 °C; stable to 5 °C; crystallisation possible below. Do not premix or store diluted. Reseal cap after use.",
+  "link": "https://nutri-tech.com.au/products/boron-shuttle",
+  "image": "/src/assets/boron-shuttle.webp"
+},
+{
+  "product_name": "Nutri‑Key Calcium Shuttle™",
+  "nutrients": [
+    "Ca",
+    "N",
+    "K",
+    "C (Shuttle® chelator)",
+    "S",
+    "Fe",
+    "Zn",
+    "Mn",
+    "B",
+    "Mg",
+    "Cu",
+    "Si",
+    "Mo"
+  ],
+  "application": [
+    "Foliar",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals",
+    "Turf",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "Highly plant‑available chelated calcium (~9.8%) delivered via Shuttle® technology with balanced background nutrition to strengthen cell walls, protect against toxins, and improve fruit quality, storage life, and disease resistance throughout reproductive stages.",
+  "analysis": {
+    "Ca_total": "9.81%",
+    "Ca_nitrate": "9.80%",
+    "Ca_organic": "0.01%",
+    "N_total": "7.25%",
+    "N_organic": "0.64%",
+    "N_nitrate": "6.61%",
+    "K_total": "0.23%",
+    "K_organic": "0.14%",
+    "K_hydroxide": "0.07%",
+    "K_silicate": "0.02%",
+    "C_chelator": "5.27%",
+    "S": "0.26%",
+    "Fe": "0.15%",
+    "Zn": "930 mg/L",
+    "Mn": "757 mg/L",
+    "B": "433 mg/L",
+    "Mg": "363 mg/L",
+    "Cu": "245 mg/L",
+    "Si": "217 mg/L",
+    "Mo": "49 mg/L",
+    "SG": "1.3",
+    "pH": "6.5–7.5",
+    "conductivity": "60–80 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "vegetables": "1 L per 100 L (≈5 L/ha), weekly after flowering or as required",
+    "orchards_vineyards": "1 L per 100 L (≈7 L/ha), every 3–4 weeks after flowering or as required",
+    "ornamentals": "1 L per 100 L (≈5 L/ha), every 4 weeks or as required",
+    "turf": "1 L per 100 L (≈5 L/ha), every 2–3 weeks or as required",
+    "spot_spray": "50 mL per 10 L water, as required",
+    "home_garden": "30 mL per 9 L watering can (≈1 L/m²), up to 6×/year"
+  },
+  "benefits": [
+    "Strengthens cell walls and fruit integrity",
+    "Enhances storage life and resistance to rots",
+    "Shuttle® chelation ensures superior foliar uptake",
+    "Provides pathogen and toxin protection",
+    "Includes background nutrition to avoid induced deficiencies"
+  ],
+  "instructions": "Shake/stir well before use; maintain agitation. Do not exceed 1 L/100 L. Test on sensitive foliage. Apply under suitable conditions. Jar‑test for mixes.",
+  "storage_handling": "Store in cool, dry place out of sunlight; stable to 5 °C—may crystallise below. Do not premix or store diluted. Reseal cap after use.",
+  "link": "https://nutri-tech.com.au/products/calcium-shuttle",
+  "image": "/src/assets/calcium-shuttle.webp"
+},
+{
+  "product_name": "Nutri‑Key Cobalt Shuttle™",
+  "nutrients": [
+    "Co",
+    "N",
+    "S",
+    "K",
+    "Fe",
+    "Zn",
+    "Mn",
+    "Mg",
+    "Cu",
+    "Mo",
+    "Fulvic acid",
+    "Shuttle® chelator (C)"
+  ],
+  "application": [
+    "Foliar",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals",
+    "Turf",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "A chelated cobalt (2.8%) formulation using Shuttle® technology, delivering cobalt plus background nutrition to boost nitrogen fixation, cytokinin/auxin production, fruit set, root and leaf development, and overall plant vigor.",
+  "analysis": {
+    "Co_sulfate": "2.8%",
+    "S": "3.2%",
+    "N_organic": "0.18%",
+    "Shuttle® chelator (C)": "1.6%",
+    "SG": "1.1",
+    "pH": "4.5–5.5",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "vegetables": "0.5 L per 100 L water (≈1 L/ha), as required",
+    "orchards_vineyards": "0.5 L per 100 L water (≈2 L/ha), as required",
+    "ornamentals": "0.5 L per 100 L water (≈1 L/ha), as required",
+    "turf": "0.5 L per 100 L water (≈1 L/ha), as required",
+    "spot_spray": "25 mL per 10 L water, as required",
+    "home_garden": "2 mL per 9 L watering can (≈1 L/m²), max 6 applications/year"
+  },
+  "benefits": [
+    "Essential cofactor for nitrogenase and boosts N‑fixation in legumes",
+    "Enhances cytokinin production for fruit set and retention",
+    "Supports auxin synthesis promoting root and leaf development",
+    "Serves as a precursor for vitamin B12 which stimulates plant growth",
+    "Shuttle® chelation improves foliar uptake and micronutrient delivery"
+  ],
+  "instructions": "Shake/stir thoroughly and maintain agitation during spray. Do not exceed 0.5 L/100 L. Test on sensitive foliage and adjust frequency as needed. Jar‑test for tank‑mix compatibility. Apply under suitable environmental conditions.",
+  "storage_handling": "Store in a cool, dry, shaded area above 5 °C; crystallization or sedimentation may occur below this. Do not premix or store diluted. Reseal cap after use.",
+  "link": "https://nutri-tech.com.au/products/nutri-key-cobalt-shuttle",
+  "image": "/src/assets/nutri-key-cobalt-shuttle.webp"
+},
+{
+  "product_name": "Nutri‑Key Copper Shuttle™",
+  "nutrients": ["Cu", "N", "K", "C (Shuttle® chelator)", "S", "Fe", "Zn", "Mn", "B", "Mg", "Mo"],
+  "application": [
+    "Foliar",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals",
+    "Turf",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "Chelated copper (~7.6 %) delivered via Shuttle® technology, plus balanced background nutrients to strengthen cell walls, improve seed development, and boost plant resilience during vegetative through harvest stages.",
+  "analysis": {
+    "Cu_sulfate": "7.64%",
+    "N (organic)": "0.52%",
+    "K_total": "0.27%",
+    "K_hydroxide": "0.14%",
+    "K_organic": "0.09%",
+    "K_silicate": "0.04%",
+    "C (Shuttle® chelator)": "4.62%",
+    "S": "4.29%",
+    "Fe": "0.31%",
+    "Zn": "0.19%",
+    "Mn": "0.15%",
+    "B": "866 mg/L",
+    "Mg": "675 mg/L",
+    "Mo": "98 mg/L",
+    "SG": "1.3",
+    "pH": "2.8–3.8",
+    "conductivity": "35–65 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "foliar_vegetables": "0.5 L per 100 L water (≈2.5 L/ha), repeat as required",
+    "foliar_orchards_vineyards": "0.5 L per 100 L water (≈5 L/ha), repeat as required",
+    "foliar_ornamentals": "0.5 L per 100 L water (≈3 L/ha), repeat as required",
+    "foliar_turf": "0.5 L per 100 L water (≈3 L/ha), repeat as required",
+    "spot_spray": "25 mL per 10 L water, as required",
+    "home_garden": "7.5 mL per 9 L watering can, max 6×/year"
+  },
+  "benefits": [
+    "Strengthens cell walls and supports seed formation",
+    "Chelated copper improves uptake and reduces tie-ups/zinc antagonism",
+    "Balanced background nutrition maintains nutrient harmony",
+    "Shuttle® chelation enhances foliar delivery and resilience",
+    "Supports key growth stages: vegetative, flowering, fruit set"
+  ],
+  "instructions": "Shake/stir thoroughly and maintain agitation. Do not exceed 0.5 L/100 L or crop-specific ha rates. Test on sensitive foliage. Apply under suitable environmental conditions. Jar-test before tank-mixing.",
+  "storage_handling": "Store in cool, dry, shaded area above 5 °C. Stable to 5 °C; crystallisation/sedimentation may occur below. Do not premix or store diluted. Seal cap tightly after use.",
+  "link": "https://nutri-tech.com.au/products/copper-shuttle",
+  "image": "/src/assets/copper-shuttle.webp"
+},
+{
+  "product_name": "Nutri‑Key Hydro‑Shuttle™",
+  "nutrients": ["Shuttle® chelator (polysaccharide carbon)", "N (organic)", "Amino acids (~4%)"],
+  "application": ["Hydroponics (nutrient tank additive)"],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "A polysaccharide‑based, non‑ionic chelating agent formulated specifically for hydroponic systems to enhance foliar/nutrient uptake and internal nutrient translocation via nutrient-tank inclusion.",
+  "analysis": {
+    "N_organic": "2.14%",
+    "C_chelator": "21.15%",
+    "Amino_acids": "≈4%",
+    "SG": "1.2",
+    "pH": "8.5–10.5",
+    "conductivity": "10–30 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "hydroponics": "Add 'as required' to nutrient tank; include with each refill or cycle"
+  },
+  "benefits": [
+    "Shuttle® chelation improves uptake and translocation of nutrients",
+    "Poly‑saccharide chelator passes more nutrition through plant cell walls",
+    "Includes amino acids to enhance microbial and plant metabolism",
+    "Designed for all hydroponic stages – vegetative, flowering, fruit set and fill"
+  ],
+  "instructions": "Shake or stir well before use. Perform jar‑test for compatibility. Ensure thorough mix; do not guarantee compatibility or performance with other products.",
+  "storage_handling": "Store in cool, dry, shaded area. Stable down to 5 °C; crystallisation/sedimentation possible below this. Do not pre‑mix or store diluted. Seal cap tightly after use.",
+  "link": "https://nutri-tech.com.au/products/hydro-shuttle",
+  "image": "/src/assets/hydro-shuttle.webp"
+},
+{
+  "product_name": "Nutri‑Key Iron Shuttle™",
+  "nutrients": [
+    "Fe",
+    "N",
+    "K",
+    "C (Shuttle® chelator)",
+    "S",
+    "Zn",
+    "Mn",
+    "B",
+    "Mg",
+    "Cu",
+    "Mo",
+    "Si"
+  ],
+  "application": [
+    "Foliar",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals",
+    "Turf",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "High-concentration chelated iron (7.21%) in a balanced Shuttle® formula delivering complete background nutrition to rapidly address iron chlorosis and improve chlorophyll, growth, and photosynthesis.",
+  "analysis": {
+    "Fe_sulfate": "7.21%",
+    "N (organic)": "0.52%",
+    "K_total": "0.34%",
+    "K_organic": "0.16%",
+    "K_hydroxide": "0.14%",
+    "K_silicate": "0.04%",
+    "C_chelator": "4.38%",
+    "S": "4.41%",
+    "Zn": "0.19%",
+    "Mn": "0.15%",
+    "B": "866 mg/L",
+    "Mg": "678 mg/L",
+    "Cu": "490 mg/L",
+    "Mo": "98 mg/L",
+    "Si": "435 mg/L",
+    "SG": "1.3",
+    "pH": "3.6–4.6",
+    "conductivity": "33–53 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "foliar_vegetables": "0.5 L per 100 L (~2.5 L/ha)",
+    "foliar_orchards_vineyards": "0.5 L per 100 L (~5 L/ha)",
+    "foliar_ornamentals": "0.5 L per 100 L (~3 L/ha)",
+    "foliar_turf": "0.5 L per 100 L (~3 L/ha)",
+    "spot_spray": "25 mL per 10 L",
+    "home_garden": "7.5 mL per 9 L watering can (≤6×/year)"
+  },
+  "benefits": [
+    "Rapid correction of iron chlorosis and boosts chlorophyll",
+    "Improves photosynthesis, leaf thickness, and yield",
+    "Superior Shuttle® chelation enhances uptake",
+    "Provides balanced background nutrition to avoid induced deficiencies"
+  ],
+  "instructions": "Shake/stir well with agitation. Do not exceed 0.5 L/100 L or crop-specific rates. Test on sensitive foliage. Apply under suitable conditions. Jar-test tank-mixes.",
+  "storage_handling": "Store cool, dry, shaded; stable to 5 °C. Seal cap after use. Do not store diluted.",
+  "link": "https://nutri-tech.com.au/products/iron-shuttle",
+  "image": "/src/assets/iron-shuttle.webp"
+},
+{
+  "product_name": "Nutri‑Key Magnesium Shuttle™",
+  "nutrients": [
+    "Mg",
+    "N",
+    "K",
+    "C (Shuttle® chelator)",
+    "S",
+    "Fe",
+    "Zn",
+    "Mn",
+    "B",
+    "Cu",
+    "Mo",
+    "Si"
+  ],
+  "application": [
+    "Foliar",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals",
+    "Turf",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "Chelated magnesium (4.4%) in a balanced Shuttle® formulation with background nutrition and polysaccharide chelator, designed to elevate chlorophyll production, photosynthesis, and overall plant vigor during vegetative to fruit-set stages.",
+  "analysis": {
+    "Mg_sulfate": "4.4%",
+    "N_organic": "0.45%",
+    "K_total": "0.31%",
+    "K_hydroxide": "0.14%",
+    "K_organic": "0.13%",
+    "K_silicate": "0.04%",
+    "C_chelator": "3.90%",
+    "S": "6.24%",
+    "Fe": "0.31%",
+    "Zn": "0.19%",
+    "Mn": "0.15%",
+    "B": "866 mg/L",
+    "Cu": "490 mg/L",
+    "Mo": "98 mg/L",
+    "Si": "435 mg/L",
+    "SG": "1.3",
+    "pH": "5.7–6.7",
+    "conductivity": "33–53 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "foliar_vegetables": "1 L per 100 L (up to 5 L/ha), fortnightly or as required",
+    "foliar_orchards_vineyards": "1 L per 100 L (up to 7 L/ha), every 4 weeks or as required",
+    "foliar_ornamentals_turf": "1 L per 100 L (up to 5 L/ha), every 2‑4 weeks or as required",
+    "spot_spray": "25 mL per 10 L water, as required",
+    "home_garden": "30 mL per 9 L watering can (≈1 L/m²), fortnightly or as required"
+  },
+  "benefits": [
+    "Central to chlorophyll construction and photosynthetic performance",
+    "Supports sugar, lipid and starch translocation",
+    "Boosts plant growth and vigor across development stages",
+    "Polysaccharide Shuttle® chelator enhances nutrient uptake and translocation"
+  ],
+  "instructions": "Shake/stir with agitation before and during application. Do not exceed recommended ha rates. Test spray on sensitive foliage. Adjust frequency based on tissue monitoring. Jar-test compatibility before tank-mixing.",
+  "storage_handling": "Store in cool, dry, shaded area. Stable to 5 °C; crystallisation or sedimentation may occur below this. Do not premix or store diluted. Reseal cap after use.",
+  "link": "https://nutri-tech.com.au/products/magnesium-shuttle",
+  "image": "/src/assets/magnesium-shuttle.webp"
+},
+{
+  "product_name": "Nutri‑Key Manganese Shuttle™",
+  "nutrients": [
+    "Mn",
+    "N",
+    "K",
+    "C (Shuttle® chelator)",
+    "S",
+    "Fe",
+    "Zn",
+    "B",
+    "Mg",
+    "Cu",
+    "Mo"
+  ],
+  "application": [
+    "Foliar",
+    "Seed treatment",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals",
+    "Turf",
+    "Broadacre Crops",
+    "Pasture",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "A high-concentration chelated manganese formulation (~13.2%) using Shuttle® technology with balanced background nutrition to support seed germination, flowering, seed formation, and carbohydrate + nitrogen metabolism.",
+  "analysis": {
+    "Mn (as sulfate)": "13.19%",
+    "N (total, as sulfate)": "0.53%",
+    "K (total)": "0.27%",
+    "K (hydroxide)": "0.14%",
+    "K (organic)": "0.09%",
+    "K (silicate)": "0.04%",
+    "C (Shuttle® chelator)": "4.70%",
+    "S": "8.15%",
+    "Fe": "0.31%",
+    "Zn": "0.19%",
+    "B": "866 mg/L",
+    "Mg": "675 mg/L",
+    "Cu": "490 mg/L",
+    "Mo": "98 mg/L",
+    "SG": "1.4",
+    "pH": "5.6–6.6",
+    "conductivity": "10–30 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "foliar_vegetables": "0.5 L per 100 L water (≈2.5 L/ha), twice before flowering or as required",
+    "foliar_orchards_vineyards": "0.5 L per 100 L water (≈5 L/ha), twice before flowering or as required",
+    "foliar_ornamentals": "0.5 L per 100 L water (≈3 L/ha), twice before flowering or as required",
+    "foliar_turf": "0.5 L per 100 L water (≈3 L/ha), every 4 weeks or as required",
+    "spot_spray": "25 mL per 10 L water, as required",
+    "seed_treatment": "2 L per tonne seed with enough water to coat seed",
+    "home_garden": "7.5 mL per 9 L watering can (~1 L/m²), max 6× per year"
+  },
+  "benefits": [
+    "High‑analysis manganese corrects deficiencies and boosts seed germination",
+    "Supports carbohydrate and nitrogen metabolism",
+    "Enhances flowering and seed formation",
+    "Superior Shuttle® chelation for improved uptake",
+    "Balanced background nutrition prevents induced deficiencies"
+  ],
+  "instructions": "Shake/stir well before use; maintain agitation. Adjust rates according to crop monitoring and water volume without exceeding max L/ha. Test-spray sensitive foliage. Use under suitable spray conditions. Compatibility not guaranteed; jar-test before mixing.",
+  "storage_handling": "Store in a cool, dry, shaded area above 5 °C; product may crystallise or separate below this. Do not premix or store diluted. Reseal cap immediately after use.",
+  "link": "https://nutri-tech.com.au/products/manganese-shuttle",
+  "image": "/src/assets/manganese-shuttle.webp"
+},
+{
+  "product_name": "Nutri‑Key Moly Shuttle™",
+  "nutrients": [
+    "Mo",
+    "N (organic)",
+    "C (Shuttle® chelator)"
+  ],
+  "application": [
+    "Foliar",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals",
+    "Turf",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "High-analysis chelated molybdenum (~4.76%) using Shuttle® technology, offering foliar security to correct Mo deficiencies for a season and support nitrogen fixation, protein synthesis, and crop resilience.",
+  "analysis": {
+    "Mo_ammonium": "4.76%",
+    "N_organic": "0.18%",
+    "C_chelator": "1.60%",
+    "SG": "1.1",
+    "pH": "8.5–9.5",
+    "conductivity": "50–70 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "foliar_vegetables": "0.5 L per 100 L water (≤1 L/ha equivalent), as required",
+    "foliar_orchards_vineyards": "0.5 L per 100 L water (≤2 L/ha equivalent), as required",
+    "foliar_ornamentals": "0.5 L per 100 L water (≤1 L/ha equivalent), as required",
+    "foliar_turf": "0.5 L per 100 L water (≤1 L/ha equivalent), as required",
+    "spot_spray": "25 mL per 10 L water, as required",
+    "home_garden": "2 mL per 9 L watering can (≈1 L/m²), max 6 applications/year"
+  },
+  "benefits": [
+    "Corrects molybdenum deficiency with a season-long foliar effect",
+    "Essential for nitrogenase enzyme and atmospheric nitrogen fixation",
+    "Boosts protein synthesis for improved plant growth",
+    "Superior Shuttle® chelation enhances foliar uptake and performance"
+  ],
+  "instructions": "Shake/stir well before use. Rates should be adjusted based on crop monitoring; do not exceed max L/ha equivalent. Test on sensitive foliage; apply under suitable conditions. Jar-test for tank-mix compatibility.",
+  "storage_handling": "Store in a cool (≥5 °C), dry, shaded place. Crystallisation or sedimentation may occur below 5 °C. Do not pre-mix or store diluted. Seal cap tightly after use.",
+  "link": "https://nutri-tech.com.au/products/moly-shuttle",
+  "image": "/src/assets/moly-shuttle.webp"
+},
+{
+  "product_name": "Nutri‑Key Shuttle Seven™",
+  "nutrients": [
+    "K",
+    "N",
+    "S",
+    "Fe",
+    "C (Shuttle® chelator)",
+    "Zn",
+    "Mn",
+    "B",
+    "Mg",
+    "Cu",
+    "Si",
+    "Mo",
+    "Co"
+  ],
+  "application": [
+    "Foliar",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals",
+    "Turf",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "A balanced blend of seven trace elements delivered via revolutionary Shuttle® chelation, supported by background major nutrients, saponins, and fulvic acid—designed to correct and prevent trace-element deficiencies across all growth stages.",
+  "analysis": {
+    "K_total": "2.63%",
+    "K_hydroxide": "1.36%",
+    "K_organic": "0.89%",
+    "K_silicate": "0.38%",
+    "N_organic": "0.43%",
+    "S_sulfate ": "4.72%",
+    "Fe": "3.06%",
+    "C_chelator": "3.04%",
+    "Zn": "1.86%",
+    "Mn": "1.51%",
+    "B": "0.87%",
+    "Mg": "0.67%",
+    "Cu": "0.49%",
+    "Si": "0.43%",
+    "Mo": "975 mg/L",
+    "Co": "34 mg/L",
+    "SG": "1.3",
+    "pH": "5.1–6.1",
+    "conductivity": "45–65 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "foliar_vegetables": "0.5 L per 100 L water (≈2.5 L/ha)",
+    "foliar_orchards_vineyards": "0.5 L per 100 L water (≈5 L/ha)",
+    "foliar_ornamentals": "0.5 L per 100 L water (≈3 L/ha)",
+    "foliar_turf": "0.5 L per 100 L water (≈3 L/ha)",
+    "spot_spray": "25 mL per 10 L water",
+    "home_garden": "7.5 mL per 9 L watering can (max 6 applications/year)"
+  },
+  "benefits": [
+    "Corrects and prevents deficiencies of seven essential trace elements",
+    "Shuttle® chelation improves foliar uptake and bioavailability",
+    "Includes background macronutrients to prevent induced imbalances",
+    "Acts as carbohydrate-based microbial promotant; may continue mineral delivery in soil",
+    "Suitable across growth stages, from vegetative through flowering and fruit fill"
+  ],
+  "instructions": "Shake/stir thoroughly before use and maintain agitation during spraying. Do not exceed 0.5 L/100 L or crop-specific maximums. Test spray sensitive foliage. Apply under suitable environmental conditions. Conduct jar-test before tank mixes.",
+  "storage_handling": "Store in cool, dry, shaded area. Stable down to 5 °C; crystallisation or sedimentation may occur below this. Do not premix or store diluted. Seal cap tightly after use.",
+  "link": "https://nutri-tech.com.au/products/shuttle-seven",
+  "image": "/src/assets/shuttle-seven.webp"
+},
+{
+  "product_name": "Nutri‑Key Zinc Shuttle™",
+  "nutrients": [
+    "Zn",
+    "N (organic)",
+    "K",
+    "C (Shuttle® chelator)",
+    "S",
+    "Fe",
+    "Mn",
+    "B",
+    "Mg",
+    "Cu",
+    "Mo"
+  ],
+  "application": [
+    "Foliar",
+    "Vegetables",
+    "Orchards & Vineyards",
+    "Ornamentals",
+    "Turf",
+    "Broadacre Crops",
+    "Spot Spray",
+    "Home Garden"
+  ],
+  "product_form": "Liquid",
+  "organic_certified": false,
+  "description": "High-analysis chelated zinc (~8.17%) delivered via Shuttle® technology with background nutrition—optimises auxin control, leaf expansion and photosynthetic efficiency in horticultural and broadacre crops.",
+  "analysis": {
+    "Zn_sulfate": "8.17%",
+    "N (organic)": "0.73%",
+    "K_total": "0.27%",
+    "K_hydroxide": "0.14%",
+    "K_organic": "0.09%",
+    "K_silicate": "0.04%",
+    "C_chelator": "6.54%",
+    "S": "4.35%",
+    "Fe": "0.31%",
+    "Mn": "0.15%",
+    "B": "866 mg/L",
+    "Mg": "675 mg/L",
+    "Cu": "490 mg/L",
+    "Mo": "98 mg/L",
+    "SG": "1.3",
+    "pH": "5.2–6.2",
+    "conductivity": "33–53 mS/cm",
+    "appearance": "Brown liquid"
+  },
+  "application_rates": {
+    "foliar_vegetables": "0.5 L per 100 L water (up to 2.5 L/ha), as required",
+    "foliar_orchards_vineyards": "0.5 L per 100 L water (up to 5 L/ha), as required",
+    "foliar_ornamentals": "0.5 L per 100 L water (up to 3 L/ha), as required",
+    "foliar_turf": "0.5 L per 100 L water (up to 3 L/ha), as required",
+    "broadacre_crops": "2–3 L/ha in 80–120 L water, as required",
+    "spot_spray": "25 mL per 10 L water, as required",
+    "home_garden": "7.5 mL per 9 L watering can (approx. 1 L/m²), max 6×/year"
+  },
+  "benefits": [
+    "Delivers cost-effective zinc nutrition to optimise auxin-regulated leaf size and photosynthesis",
+    "Shuttle® chelation enhances foliar uptake and nutrient mobility",
+    "Includes complementary macro- and micronutrients to prevent induced deficiencies",
+    "Supports all crop stages from vegetative growth through fruit set"
+  ],
+  "instructions": "Stir well before use and maintain agitation during spray. Do not exceed 0.5 L/100 L water or specified ha rates. Test on sensitive crops. Apply under suitable conditions. Compatibility not guaranteed—jar‑test before mixing.",
+  "storage_handling": "Store in a cool, dry, shaded location. Tested stable to 5 °C; crystallisation may occur below. Do not premix or store diluted. Seal cap after use.",
+  "link": "https://nutri-tech.com.au/products/zinc-shuttle",
+  "image": "/src/assets/zinc-shuttle.webp"
+},
+{
+  "product_name": "Life Force® Gold Pellets™",
+  "nutrients": [
+    "N", "P", "K", "C", "Ca", "S", "Mg",
+    "Fe", "Si", "Zn", "Cu", "Mn", "B",
+    "Mo", "Co", "Se"
+  ],
+  "application": [
+    "Soil conditioner",
+    "Compost enhancer",
+    "Home garden",
+    "Vegetables & annual flowers",
+    "Fruit trees",
+    "Lawns",
+    "Pasture",
+    "Broadacre crops",
+    "Potting media"
+  ],
+  "product_form": "Solid (pellets 2–4 mm)",
+  "organic_certified": true,
+  "description": "A high‑carbon, composted fusion fertiliser and soil conditioner containing over 20 components including minerals and live microbes—designed to bridge conventional and organic systems for regenerative nutrient cycling and soil health.",
+  "analysis": {
+    "total_N": "3.03%",
+    "total_P": "2.01%",
+    "total_K": "3.98%",
+    "C": "26.9%",
+    "Ca": "5.99%",
+    "S": "2.97%",
+    "Mg": "0.70%",
+    "Fe": "1240 ppm",
+    "Si": "1430 ppm",
+    "Zn": "1600 ppm",
+    "Cu": "1040 ppm",
+    "Mn": "310 ppm",
+    "B": "540 ppm",
+    "Mo": "15.8 ppm",
+    "Co": "0.3 ppm",
+    "Se": "1.1 ppm",
+    "pH": "7.06",
+    "sheet_C:N_ratio": "8.87"
+  },
+  "application_rates": {
+    "soil_regeneration": "1–3 t/ha broadcast; 300 kg–1.5 t/ha banded",
+    "home_garden": "200 g/m² (≈1 cup) twice yearly",
+    "vegetables_annual_flowers": "200 g/m² at planting, repeat every 4 weeks",
+    "fruit_trees": "400–500 g/tree per year (up to 4 kg each), under canopy in spring/autumn",
+    "lawns": "3–5 mm layer pre-laying; maintenance: bag per 60–100 m² 2–3×/year",
+    "pasture": "300–600 kg/ha twice yearly",
+    "broadacre_crops": "75–150 kg/ha in-furrow with seed",
+    "potting_media": "15 g/L of mix"
+  },
+  "benefits": [
+    "Complete macronutrient and trace mineral supply",
+    "Boosts microbial biodiversity and soil biology",
+    "Supports regenerative nutrient cycling",
+    "Conditions soil structure, moisture retention",
+    "Certified organic and home-garden safe",
+    "Contains active microbes that can be used as compost tea starter"
+  ],
+  "instructions": "Apply evenly and incorporate if possible. Use protective gloves and mask. Store cool, dry. Refer to product sheet for safety directions.",
+  "storage_handling": "Store in cool, dry location. Keep sealed, avoid dust inhalation.",
+  "link": "https://nutri-tech.com.au/products/life-force-gold-pellets",
+  "image": "/src/assets/life-force-gold-pellets.webp"
+},
+{
+  "product_name": "NTS Soft Rock™",
+  "nutrients": ["P", "Ca", "Si", "Fe", "K", "Mg", "S", "Mn", "Zn", "Cu"],
+  "application": [
+    "Soil",
+    "Garden beds",
+    "Home gardens",
+    "Orchards",
+    "Lawns",
+    "Pasture",
+    "Broadacre crops",
+    "Potting media"
+  ],
+  "product_form": "Solid (granules/powder)",
+  "organic_certified": true,
+  "description": "A natural, colloidal, clay-based rock phosphate supplying slow-release phosphorus and calcium, rich in silicon and trace elements, with minimal cadmium and excellent microbial compatibility.",
+  "analysis": {
+    "Total_P": "8–9%",
+    "P_citrate_insoluble": "7.2–8.2%",
+    "P_citrate_soluble": "0.8%",
+    "P_water_soluble": "0.03%",
+    "Ca": "19.3%",
+    "Si": "15–26%",
+    "Fe": "2.0%",
+    "K": "0.7%",
+    "Mg": "4600 ppm",
+    "S": "1500 ppm",
+    "Mn": "1100 ppm",
+    "Zn": "260 ppm",
+    "Cu": "130 ppm",
+    "Cd": "< 1 ppm"
+  },
+  "application_rates": {
+    "soil": "200 kg–1.5 t/ha",
+    "garden_beds": "1.25 kg per 10 m²"
+  },
+  "benefits": [
+    "Provides slow-release phosphorus without lock-up",
+    "High calcium and silicon boost cell strength and Brix",
+    "Rich in trace elements for balanced nutrition",
+    "Extremely low cadmium (<1 ppm)",
+    "Supports soil microbial health and regeneration"
+  ],
+  "instructions": "Broadcast or band; incorporate into root zone. Wear dust protection. Store cool and dry.",
+  "storage_handling": "Store in cool, dry area out of direct sunlight; avoid moisture.",
+  "link": "https://nutri-tech.com.au/products/nts-soft-rock",
+  "image": "/src/assets/nts-soft-rock.webp"
+},
+{
+  "product_name": "Nutri‑Gyp™ Natural Gypsum",
+  "nutrients": ["Ca", "S"],
+  "application": [
+    "Soil",
+    "Garden beds",
+    "Home gardens",
+    "Orchards",
+    "Lawns",
+    "Pasture",
+    "Broadacre crops"
+  ],
+  "product_form": "Solid (granules 1–2 mm)",
+  "organic_certified": true,
+  "description": "Grade‑1 natural gypsum (calcium sulfate), low in cadmium and microbe‑friendly—used to ameliorate sodic or high‑magnesium soils, open soil structure, and provide sulfur.",
+  "analysis": {
+    "Ca": "19%",
+    "S": "15%",
+    "particle_size": "1–2 mm granules"
+  },
+  "application_rates": {
+    "soil": "500 kg–2 t/ha broadcast"
+  },
+  "benefits": [
+    "Ameliorates sodic and high‑magnesium soils through calcium‑sodium exchange",
+    "Supplies economical sulfur",
+    "Low cadmium content-grade‑1 natural gypsum",
+    "Soil‑ and microbe‑friendly alternative to chemical gypsum"
+  ],
+  "instructions": "Broadcast over soil; incorporate if possible; wear dust protection when handling.",
+  "storage_handling": "Store in cool, dry place out of direct sunlight; refer to label.",
+  "link": "https://nutri-tech.com.au/products/nutri-gyp",
+  "image": "/src/assets/nutri-gyp.webp"
+},
+{
+  "product_name": "Nutri‑Phos Super Active™",
+  "nutrients": ["P", "Ca"],
+  "application": [
+    "Liquid Inject",
+    "Soil Ameliorant",
+    "Fertigation",
+    "Foliar Spray"
+  ],
+  "product_form": "Solid (cream/light-tan micronised powder)",
+  "organic_certified": true,
+  "description": "Micronised, bioavailable phosphorus (12.6%) and calcium (28.9%) powder ideal for liquid application. Provides both rapid-release and sustained-release phosphate to support crop start and season-long nutrition.",
+  "analysis": {
+    "P": "12.6%",
+    "Ca": "28.9%",
+    "Particle_Size": "Average ~5 µm",
+    "Appearance": "Cream/light‑tan powder"
+  },
+  "application_rates": {
+    "liquid_inject": "2–5 kg/ha (min 1:3 dilution)",
+    "soil_fertigation": "5–100 kg/ha (higher for soil amelioration)",
+    "foliar_broadacre": "2–5 kg/ha in 60–120 L water",
+    "foliar_horticulture": "1 kg per 100 L water up to 7 kg/ha equivalent"
+  },
+  "benefits": [
+    "Delivers high‑analysis, citrate‑soluble phosphorus boost",
+    "Combines fast‑release and slow‑release phosphate for sustained nutrition",
+    "Engineered for liquid use in planting, fertigation or foliar applications",
+    "Micronisation supports rapid nutrient uptake and microbial benefit",
+    "Certified organic input promoting bioavailable P without heavy metals"
+  ],
+  "instructions": "Maintain constant tank agitation. Premix slowly to prevent settling. Use coarse inline filter ≥500 µm; may pass 200 µm under ideal conditions. Avoid spraying near harvest if produce stains. Test on sensitive foliage. Adjust rates per crop monitoring.",
+  "storage_handling": "Store in cool, dry place out of direct sunlight. Stable to 5 °C. Refer label for safety and dust control.",
+  "link": "https://nutri-tech.com.au/products/nutri-phos-super-active",
+  "image": "/src/assets/nutri-phos-super-active.webp"
+}

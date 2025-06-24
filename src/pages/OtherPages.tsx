@@ -82,7 +82,7 @@ export const TaskCalendarPage: React.FC = () => {
           </div>
           <div className="mt-6 space-y-2">
             {[
-              { title: 'Implement new analytics dashboard', status: 'In Progress', assignee: 'John Doe', dueDate: '2023-11-20' },
+              { title: 'Implement new analytics overview', status: 'In Progress', assignee: 'John Doe', dueDate: '2023-11-20' },
               { title: 'Fix subscription payment bug', status: 'Pending', assignee: 'Jane Smith', dueDate: '2023-11-18' },
               { title: 'Update user documentation', status: 'Completed', assignee: 'Admin User', dueDate: '2023-11-15' },
             ].map((task, i) => (

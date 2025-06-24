@@ -24,7 +24,7 @@ const TopBar: React.FC = () => {
   React.useEffect(() => {
     const allNavItems = NAV_ITEMS.flatMap(section => section.children);
     const currentNavItem = allNavItems.find(item => item.path === location.pathname);
-    setPageTitle(currentNavItem?.label || 'Dashboard');
+    setPageTitle(currentNavItem?.label || '');
   }, [location.pathname]);
 
   const handleLogout = async () => {
@@ -66,7 +66,7 @@ const TopBar: React.FC = () => {
           <Menu className="h-5 w-5" />
         </Button>
         <div className="flex items-center gap-4">
-          <h1 className="text-lg font-semibold text-foreground">{pageTitle}</h1>
+          {/* No page title shown */}
         </div>
       </div>
 

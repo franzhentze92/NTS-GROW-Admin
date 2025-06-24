@@ -519,9 +519,20 @@ export const AnalysisFormDialog: React.FC<AnalysisFormDialogProps> = ({
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Draft By</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Who created the draft?" {...field} />
-                          </FormControl>
+                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select consultant" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {CONSULTANTS.map((consultant) => (
+                                <SelectItem key={consultant.id} value={consultant.name}>
+                                  {consultant.name}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -552,9 +563,20 @@ export const AnalysisFormDialog: React.FC<AnalysisFormDialogProps> = ({
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Ready Check By</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Who marked as ready?" {...field} />
-                          </FormControl>
+                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select consultant" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {CONSULTANTS.map((consultant) => (
+                                <SelectItem key={consultant.id} value={consultant.name}>
+                                  {consultant.name}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -585,9 +607,20 @@ export const AnalysisFormDialog: React.FC<AnalysisFormDialogProps> = ({
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Checked By</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Who checked the analysis?" {...field} />
-                          </FormControl>
+                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select consultant" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {CONSULTANTS.map((consultant) => (
+                                <SelectItem key={consultant.id} value={consultant.name}>
+                                  {consultant.name}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -618,9 +651,20 @@ export const AnalysisFormDialog: React.FC<AnalysisFormDialogProps> = ({
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Emailed By</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Who sent the email?" {...field} />
-                          </FormControl>
+                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select consultant" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {CONSULTANTS.map((consultant) => (
+                                <SelectItem key={consultant.id} value={consultant.name}>
+                                  {consultant.name}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}

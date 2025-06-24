@@ -32,6 +32,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <main className="flex-1 p-4 md:p-6 overflow-y-auto">
           {children}
         </main>
+        <footer style={{ textAlign: 'center', fontSize: '0.95rem', color: '#888', padding: '0.75rem 0', letterSpacing: 1 }}>
+          Powered by NTS G.R.O.W
+        </footer>
       </div>
     </div>
   );
