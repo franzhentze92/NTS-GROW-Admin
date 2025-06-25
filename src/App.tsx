@@ -27,6 +27,7 @@ import AnalysisReportsPage from '@/pages/AnalysisReportsPage';
 import ChatPage from "@/pages/ChatPage";
 import SatelliteImageryPage from "@/pages/SatelliteImageryPage";
 import WeatherPage from "@/pages/WeatherPage";
+import GeneralWeatherPage from "@/pages/GeneralWeatherPage";
 import FieldVisitsPage from "@/pages/FieldVisitsPage";
 import FieldVisitAnalyticsPage from "@/pages/FieldVisitAnalyticsPage";
 import IrrigationCalculatorPage from "@/pages/IrrigationCalculatorPage";
@@ -37,6 +38,14 @@ import { useEffect } from 'react';
 
 // Create a client
 const queryClient = new QueryClient();
+
+// Configure React Router future flags to suppress deprecation warnings
+const router = {
+  future: {
+    v7_startTransition: true,
+    v7_relativeSplatPath: true,
+  },
+};
 
 function App() {
   useEffect(() => {
@@ -66,7 +75,7 @@ function App() {
           <TooltipProvider>
             <Toaster />
             <Sonner />
-            <Router>
+            <Router {...router}>
               <Routes>
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/" element={<Layout><Outlet /></Layout>}>
@@ -96,7 +105,7 @@ function App() {
                   {/* Satellite Imagery Routes */}
                   <Route path="/agronomist/satellite/crop-health" element={<CropHealth />} />
                   <Route path="/agronomist/satellite/weather" element={<WeatherPage />} />
-                  <Route path="/agronomist/weather" element={<WeatherPage />} />
+                  <Route path="/agronomist/weather" element={<GeneralWeatherPage />} />
 
                   {/* G.R.O.W Smart Tools Routes */}
                   <Route path="/agronomist/smart-tools/irrigation/calculation" element={<IrrigationCalculatorPage />} />

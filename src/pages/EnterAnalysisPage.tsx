@@ -18,6 +18,7 @@ import { ViewAnalysisDialog } from '@/components/analysis/ViewAnalysisDialog';
 import { Analysis } from '@/lib/types';
 import { format } from 'date-fns';
 import { supabase } from '@/lib/supabaseClient';
+import { PostgrestResponse } from '@supabase/supabase-js';
 
 // UI Analysis interface for Gantt chart
 export interface AnalysisTask {
@@ -75,7 +76,7 @@ const EnterAnalysisPage: React.FC = () => {
     const [selectedConsultant, setSelectedConsultant] = useState('all');
     const [selectedAnalysisType, setSelectedAnalysisType] = useState<'all' | 'soil' | 'leaf'>('all');
     const allStatuses: AnalysisTask['status'][] = useMemo(() => ['Draft', 'Ready to be Checked', 'Checked Ready to be Emailed', 'Emailed'], []);
-    const [selectedStatuses, setSelectedStatuses] = useState<AnalysisTask['status'][]>(['Draft', 'Ready to be Checked', 'Checked Ready to be Emailed']);
+    const [selectedStatuses, setSelectedStatuses] = useState<AnalysisTask['status'][]>([...allStatuses]);
     const [viewMode, setViewMode] = useState<ViewMode>(ViewMode.Week);
     const [selectedMonth, setSelectedMonth] = useState('all');
 
@@ -89,15 +90,22 @@ const EnterAnalysisPage: React.FC = () => {
     // Delete analysis mutation
     const deleteAnalysisMutation = useMutation({
         mutationFn: async (analysisId: string) => {
-            const { error } = await supabase
+            console.log('Attempting to delete analysis with ID:', analysisId);
+            const { data, error } = (await supabase
                 .from('analysis_tracker')
                 .delete()
-                .eq('id', analysisId);
+                .eq('id', analysisId)) as PostgrestResponse<any>;
             if (error) throw new Error(error.message);
+            return data;
         },
-        onSuccess: () => {
+        onSuccess: (data) => {
+            console.log('Delete successful:', data);
             queryClient.invalidateQueries({ queryKey: ['analyses'] });
         },
+        onError: (error) => {
+            console.log('Delete error:', error);
+            alert('Failed to delete analysis: ' + error.message);
+        }
     });
 
     // Convert Analysis to AnalysisTask for Gantt chart
@@ -276,21 +284,69 @@ const EnterAnalysisPage: React.FC = () => {
     };
 
     if (isLoading) return <div className="flex items-center justify-center h-full"><p>Loading analyses...</p></div>;
-    if (isError) return <div className="text-red-500"><p>Error loading analyses: {error.message}</p></div>;
+    if (isError) {
+        const errorMessage = error.message;
+        const isConfigError = errorMessage.includes('Database connection not configured');
+        
+        return (
+            <div className="container mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
+                <div>
+                    <h1 className="text-3xl font-bold text-foreground">Analysis Management</h1>
+                    <p className="text-muted-foreground mt-1">Track and manage all soil and leaf therapy analysis records with visual timeline.</p>
+                </div>
+                
+                <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                    <div className="flex items-center">
+                        <AlertCircle className="h-5 w-5 text-red-400 mr-3" />
+                        <h3 className="text-lg font-semibold text-red-800">Database Connection Error</h3>
+                    </div>
+                    <div className="mt-3 text-red-700">
+                        {isConfigError ? (
+                            <div>
+                                <p className="mb-3">The analysis tracking system requires a Supabase database connection to function properly.</p>
+                                <div className="bg-white p-4 rounded border">
+                                    <h4 className="font-semibold mb-2">To fix this issue:</h4>
+                                    <ol className="list-decimal list-inside space-y-1 text-sm">
+                                        <li>Create a <code className="bg-gray-100 px-1 rounded">.env.local</code> file in your project root</li>
+                                        <li>Add your Supabase credentials:</li>
+                                        <li className="ml-4">
+                                            <code className="bg-gray-100 px-1 rounded block mt-1">
+                                                VITE_SUPABASE_URL=your_supabase_project_url
+                                            </code>
+                                            <code className="bg-gray-100 px-1 rounded block mt-1">
+                                                VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+                                            </code>
+                                        </li>
+                                        <li>Run the SQL setup script in your Supabase dashboard</li>
+                                        <li>Restart your development server</li>
+                                    </ol>
+                                </div>
+                                <div className="mt-3 text-sm">
+                                    <p><strong>Note:</strong> You can find your Supabase credentials in your project dashboard under Settings → API.</p>
+                                </div>
+                            </div>
+                        ) : (
+                            <p>Error loading analyses: {errorMessage}</p>
+                        )}
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="container mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
             <div>
                 <div className="flex justify-between items-center">
                     <div>
-                        <h1 className="text-3xl font-bold text-foreground">Analysis Creation Monitoring</h1>
+                        <h1 className="text-3xl font-bold text-foreground">Analysis Management</h1>
                         <p className="text-muted-foreground mt-1">Track and manage all soil and leaf therapy analysis records with visual timeline.</p>
                     </div>
                     <div className="flex gap-2">
                         <AnalysisFormDialog mode="create">
                             <Button>
                                 <PlusCircle className="mr-2 h-4 w-4" />
-                                Add New Analysis
+                                Register New Analysis
                             </Button>
                         </AnalysisFormDialog>
                         <Button variant="outline" size="sm" onClick={() => refetch()}><RefreshCw className={`h-4 w-4 mr-2 ${isLoading ? 'animate-spin' : ''}`} />Refresh</Button>
@@ -491,7 +547,10 @@ const EnterAnalysisPage: React.FC = () => {
                                                     <Button 
                                                         variant="ghost" 
                                                         size="sm" 
-                                                        onClick={() => fullAnalysis && handleDeleteAnalysis(fullAnalysis)}
+                                                        onClick={() => {
+                                                            console.log('Delete button clicked for analysis:', fullAnalysis?.id);
+                                                            fullAnalysis && handleDeleteAnalysis(fullAnalysis);
+                                                        }}
                                                         className="text-red-600 hover:text-red-700"
                                                     >
                                                         <Trash2 className="h-4 w-4" />

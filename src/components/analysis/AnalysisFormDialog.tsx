@@ -88,19 +88,31 @@ export const AnalysisFormDialog: React.FC<AnalysisFormDialogProps> = ({
       pdf_file_path: analysis?.pdf_file_path || '',
       sample_no: analysis?.sample_no || '',
       draft_by: analysis?.draft_by || '',
-      draft_date: analysis?.draft_date || '',
+      draft_date: analysis?.draft_date ? new Date(analysis.draft_date).toISOString().slice(0, 16) : '',
       ready_check_by: analysis?.ready_check_by || '',
-      ready_check_date: analysis?.ready_check_date || '',
+      ready_check_date: analysis?.ready_check_date ? new Date(analysis.ready_check_date).toISOString().slice(0, 16) : '',
       checked_by: analysis?.checked_by || '',
-      checked_date: analysis?.checked_date || '',
+      checked_date: analysis?.checked_date ? new Date(analysis.checked_date).toISOString().slice(0, 16) : '',
       emailed_by: analysis?.emailed_by || '',
-      emailed_date: analysis?.emailed_date || '',
+      emailed_date: analysis?.emailed_date ? new Date(analysis.emailed_date).toISOString().slice(0, 16) : '',
     },
   });
 
   // Update form values when analysis changes
   React.useEffect(() => {
     if (analysis) {
+      // Helper function to format date for datetime-local input
+      const formatDateForInput = (dateString: string | null | undefined) => {
+        if (!dateString) return '';
+        try {
+          const date = new Date(dateString);
+          // Format as YYYY-MM-DDTHH:mm for datetime-local input
+          return date.toISOString().slice(0, 16);
+        } catch {
+          return '';
+        }
+      };
+
       form.reset({
         client_name: analysis.client_name,
         consultant: analysis.consultant,
@@ -113,13 +125,13 @@ export const AnalysisFormDialog: React.FC<AnalysisFormDialogProps> = ({
         pdf_file_path: analysis.pdf_file_path || '',
         sample_no: analysis.sample_no || '',
         draft_by: analysis.draft_by || '',
-        draft_date: analysis.draft_date || '',
+        draft_date: formatDateForInput(analysis.draft_date),
         ready_check_by: analysis.ready_check_by || '',
-        ready_check_date: analysis.ready_check_date || '',
+        ready_check_date: formatDateForInput(analysis.ready_check_date),
         checked_by: analysis.checked_by || '',
-        checked_date: analysis.checked_date || '',
+        checked_date: formatDateForInput(analysis.checked_date),
         emailed_by: analysis.emailed_by || '',
-        emailed_date: analysis.emailed_date || '',
+        emailed_date: formatDateForInput(analysis.emailed_date),
       });
     }
   }, [analysis, form]);
@@ -197,6 +209,16 @@ export const AnalysisFormDialog: React.FC<AnalysisFormDialogProps> = ({
       return;
     }
 
+    // Determine status based on workflow step
+    const getStatus = () => {
+      if (values.emailed_date && values.emailed_date.trim() !== "") return "Emailed";
+      if (values.checked_date && values.checked_date.trim() !== "") return "Checked Ready to be Emailed";
+      if (values.ready_check_date && values.ready_check_date.trim() !== "") return "Ready to be Checked";
+      return "Draft";
+    };
+
+    console.log('Form values on submit:', values);
+
     setUploading(true);
     try {
       let pdfPath = values.pdf_file_path;
@@ -206,10 +228,16 @@ export const AnalysisFormDialog: React.FC<AnalysisFormDialogProps> = ({
         pdfPath = await uploadFile(uploadedFile);
       }
 
+      // Helper function to convert empty strings to null for date fields
+      const cleanDateField = (dateString: string | undefined) => {
+        return dateString && dateString.trim() !== '' ? dateString : null;
+      };
+
       const formData = {
         ...values,
         pdf_file_path: pdfPath,
         updated_by: currentUser.id,
+        status: getStatus(),
       };
 
       if (mode === 'create') {
@@ -219,25 +247,35 @@ export const AnalysisFormDialog: React.FC<AnalysisFormDialogProps> = ({
           analysis_type: values.analysis_type,
           crop: values.crop || '',
           category: values.category || '',
-          status: 'Draft',
+          status: getStatus(),
           eal_lab_no: values.eal_lab_no,
           test_count: values.test_count,
           notes: values.notes,
           pdf_file_path: pdfPath,
           sample_no: values.sample_no,
-          draft_by: values.draft_by,
-          draft_date: values.draft_date,
-          ready_check_by: values.ready_check_by,
-          ready_check_date: values.ready_check_date,
-          checked_by: values.checked_by,
-          checked_date: values.checked_date,
-          emailed_by: values.emailed_by,
-          emailed_date: values.emailed_date,
+          draft_by: values.draft_by || null,
+          draft_date: cleanDateField(values.draft_date),
+          ready_check_by: values.ready_check_by || null,
+          ready_check_date: cleanDateField(values.ready_check_date),
+          checked_by: values.checked_by || null,
+          checked_date: cleanDateField(values.checked_date),
+          emailed_by: values.emailed_by || null,
+          emailed_date: cleanDateField(values.emailed_date),
           updated_by: currentUser.id,
         };
+        console.log('Analysis object to be saved:', newAnalysis);
         createMutation.mutate(newAnalysis);
       } else {
-        updateMutation.mutate(formData);
+        // Clean date fields for update as well
+        const cleanedFormData = {
+          ...formData,
+          draft_date: cleanDateField(values.draft_date),
+          ready_check_date: cleanDateField(values.ready_check_date),
+          checked_date: cleanDateField(values.checked_date),
+          emailed_date: cleanDateField(values.emailed_date),
+        };
+        console.log('Analysis object to be updated:', cleanedFormData);
+        updateMutation.mutate(cleanedFormData);
       }
     } catch (error) {
       toast.error('Error processing file upload');

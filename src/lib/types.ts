@@ -139,6 +139,15 @@ export interface Analysis {
 
 export type AnalysisForCreate = Omit<Analysis, 'id' | 'created_at' | 'status_updated_at' | 'updated_by'> & {
   updated_by: string;
+  // Override optional fields to allow null values
+  draft_by?: string | null;
+  draft_date?: string | null;
+  ready_check_by?: string | null;
+  ready_check_date?: string | null;
+  checked_by?: string | null;
+  checked_date?: string | null;
+  emailed_by?: string | null;
+  emailed_date?: string | null;
 };
 
 // Field Visit Types

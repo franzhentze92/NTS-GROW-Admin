@@ -25,7 +25,7 @@ export const ViewAnalysisDialog: React.FC<ViewAnalysisDialogProps> = ({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Analysis Details</DialogTitle>
           <DialogDescription>
@@ -58,6 +58,10 @@ export const ViewAnalysisDialog: React.FC<ViewAnalysisDialogProps> = ({
             <div>
               <label className="text-sm font-medium text-muted-foreground">Sample No.</label>
               <p className="text-sm">{analysis.sample_no || 'Not specified'}</p>
+            </div>
+            <div>
+              <label className="text-sm font-medium text-muted-foreground">EAL Lab No.</label>
+              <p className="text-sm">{analysis.eal_lab_no || 'Not specified'}</p>
             </div>
             <div>
               <label className="text-sm font-medium text-muted-foreground">No. of Tests</label>

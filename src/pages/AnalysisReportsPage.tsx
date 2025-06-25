@@ -372,12 +372,6 @@ const AnalysisReportsPage: React.FC = () => {
             Comprehensive analytics and insights from soil and leaf analysis data
           </p>
         </div>
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm">
-            <Download className="h-4 w-4 mr-2" />
-            Export Report
-          </Button>
-        </div>
       </div>
 
       {/* Filters */}
