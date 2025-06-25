@@ -117,4 +117,12 @@ END $$;
 SELECT column_name, data_type, is_nullable, column_default
 FROM information_schema.columns 
 WHERE table_name = 'analysis_tracker' 
-ORDER BY ordinal_position; 
+ORDER BY ordinal_position;
+
+-- Drop the existing delete policy if it exists
+DROP POLICY IF EXISTS "Users can delete analysis records" ON public.analysis_tracker;
+
+-- Create the delete policy
+CREATE POLICY "Users can delete analysis records" ON public.analysis_tracker
+FOR DELETE TO authenticated
+USING (auth.role() = 'authenticated'); 

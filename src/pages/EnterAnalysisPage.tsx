@@ -495,15 +495,15 @@ const EnterAnalysisPage: React.FC = () => {
                         <table className="w-full text-sm">
                             <thead>
                                 <tr className="border-b">
+                                    <th className="text-left py-3 px-4 font-semibold cursor-pointer" onClick={() => handleSort('startDate')}>Created Date</th>
+                                    <th className="text-left py-3 px-4 font-semibold">EAL Lab No.</th>
                                     <th className="text-left py-3 px-4 font-semibold cursor-pointer" onClick={() => handleSort('client_name')}>Client</th>
                                     <th className="text-left py-3 px-4 font-semibold cursor-pointer" onClick={() => handleSort('consultant')}>Consultant</th>
                                     <th className="text-left py-3 px-4 font-semibold cursor-pointer" onClick={() => handleSort('analysis_type')}>Type</th>
                                     <th className="text-left py-3 px-4 font-semibold cursor-pointer" onClick={() => handleSort('crop')}>Crop</th>
-                                    <th className="text-left py-3 px-4 font-semibold">Sample No.</th>
-                                    <th className="text-left py-3 px-4 font-semibold">EAL Lab No.</th>
                                     <th className="text-left py-3 px-4 font-semibold">No. of Tests</th>
-                                    <th className="text-left py-3 px-4 font-semibold cursor-pointer" onClick={() => handleSort('startDate')}>Created Date</th>
                                     <th className="text-left py-3 px-4 font-semibold cursor-pointer" onClick={() => handleSort('status')}>Status</th>
+                                    <th className="text-left py-3 px-4 font-semibold">File</th>
                                     <th className="text-left py-3 px-4 font-semibold">Actions</th>
                                 </tr>
                             </thead>
@@ -512,6 +512,8 @@ const EnterAnalysisPage: React.FC = () => {
                                     const fullAnalysis = analyses.find(a => a.id === analysis.id);
                                     return (
                                         <tr key={analysis.id} className="border-b hover:bg-muted/50">
+                                            <td className="cursor-pointer" onClick={() => fullAnalysis && handleViewAnalysis(fullAnalysis)}>{format(analysis.startDate, "PPP")}</td>
+                                            <td className="cursor-pointer" onClick={() => fullAnalysis && handleViewAnalysis(fullAnalysis)}>{fullAnalysis?.eal_lab_no || '-'}</td>
                                             <td className="cursor-pointer" onClick={() => fullAnalysis && handleViewAnalysis(fullAnalysis)}>{analysis.client_name}</td>
                                             <td className="cursor-pointer" onClick={() => fullAnalysis && handleViewAnalysis(fullAnalysis)}>{analysis.consultant}</td>
                                             <td className="cursor-pointer" onClick={() => fullAnalysis && handleViewAnalysis(fullAnalysis)}>
@@ -521,19 +523,42 @@ const EnterAnalysisPage: React.FC = () => {
                                             </td>
                                             <td className="cursor-pointer" onClick={() => fullAnalysis && handleViewAnalysis(fullAnalysis)}>{analysis.crop}</td>
                                             <td className="cursor-pointer" onClick={() => fullAnalysis && handleViewAnalysis(fullAnalysis)}>
-                                                {fullAnalysis?.sample_no || '-'}
-                                            </td>
-                                            <td className="cursor-pointer" onClick={() => fullAnalysis && handleViewAnalysis(fullAnalysis)}>
-                                                {fullAnalysis?.eal_lab_no || '-'}
-                                            </td>
-                                            <td className="cursor-pointer" onClick={() => fullAnalysis && handleViewAnalysis(fullAnalysis)}>
                                                 {fullAnalysis?.test_count || '-'}
                                             </td>
-                                            <td className="cursor-pointer" onClick={() => fullAnalysis && handleViewAnalysis(fullAnalysis)}>{format(analysis.startDate, "PPP")}</td>
                                             <td className="cursor-pointer" onClick={() => fullAnalysis && handleViewAnalysis(fullAnalysis)}>
                                                 <Badge variant={getStatusBadgeVariant(analysis.status)}>
                                                     {analysis.status}
                                                 </Badge>
+                                            </td>
+                                            <td className="cursor-pointer" onClick={e => e.stopPropagation()}>
+                                                {fullAnalysis?.pdf_file_path ? (
+                                                    (() => {
+                                                        try {
+                                                            const storageFrom = supabase.storage.from('analysis-reports');
+                                                            // @ts-ignore
+                                                            const { data } = storageFrom.getPublicUrl(fullAnalysis.pdf_file_path);
+                                                            if (data && data.publicUrl) {
+                                                                return (
+                                                                    <a
+                                                                        href={data.publicUrl}
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
+                                                                        title="View attached PDF"
+                                                                        className="text-green-600 hover:text-green-800"
+                                                                        onClick={e => e.stopPropagation()}
+                                                                    >
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" className="inline h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l7.07-7.07a4 4 0 00-5.656-5.657l-7.071 7.07a6 6 0 108.485 8.486l6.586-6.586" /></svg>
+                                                                    </a>
+                                                                );
+                                                            }
+                                                        } catch {
+                                                            // fallback for mock client or error
+                                                        }
+                                                        return <span className="text-muted-foreground">-</span>;
+                                                    })()
+                                                ) : (
+                                                    <span className="text-muted-foreground">-</span>
+                                                )}
                                             </td>
                                             <td onClick={(e) => e.stopPropagation()}>
                                                 <div className="flex space-x-2">

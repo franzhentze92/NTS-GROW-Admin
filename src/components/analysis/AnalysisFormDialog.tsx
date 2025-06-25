@@ -83,7 +83,7 @@ export const AnalysisFormDialog: React.FC<AnalysisFormDialogProps> = ({
       crop: analysis?.crop || '',
       category: analysis?.category || '',
       eal_lab_no: analysis?.eal_lab_no || '',
-      test_count: analysis?.test_count || undefined,
+      test_count: analysis?.test_count ?? 0,
       notes: analysis?.notes || '',
       pdf_file_path: analysis?.pdf_file_path || '',
       sample_no: analysis?.sample_no || '',
@@ -161,7 +161,8 @@ export const AnalysisFormDialog: React.FC<AnalysisFormDialogProps> = ({
       .upload(filePath, file);
 
     if (uploadError) {
-      throw new Error('Error uploading file');
+      console.error('Supabase upload error:', uploadError);
+      throw new Error(uploadError.message || 'Error uploading file');
     }
 
     return filePath;
@@ -278,7 +279,8 @@ export const AnalysisFormDialog: React.FC<AnalysisFormDialogProps> = ({
         updateMutation.mutate(cleanedFormData);
       }
     } catch (error) {
-      toast.error('Error processing file upload');
+      console.error('File upload/save error:', error);
+      toast.error('Error processing file upload: ' + (error instanceof Error ? error.message : String(error)));
     } finally {
       setUploading(false);
     }
@@ -463,20 +465,6 @@ export const AnalysisFormDialog: React.FC<AnalysisFormDialogProps> = ({
                         {...field}
                         onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
                       />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="sample_no"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Sample No.</FormLabel>
-                    <FormControl>
-                      <Input placeholder="e.g., SAMPLE-001" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
