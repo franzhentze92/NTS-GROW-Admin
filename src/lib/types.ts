@@ -153,54 +153,96 @@ export type AnalysisForCreate = Omit<Analysis, 'id' | 'created_at' | 'status_upd
 // Field Visit Types
 export interface FieldVisit {
   id: string;
-  farm_name: string;
-  farmer_name: string;
-  agronomist: string;
   visit_date: string;
-  visit_type: 'routine' | 'emergency' | 'follow-up' | 'initial';
-  crop_type: string;
-  field_size: number;
-  field_size_unit: 'hectares' | 'acres';
-  soil_type?: string;
-  weather_conditions?: string;
-  observations: string;
-  recommendations: string;
-  next_visit_date?: string;
-  status: 'scheduled' | 'in-progress' | 'completed' | 'cancelled';
-  location?: {
-    latitude?: number;
-    longitude?: number;
-    address?: string;
-  };
-  photos?: string[];
+  consultant: string;
+  client: string;
+  status: 'Scheduled' | 'In Progress' | 'Completed' | 'Cancelled';
+  address?: string;
+  farm?: string;
+  paddock?: string;
+  crop?: string;
+  visit_reason?: string;
+  soil_ph?: number;
+  soil_texture?: string;
+  plant_height?: number;
+  fruiting?: string;
+  sap_ph?: number;
+  sap_nitrate?: number;
+  sap_calcium?: number;
+  sap_magnesium?: number;
+  sap_potassium?: number;
+  sap_sodium?: number;
+  penetrometer?: number;
+  soil_electroconductivity?: number;
+  sap_electroconductivity?: number;
+  chlorophyll_reading?: number;
+  soil_paramagnetism?: number;
+  in_field_observations?: string;
+  general_comments?: string;
+  image_urls?: string[];
   created_at: string;
   updated_at: string;
   created_by: { id: string; name: string };
 }
 
 export interface CreateFieldVisitData {
-  farm_name: string;
-  farmer_name: string;
-  agronomist: string;
   visit_date: string;
-  visit_type: 'routine' | 'emergency' | 'follow-up' | 'initial';
-  crop_type: string;
-  field_size: number;
-  field_size_unit: 'hectares' | 'acres';
-  soil_type?: string;
-  weather_conditions?: string;
-  observations: string;
-  recommendations: string;
-  next_visit_date?: string;
-  status: 'scheduled' | 'in-progress' | 'completed' | 'cancelled';
-  location?: {
-    latitude?: number;
-    longitude?: number;
-    address?: string;
-  };
-  photos?: string[];
+  consultant: string;
+  client: string;
+  status: 'Scheduled' | 'In Progress' | 'Completed' | 'Cancelled';
+  address?: string;
+  farm?: string;
+  paddock?: string;
+  crop?: string;
+  visit_reason?: string;
+  soil_ph?: number;
+  soil_texture?: string;
+  plant_height?: number;
+  fruiting?: string;
+  sap_ph?: number;
+  sap_nitrate?: number;
+  sap_calcium?: number;
+  sap_magnesium?: number;
+  sap_potassium?: number;
+  sap_sodium?: number;
+  penetrometer?: number;
+  soil_electroconductivity?: number;
+  sap_electroconductivity?: number;
+  chlorophyll_reading?: number;
+  soil_paramagnetism?: number;
+  in_field_observations?: string;
+  general_comments?: string;
+  image_urls?: string[];
 }
 
-export interface UpdateFieldVisitData extends Partial<CreateFieldVisitData> {
+export interface UpdateFieldVisitData {
   id: string;
+  visit_date?: string;
+  consultant?: string;
+  client?: string;
+  status?: 'Scheduled' | 'In Progress' | 'Completed' | 'Cancelled';
+  address?: string;
+  farm?: string;
+  paddock?: string;
+  crop?: string;
+  visit_reason?: string;
+  soil_ph?: number;
+  soil_texture?: string;
+  plant_height?: number;
+  fruiting?: string;
+  sap_ph?: number;
+  sap_nitrate?: number;
+  sap_calcium?: number;
+  sap_magnesium?: number;
+  sap_potassium?: number;
+  sap_sodium?: number;
+  penetrometer?: number;
+  soil_electroconductivity?: number;
+  sap_electroconductivity?: number;
+  chlorophyll_reading?: number;
+  soil_paramagnetism?: number;
+  in_field_observations?: string;
+  general_comments?: string;
+  image_urls?: string[];
+  updated_at?: string;
 }

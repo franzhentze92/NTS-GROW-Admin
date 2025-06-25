@@ -17,7 +17,18 @@ interface UploadDocumentDialogProps {
   currentUserId: string;
 }
 
-const DOCUMENT_CATEGORIES = ['Financial', 'Legal', 'Marketing', 'Technical', 'General'];
+const DOCUMENT_CATEGORIES = [
+  'Soil Analysis',
+  'Leaf Analysis',
+  'Fertilizer Recommendations',
+  'Pest & Disease Reports',
+  'Irrigation Plans',
+  'Crop Management',
+  'Field Visit Reports',
+  'Harvest Records',
+  'Weather Data',
+  'Other Agriculture'
+];
 
 const UploadDocumentDialog: React.FC<UploadDocumentDialogProps> = ({ open, onOpenChange, currentUserId }) => {
   const queryClient = useQueryClient();

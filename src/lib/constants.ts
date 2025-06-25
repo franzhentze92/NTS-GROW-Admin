@@ -306,6 +306,36 @@ export const CATEGORY_OPTIONS = [
   { id: '4', name: 'Pasture' },
 ];
 
+export const FARM_OPTIONS = [
+  { id: '1', name: 'North Farm' },
+  { id: '2', name: 'South Farm' },
+  { id: '3', name: 'East Farm' },
+  { id: '4', name: 'West Farm' },
+  { id: '5', name: 'Central Farm' },
+  { id: '6', name: 'Yandina Farm' },
+  { id: '7', name: 'Nutrition Farms' },
+  { id: '8', name: 'Demo Farm' },
+  { id: '9', name: 'Research Farm' },
+  { id: '10', name: 'Other' },
+];
+
+export const PADDOCK_OPTIONS = [
+  { id: '1', name: 'Paddock A' },
+  { id: '2', name: 'Paddock B' },
+  { id: '3', name: 'Paddock C' },
+  { id: '4', name: 'Ginger Paddock' },
+  { id: '5', name: 'Iowa Demo Field' },
+  { id: '6', name: 'North Field' },
+  { id: '7', name: 'South Field' },
+  { id: '8', name: 'East Field' },
+  { id: '9', name: 'West Field' },
+  { id: '10', name: 'Central Field' },
+  { id: '11', name: 'Orchard Block' },
+  { id: '12', name: 'Vineyard Block' },
+  { id: '13', name: 'Pasture Block' },
+  { id: '14', name: 'Other' },
+];
+
 // Navigation items with hierarchical structure and role-based access
 export const NAV_ITEMS = [
   {
@@ -348,6 +378,7 @@ export const NAV_ITEMS = [
         children: [
           { id: 'enter-analysis', label: 'Register New Analysis', path: '/agronomist/analysis/enter', icon: 'Plus' },
           { id: 'analysis-reports', label: 'Analysis Reports', path: '/agronomist/analysis/reports', icon: 'BarChart3' },
+          { id: 'analysis-chronology', label: 'Client Chronology', path: '/agronomist/analysis/chronology', icon: 'Clock' },
         ]
       },
       {

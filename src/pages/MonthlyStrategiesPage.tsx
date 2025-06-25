@@ -6,8 +6,14 @@ import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Progress } from '@/components/ui/progress';
 import { Target, CheckCircle, List, User, Users, FileText, Calendar, RefreshCw, AlertCircle } from 'lucide-react';
+import { useAppContext } from '@/contexts/AppContext';
+import { Checkbox } from '@/components/ui/checkbox';
 
 // --- Types ---
+interface Objective {
+  text: string;
+  completed: boolean;
+}
 interface Strategy {
     id: number;
     month: string;
@@ -16,7 +22,7 @@ interface Strategy {
     status: 'Not Started' | 'Planning' | 'In Progress' | 'Completed' | 'On Hold';
     progress: number;
     priority: 'Low' | 'Medium' | 'High';
-    objectives?: string[];
+    objectives?: (string | Objective)[];
     notes?: string;
     people_involved?: string[];
 }
@@ -27,7 +33,8 @@ const ALL_MONTHS_OPTIONS = MONTHS.map(m => `${m} ${CURRENT_YEAR}`);
 
 // --- API Functions ---
 const fetchAllStrategies = async (): Promise<Strategy[]> => {
-    const { data, error } = await supabase.from('strategies').select('*');
+    const result = await supabase.from('strategies').select('*') as { data: Strategy[] | null, error: any };
+    const { data, error } = result;
     if (error) throw new Error(error.message);
     return data || [];
 };
@@ -46,12 +53,15 @@ const getStatusBadgeVariant = (status: Strategy['status']): 'success' | 'warning
 // --- Component ---
 const MonthlyStrategiesPage: React.FC = () => {
     const [selectedMonth, setSelectedMonth] = useState(`${MONTHS[new Date().getMonth()]} ${CURRENT_YEAR}`);
-    const { data: strategies = [], isLoading, isError, error } = useQuery({ queryKey: ['allStrategies'], queryFn: fetchAllStrategies });
+    const { data: strategies = [], isLoading, isError, error, refetch } = useQuery({ queryKey: ['allStrategies'], queryFn: fetchAllStrategies });
+    const { hasRole } = useAppContext();
+    const isSuperAdmin = hasRole('super-admin');
+    const [updating, setUpdating] = useState(false);
+    const [localObjectives, setLocalObjectives] = useState<(Objective)[]>([]);
 
     const strategy = useMemo(() => {
         const found = strategies.find(s => s.month === selectedMonth);
         if (found) return found;
-        
         return {
             id: 0,
             month: selectedMonth,
@@ -65,6 +75,55 @@ const MonthlyStrategiesPage: React.FC = () => {
             people_involved: [],
         };
     }, [strategies, selectedMonth]);
+
+    // Convert objectives to new format for local state
+    React.useEffect(() => {
+      let rawObjectives = strategy.objectives || [];
+      // Fallback: parse if stringified
+      if (typeof rawObjectives === 'string') {
+        try {
+          rawObjectives = JSON.parse(rawObjectives);
+        } catch {
+          rawObjectives = [];
+        }
+      }
+      // If array of strings, convert to objects
+      if (Array.isArray(rawObjectives) && rawObjectives.length > 0) {
+        setLocalObjectives(
+          rawObjectives.map(obj => {
+            if (typeof obj === 'string') {
+              try {
+                // If stringified object
+                const parsed = JSON.parse(obj);
+                if (typeof parsed === 'object' && parsed.text) return parsed;
+                return { text: obj, completed: false };
+              } catch {
+                return { text: obj, completed: false };
+              }
+            }
+            return obj;
+          })
+        );
+      } else {
+        setLocalObjectives([]);
+      }
+    }, [strategy.objectives]);
+
+    const handleToggleObjective = async (idx: number) => {
+      if (!strategy.id) return;
+      setUpdating(true);
+      const updatedObjectives = localObjectives.map((obj, i) =>
+        i === idx ? { ...obj, completed: !obj.completed } : obj
+      );
+      setLocalObjectives(updatedObjectives);
+      // Persist to backend (do NOT stringify)
+      await supabase
+        .from('strategies')
+        .update({ objectives: updatedObjectives })
+        .eq('id', strategy.id);
+      setUpdating(false);
+      refetch();
+    };
 
     if (isLoading) {
         return <div className="flex items-center justify-center h-full p-6"><RefreshCw className="h-6 w-6 animate-spin mr-2" /> Loading strategies...</div>;
@@ -121,10 +180,21 @@ const MonthlyStrategiesPage: React.FC = () => {
                            <div>
                                 <h3 className="font-semibold text-lg mb-2 flex items-center gap-2"><List className="h-5 w-5"/> Objectives</h3>
                                 <ul className="list-none space-y-2 pl-7">
-                                    {strategy.objectives && strategy.objectives.length > 0 ? strategy.objectives.map((obj, i) => (
+                                    {localObjectives && localObjectives.length > 0 ? localObjectives.map((obj, i) => (
                                         <li key={i} className="flex items-start gap-2 text-muted-foreground">
-                                            <CheckCircle className="h-5 w-5 text-primary mt-1"/> 
-                                            <span>{typeof obj === 'string' ? obj : (obj as any).value}</span>
+                                            {isSuperAdmin ? (
+                                              <Checkbox
+                                                checked={obj.completed}
+                                                onCheckedChange={() => handleToggleObjective(i)}
+                                                disabled={updating}
+                                                className="mt-1 mr-2"
+                                              />
+                                            ) : obj.completed ? (
+                                              <CheckCircle className="h-5 w-5 text-primary mt-1" />
+                                            ) : (
+                                              <span className="h-5 w-5 mt-1 inline-block border rounded-full border-muted-foreground" />
+                                            )}
+                                            <span style={{ textDecoration: obj.completed ? 'line-through' : 'none' }}>{obj.text}</span>
                                         </li>
                                     )) : <p className="text-muted-foreground">No objectives defined.</p>}
                                 </ul>

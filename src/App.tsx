@@ -13,7 +13,8 @@ import {
   FinancialAnalysisPage, 
   MonthlyStrategiesPage, 
   StrategyManagementPage,
-  TaskCalendarPage
+  TaskCalendarPage,
+  AnalysisChronologyPage
 } from "@/pages/UpdatedPages";
 import InboxPage from "@/pages/InboxPage";
 import NotFound from "@/pages/NotFound";
@@ -29,7 +30,6 @@ import SatelliteImageryPage from "@/pages/SatelliteImageryPage";
 import WeatherPage from "@/pages/WeatherPage";
 import GeneralWeatherPage from "@/pages/GeneralWeatherPage";
 import FieldVisitsPage from "@/pages/FieldVisitsPage";
-import FieldVisitAnalyticsPage from "@/pages/FieldVisitAnalyticsPage";
 import IrrigationCalculatorPage from "@/pages/IrrigationCalculatorPage";
 import NTSProductRecommendatorPage from "@/pages/NTSProductRecommendatorPage";
 import GrowingDegreeDaysPage from '@/pages/GrowingDegreeDaysPage';
@@ -100,6 +100,7 @@ function App() {
                   <Route path="/agronomist/plant/reports" element={<ComingSoonPage title="View Saved Reports" description="Access and review previously created leaf analysis reports." />} />
                   <Route path="/agronomist/analysis/enter" element={<EnterAnalysisPage />} />
                   <Route path="/agronomist/analysis/reports" element={<AnalysisReportsPage />} />
+                  <Route path="/agronomist/analysis/chronology" element={<AnalysisChronologyPage />} />
                   <Route path="/agronomist/chat" element={<ChatPage />} />
                   
                   {/* Satellite Imagery Routes */}
@@ -133,7 +134,6 @@ function App() {
 
                   {/* G.R.O.W Agronomist Field Visit Routes */}
                   <Route path="/agronomist/field-visits" element={<FieldVisitsPage />} />
-                  <Route path="/agronomist/field-visits/analytics" element={<FieldVisitAnalyticsPage />} />
 
                   <Route path="*" element={<NotFound />} />
                 </Route>

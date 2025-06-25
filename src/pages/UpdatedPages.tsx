@@ -18,3 +18,4 @@ export { default as FinancialAnalysisPage } from './FinancialAnalysisPage';
 export { default as MonthlyStrategiesPage } from './MonthlyStrategiesPage';
 export { default as StrategyManagementPage } from './StrategyManagementPage';
 export { default as TaskCalendarPage } from './TaskCalendarPage';
+export { default as AnalysisChronologyPage } from './AnalysisChronologyPage';

@@ -17,8 +17,14 @@ import { toast } from '@/components/ui/use-toast';
 import { Target, Save, RefreshCw, AlertCircle, PlusCircle, Trash2, Edit, X } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
+import { useAppContext } from '@/contexts/AppContext';
+import { Checkbox } from '@/components/ui/checkbox';
 
 // --- Types and Schema ---
+interface Objective {
+  text: string;
+  completed: boolean;
+}
 const strategySchema = z.object({
     id: z.number().optional(),
     month: z.string().min(1, "Month is required"),
@@ -27,7 +33,7 @@ const strategySchema = z.object({
     status: z.enum(['Not Started', 'Planning', 'In Progress', 'Completed', 'On Hold']),
     priority: z.enum(['Low', 'Medium', 'High']),
     progress: z.number().min(0).max(100),
-    objectives: z.array(z.string().min(1, "Objective can't be empty")).optional(),
+    objectives: z.array(z.any()).optional(),
     notes: z.string().optional(),
     people_involved: z.array(z.string()).optional(),
 });
@@ -56,6 +62,16 @@ const deleteStrategy = async (id: number) => {
 
 // --- Strategy Form Component ---
 const StrategyForm: React.FC<{ strategy?: Strategy, onSave: (data: Strategy) => void, onCancel: () => void, isSaving: boolean }> = ({ strategy, onSave, onCancel, isSaving }) => {
+    const { hasRole } = useAppContext();
+    const isSuperAdmin = hasRole('super-admin');
+    const [objectives, setObjectives] = useState<Objective[]>(() => {
+      if (strategy?.objectives && strategy.objectives.length > 0) {
+        return strategy.objectives.map((obj: any) =>
+          typeof obj === 'string' ? { text: obj, completed: false } : obj
+        );
+      }
+      return [{ text: '', completed: false }];
+    });
     const form = useForm<Strategy>({
         resolver: zodResolver(strategySchema),
         defaultValues: {
@@ -79,6 +95,25 @@ const StrategyForm: React.FC<{ strategy?: Strategy, onSave: (data: Strategy) => 
     const [people, setPeople] = useState<string[]>(strategy?.people_involved || ['Franz']);
     const [personInput, setPersonInput] = useState('');
 
+    // Sync objectives with form
+    useEffect(() => {
+      form.setValue('objectives', objectives);
+    }, [objectives]);
+
+    const handleObjectiveTextChange = (index: number, value: string) => {
+      setObjectives(prev => prev.map((obj, i) => i === index ? { ...obj, text: value } : obj));
+    };
+    const handleObjectiveToggle = (index: number) => {
+      setObjectives(prev => prev.map((obj, i) => i === index ? { ...obj, completed: !obj.completed } : obj));
+    };
+    const handleAddObjective = () => {
+      setObjectives(prev => [...prev, { text: '', completed: false }]);
+    };
+    const handleRemoveObjective = (index: number) => {
+      if (objectives.length <= 1) return;
+      setObjectives(prev => prev.filter((_, i) => i !== index));
+    };
+
     const handleAddPerson = () => {
         if (personInput && !people.includes(personInput)) {
             const newPeople = [...people, personInput];
@@ -95,7 +130,7 @@ const StrategyForm: React.FC<{ strategy?: Strategy, onSave: (data: Strategy) => 
     };
 
     const onSubmit = (data: Strategy) => {
-        onSave({ ...data, people_involved: people });
+        onSave({ ...data, objectives, people_involved: people });
     };
 
     return (
@@ -121,16 +156,26 @@ const StrategyForm: React.FC<{ strategy?: Strategy, onSave: (data: Strategy) => 
                 <div>
                     <FormLabel>Objectives</FormLabel>
                     <div className="space-y-2 mt-2">
-                        {fields.map((field, index) => (
-                            <div key={field.id} className="flex items-center gap-2">
-                                <FormField control={form.control} name={`objectives.${index}`} render={({ field }) => (
-                                    <FormItem className="flex-grow"><FormControl><Input {...field} placeholder="Enter an objective..." /></FormControl><FormMessage /></FormItem>
-                                )} />
-                                <Button type="button" variant="ghost" size="icon" onClick={() => remove(index)} disabled={fields.length <= 1}><Trash2 className="h-4 w-4" /></Button>
-                            </div>
+                        {objectives.map((obj, index) => (
+                          <div key={index} className="flex items-center gap-2">
+                            {isSuperAdmin && (
+                              <Checkbox
+                                checked={obj.completed}
+                                onCheckedChange={() => handleObjectiveToggle(index)}
+                                className="mt-1 mr-2"
+                              />
+                            )}
+                            <Input
+                              value={obj.text}
+                              onChange={e => handleObjectiveTextChange(index, e.target.value)}
+                              placeholder="Enter an objective..."
+                              className="flex-grow"
+                            />
+                            <Button type="button" variant="ghost" size="icon" onClick={() => handleRemoveObjective(index)} disabled={objectives.length <= 1}><Trash2 className="h-4 w-4" /></Button>
+                          </div>
                         ))}
                     </div>
-                    <Button type="button" variant="outline" size="sm" className="mt-2" onClick={() => append('')}><PlusCircle className="h-4 w-4 mr-2"/>Add Objective</Button>
+                    <Button type="button" variant="outline" size="sm" className="mt-2" onClick={handleAddObjective}><PlusCircle className="h-4 w-4 mr-2"/>Add Objective</Button>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-6">

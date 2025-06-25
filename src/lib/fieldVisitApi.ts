@@ -24,9 +24,23 @@ export const getFieldVisits = async (): Promise<FieldVisit[]> => {
 
 // Create a new field visit
 export const createFieldVisit = async (visitData: CreateFieldVisitData): Promise<FieldVisit> => {
+  // Get the current user from localStorage (mock authentication)
+  const currentUserStr = localStorage.getItem('currentUser');
+  if (!currentUserStr) {
+    throw new Error('User must be authenticated to create field visits');
+  }
+  
+  const currentUser = JSON.parse(currentUserStr);
+  if (!currentUser || !currentUser.id) {
+    throw new Error('Invalid user data');
+  }
+
   const { data, error } = await supabase
     .from('field_visits')
-    .insert([visitData])
+    .insert([{
+      ...visitData,
+      created_by: currentUser.id
+    }])
     .select(`
       *,
       created_by:users (
@@ -95,24 +109,26 @@ export const getFieldVisitAnalytics = async () => {
   }
 
   const totalVisits = visits?.length || 0;
-  const completedVisits = visits?.filter(v => v.status === 'completed').length || 0;
-  const scheduledVisits = visits?.filter(v => v.status === 'scheduled').length || 0;
-  const inProgressVisits = visits?.filter(v => v.status === 'in-progress').length || 0;
+  const completedVisits = visits?.filter(v => v.status === 'Completed').length || 0;
+  const scheduledVisits = visits?.filter(v => v.status === 'Scheduled').length || 0;
+  const inProgressVisits = visits?.filter(v => v.status === 'In Progress').length || 0;
 
-  // Visit type distribution
-  const visitTypeDistribution = visits?.reduce((acc, visit) => {
-    acc[visit.visit_type] = (acc[visit.visit_type] || 0) + 1;
+  // Visit reason distribution
+  const visitReasonDistribution = visits?.reduce((acc, visit) => {
+    if (visit.visit_reason) {
+      acc[visit.visit_reason] = (acc[visit.visit_reason] || 0) + 1;
+    }
     return acc;
   }, {} as Record<string, number>) || {};
 
-  // Agronomist performance
-  const agronomistPerformance = visits?.reduce((acc, visit) => {
-    if (!acc[visit.agronomist]) {
-      acc[visit.agronomist] = { total: 0, completed: 0 };
+  // Consultant performance
+  const consultantPerformance = visits?.reduce((acc, visit) => {
+    if (!acc[visit.consultant]) {
+      acc[visit.consultant] = { total: 0, completed: 0 };
     }
-    acc[visit.agronomist].total++;
-    if (visit.status === 'completed') {
-      acc[visit.agronomist].completed++;
+    acc[visit.consultant].total++;
+    if (visit.status === 'Completed') {
+      acc[visit.consultant].completed++;
     }
     return acc;
   }, {} as Record<string, { total: number; completed: number }>) || {};
@@ -125,9 +141,11 @@ export const getFieldVisitAnalytics = async () => {
     return acc;
   }, {} as Record<string, number>) || {};
 
-  // Crop type distribution
-  const cropTypeDistribution = visits?.reduce((acc, visit) => {
-    acc[visit.crop_type] = (acc[visit.crop_type] || 0) + 1;
+  // Crop distribution
+  const cropDistribution = visits?.reduce((acc, visit) => {
+    if (visit.crop) {
+      acc[visit.crop] = (acc[visit.crop] || 0) + 1;
+    }
     return acc;
   }, {} as Record<string, number>) || {};
 
@@ -137,10 +155,10 @@ export const getFieldVisitAnalytics = async () => {
     scheduledVisits,
     inProgressVisits,
     completionRate: totalVisits > 0 ? ((completedVisits / totalVisits) * 100).toFixed(1) : '0',
-    visitTypeDistribution,
-    agronomistPerformance,
+    visitReasonDistribution,
+    consultantPerformance,
     monthlyTrends,
-    cropTypeDistribution,
+    cropDistribution,
   };
 };
 

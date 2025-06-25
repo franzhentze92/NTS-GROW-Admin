@@ -1,9 +1,9 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient, SupabaseClient } from '@supabase/supabase-js'
 
 // IMPORTANT: These variables should be stored in a .env.local file
 // and should not be committed to version control.
-const supabaseUrl = (import.meta as any).env.VITE_SUPABASE_URL
-const supabaseAnonKey = (import.meta as any).env.VITE_SUPABASE_ANON_KEY
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
 console.log('Supabase key in use:', import.meta.env.VITE_SUPABASE_ANON_KEY);
 
@@ -18,7 +18,7 @@ if (!supabaseUrl || !supabaseAnonKey) {
 }
 
 // Create a mock client if environment variables are missing
-const createMockClient = () => {
+const createMockClient = (): SupabaseClient => {
   console.warn('⚠️ Using mock Supabase client - database operations will fail');
   
   const createMockPromise = (data: any, error: any) => {
@@ -42,9 +42,12 @@ const createMockClient = () => {
         upload: () => createMockPromise(null, { message: 'Supabase not configured' }),
       }),
     },
-  };
+    auth: {
+      getUser: () => createMockPromise({ user: null }, null),
+    },
+  } as any;
 };
 
-export const supabase = supabaseUrl && supabaseAnonKey 
+export const supabase: SupabaseClient = supabaseUrl && supabaseAnonKey 
   ? createClient(supabaseUrl, supabaseAnonKey)
   : createMockClient(); 
