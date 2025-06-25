@@ -434,6 +434,21 @@ export const NAV_ITEMS = [
           { id: 'field-visit-analytics', label: 'Field Visit Analytics', path: '/agronomist/field-visits/analytics', icon: 'BarChart3' },
         ]
       },
+      {
+        id: 'field-trials',
+        label: 'Field Trials',
+        icon: 'Target',
+        children: [
+          { id: 'trial-project-management', label: 'Trial Project Management', path: '/agronomist/field-trials', icon: 'ClipboardList' },
+          { id: 'trial-design', label: 'Advanced Map & Plot Design', path: '/agronomist/field-trials/design', icon: 'MapPin' },
+          { id: 'treatment-variable-management', label: 'Treatment & Variable Management', path: '/agronomist/field-trials/treatments', icon: 'Package' },
+          { id: 'data-entry', label: 'Data Collection & Entry', path: '/agronomist/field-trials/data-entry', icon: 'ClipboardEdit' },
+          { id: 'trial-analytics', label: 'Analytics & Statistics', path: '/agronomist/field-trials/analytics', icon: 'BarChart3' },
+          { id: 'trial-reports', label: 'Reporting & Sharing', path: '/agronomist/field-trials/reports', icon: 'FileText' },
+          { id: 'weather-integration', label: 'Weather Integration', path: '/agronomist/field-trials/weather', icon: 'Cloud' },
+          { id: 'satellite-integration', label: 'Satellite Integration', path: '/agronomist/field-trials/satellite', icon: 'Satellite' },
+        ]
+      },
     ]
   },
   {

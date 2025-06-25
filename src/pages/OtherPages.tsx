@@ -50,9 +50,9 @@ export const FinancialAnalysisPage: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
             {[
-              { plan: 'Basic Plan', revenue: '$5,240', users: '124' },
-              { plan: 'Pro Plan', revenue: '$12,350', users: '86' },
-              { plan: 'Elite Plan', revenue: '$6,760', users: '23' },
+              { plan: 'Basic Plan', revenue: 'AUD $5,240', users: '124' },
+              { plan: 'Pro Plan', revenue: 'AUD $12,350', users: '86' },
+              { plan: 'Elite Plan', revenue: 'AUD $6,760', users: '23' },
             ].map((plan, i) => (
               <div key={i} className="bg-background p-4 rounded-md border border-border/40">
                 <p className="font-medium">{plan.plan}</p>

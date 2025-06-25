@@ -103,13 +103,13 @@ const FinancialAnalysisPage: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         <KpiCard
           title="Gross Profit"
-          value="$105,000"
+          value="AUD $105,000"
           change={12}
           description="vs previous period"
         />
         <KpiCard
           title="Net Profit"
-          value="$78,000"
+          value="AUD $78,000"
           change={8}
           description="vs previous period"
         />
@@ -121,7 +121,7 @@ const FinancialAnalysisPage: React.FC = () => {
         />
         <KpiCard
           title="Operating Expenses"
-          value="$27,000"
+          value="AUD $27,000"
           change={-3}
           description="vs previous period"
         />

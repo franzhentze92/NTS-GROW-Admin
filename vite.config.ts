@@ -16,4 +16,14 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  optimizeDeps: {
+    include: ['leaflet', 'react-leaflet', 'leaflet-draw'],
+  },
+  css: {
+    preprocessorOptions: {
+      css: {
+        charset: false,
+      },
+    },
+  },
 }));

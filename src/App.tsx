@@ -4,18 +4,19 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AppProvider } from "@/contexts/AppContext";
+import { CostProvider } from "@/contexts/CostContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Layout from "@/components/layout/Layout";
 import LoginPage from "@/pages/LoginPage";
 import DashboardPage from "@/pages/DashboardPage";
 import WebTrafficAnalyticsPage from "@/pages/WebTrafficAnalyticsPage";
 import { 
-  FinancialAnalysisPage, 
   MonthlyStrategiesPage, 
   StrategyManagementPage,
   TaskCalendarPage,
   AnalysisChronologyPage
 } from "@/pages/UpdatedPages";
+import FinancialAnalyticsPage from "@/pages/FinancialAnalyticsPage";
 import InboxPage from "@/pages/InboxPage";
 import NotFound from "@/pages/NotFound";
 import TaskManagementPage from "@/pages/TaskManagementPage";
@@ -30,10 +31,19 @@ import SatelliteImageryPage from "@/pages/SatelliteImageryPage";
 import WeatherPage from "@/pages/WeatherPage";
 import GeneralWeatherPage from "@/pages/GeneralWeatherPage";
 import FieldVisitsPage from "@/pages/FieldVisitsPage";
+import FieldTrialsPage from "@/pages/FieldTrialsPage";
 import IrrigationCalculatorPage from "@/pages/IrrigationCalculatorPage";
 import NTSProductRecommendatorPage from "@/pages/NTSProductRecommendatorPage";
 import GrowingDegreeDaysPage from '@/pages/GrowingDegreeDaysPage';
 import CropHealth from "@/components/satellite/CropHealth";
+import TreatmentVariableManager from "@/components/fieldTrials/TreatmentVariableManager";
+import DataEntryForm from "@/components/fieldTrials/DataEntryForm";
+import AdvancedAnalytics from "@/components/fieldTrials/AdvancedAnalytics";
+import TrialReportGenerator from "@/components/fieldTrials/TrialReportGenerator";
+import WeatherIntegration from "@/components/fieldTrials/WeatherIntegration";
+import SatelliteIntegration from "@/components/fieldTrials/SatelliteIntegration";
+import FieldDesignerPage from '@/pages/FieldDesignerPage';
+import CostManagementPage from '@/pages/CostManagementPage';
 import { useEffect } from 'react';
 
 // Create a client
@@ -72,74 +82,86 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="light">
         <AppProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <Router {...router}>
-              <Routes>
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/" element={<Layout><Outlet /></Layout>}>
-                  {/* Legacy routes - keeping for backward compatibility */}
-                  <Route index element={<DashboardPage />} />
-                  <Route path="/web-traffic" element={<WebTrafficAnalyticsPage />} />
-                  <Route path="/financial" element={<FinancialAnalysisPage />} />
-                  <Route path="/task-management" element={<TaskManagementPage />} />
-                  <Route path="/task-calendar" element={<TaskCalendarPage />} />
-                  <Route path="/monthly-strategies" element={<MonthlyStrategiesPage />} />
-                  <Route path="/strategy-management" element={<StrategyManagementPage />} />
-                  <Route path="/inbox" element={<InboxPage />} />
-                  <Route path="/documents" element={<DocumentsPage />} />
-                  <Route path="/profile" element={<ProfilePage />} />
+          <CostProvider>
+            <TooltipProvider>
+              <Toaster />
+              <Sonner />
+              <Router {...router}>
+                <Routes>
+                  <Route path="/login" element={<LoginPage />} />
+                  <Route path="/" element={<Layout><Outlet /></Layout>}>
+                    {/* Legacy routes - keeping for backward compatibility */}
+                    <Route index element={<DashboardPage />} />
+                    <Route path="/web-traffic" element={<WebTrafficAnalyticsPage />} />
+                    <Route path="/financial" element={<FinancialAnalyticsPage />} />
+                    <Route path="/task-management" element={<TaskManagementPage />} />
+                    <Route path="/task-calendar" element={<TaskCalendarPage />} />
+                    <Route path="/monthly-strategies" element={<MonthlyStrategiesPage />} />
+                    <Route path="/strategy-management" element={<StrategyManagementPage />} />
+                    <Route path="/inbox" element={<InboxPage />} />
+                    <Route path="/documents" element={<DocumentsPage />} />
+                    <Route path="/profile" element={<ProfilePage />} />
 
-                  {/* G.R.O.W Agronomist Routes */}
-                  <Route path="/agronomist/soil/create-chart" element={<ComingSoonPage title="Create Soil Chart" description="Create detailed soil analysis charts for agricultural planning." />} />
-                  <Route path="/agronomist/soil/create-report" element={<ComingSoonPage title="Create Soil Report" description="Generate comprehensive soil analysis reports." />} />
-                  <Route path="/agronomist/soil/reports" element={<ComingSoonPage title="View Saved Reports" description="Access and review previously created soil analysis reports." />} />
-                  <Route path="/agronomist/plant/create-chart" element={<ComingSoonPage title="Create Leaf Chart" description="Create detailed leaf analysis charts for plant health assessment." />} />
-                  <Route path="/agronomist/plant/create-report" element={<ComingSoonPage title="Create Leaf Report" description="Generate comprehensive leaf analysis reports." />} />
-                  <Route path="/agronomist/plant/reports" element={<ComingSoonPage title="View Saved Reports" description="Access and review previously created leaf analysis reports." />} />
-                  <Route path="/agronomist/analysis/enter" element={<EnterAnalysisPage />} />
-                  <Route path="/agronomist/analysis/reports" element={<AnalysisReportsPage />} />
-                  <Route path="/agronomist/analysis/chronology" element={<AnalysisChronologyPage />} />
-                  <Route path="/agronomist/chat" element={<ChatPage />} />
-                  
-                  {/* Satellite Imagery Routes */}
-                  <Route path="/agronomist/satellite/crop-health" element={<CropHealth />} />
-                  <Route path="/agronomist/satellite/weather" element={<WeatherPage />} />
-                  <Route path="/agronomist/weather" element={<GeneralWeatherPage />} />
+                    {/* G.R.O.W Agronomist Routes */}
+                    <Route path="/agronomist/soil/create-chart" element={<ComingSoonPage title="Create Soil Chart" description="Create detailed soil analysis charts for agricultural planning." />} />
+                    <Route path="/agronomist/soil/create-report" element={<ComingSoonPage title="Create Soil Report" description="Generate comprehensive soil analysis reports." />} />
+                    <Route path="/agronomist/soil/reports" element={<ComingSoonPage title="View Saved Reports" description="Access and review previously created soil analysis reports." />} />
+                    <Route path="/agronomist/plant/create-chart" element={<ComingSoonPage title="Create Leaf Chart" description="Create detailed leaf analysis charts for plant health assessment." />} />
+                    <Route path="/agronomist/plant/create-report" element={<ComingSoonPage title="Create Leaf Report" description="Generate comprehensive leaf analysis reports." />} />
+                    <Route path="/agronomist/plant/reports" element={<ComingSoonPage title="View Saved Reports" description="Access and review previously created leaf analysis reports." />} />
+                    <Route path="/agronomist/analysis/enter" element={<EnterAnalysisPage />} />
+                    <Route path="/agronomist/analysis/reports" element={<AnalysisReportsPage />} />
+                    <Route path="/agronomist/analysis/chronology" element={<AnalysisChronologyPage />} />
+                    <Route path="/agronomist/chat" element={<ChatPage />} />
+                    
+                    {/* Satellite Imagery Routes */}
+                    <Route path="/agronomist/satellite/crop-health" element={<CropHealth />} />
+                    <Route path="/agronomist/satellite/weather" element={<WeatherPage />} />
+                    <Route path="/agronomist/weather" element={<GeneralWeatherPage />} />
 
-                  {/* G.R.O.W Smart Tools Routes */}
-                  <Route path="/agronomist/smart-tools/irrigation/calculation" element={<IrrigationCalculatorPage />} />
-                  <Route path="/agronomist/smart-tools/crop-nutrition/recommendator" element={<NTSProductRecommendatorPage />} />
-                  <Route path="/agronomist/smart-tools/crop-protection/gdd" element={<GrowingDegreeDaysPage />} />
+                    {/* G.R.O.W Smart Tools Routes */}
+                    <Route path="/agronomist/smart-tools/irrigation/calculation" element={<IrrigationCalculatorPage />} />
+                    <Route path="/agronomist/smart-tools/crop-nutrition/recommendator" element={<NTSProductRecommendatorPage />} />
+                    <Route path="/agronomist/smart-tools/crop-protection/gdd" element={<GrowingDegreeDaysPage />} />
 
-                  <Route path="/agronomist/inbox" element={<ComingSoonPage title="G.R.O.W Messaging" description="Access your G.R.O.W messaging inbox." />} />
-                  <Route path="/agronomist/fertiliser-prices" element={<ComingSoonPage title="Fertiliser Prices" description="Current market prices and trends for fertilisers." />} />
-                  <Route path="/agronomist/documents" element={<DocumentsPage />} />
-                  <Route path="/agronomist/crop-nutrition" element={<ComingSoonPage title="Crop Nutrition Thresholds" description="Monitor and manage crop nutrition thresholds and guidelines." />} />
+                    <Route path="/agronomist/inbox" element={<ComingSoonPage title="G.R.O.W Messaging" description="Access your G.R.O.W messaging inbox." />} />
+                    <Route path="/agronomist/fertiliser-prices" element={<ComingSoonPage title="Fertiliser Prices" description="Current market prices and trends for fertilisers." />} />
+                    <Route path="/agronomist/documents" element={<DocumentsPage />} />
+                    <Route path="/agronomist/crop-nutrition" element={<ComingSoonPage title="Crop Nutrition Thresholds" description="Monitor and manage crop nutrition thresholds and guidelines." />} />
 
-                  {/* G.R.O.W Admin Routes */}
-                  <Route path="/admin/overview" element={<DashboardPage />} />
-                  <Route path="/admin/web-traffic" element={<WebTrafficAnalyticsPage />} />
-                  <Route path="/admin/financial" element={<FinancialAnalysisPage />} />
-                  <Route path="/admin/task-calendar" element={<TaskCalendarPage />} />
-                  <Route path="/admin/monthly-strategies" element={<MonthlyStrategiesPage />} />
-                  <Route path="/admin/inbox" element={<InboxPage />} />
+                    {/* G.R.O.W Admin Routes */}
+                    <Route path="/admin/overview" element={<DashboardPage />} />
+                    <Route path="/admin/web-traffic" element={<WebTrafficAnalyticsPage />} />
+                    <Route path="/admin/financial" element={<FinancialAnalyticsPage />} />
+                    <Route path="/admin/task-calendar" element={<TaskCalendarPage />} />
+                    <Route path="/admin/monthly-strategies" element={<MonthlyStrategiesPage />} />
+                    <Route path="/admin/inbox" element={<InboxPage />} />
 
-                  {/* G.R.O.W Super Admin Routes */}
-                  <Route path="/super-admin/task-management" element={<TaskManagementPage />} />
-                  <Route path="/super-admin/strategy-management" element={<StrategyManagementPage />} />
-                  <Route path="/super-admin/cost-management" element={<ComingSoonPage title="Cost Management" description="Manage and track operational costs and budgets." />} />
-                  <Route path="/super-admin/income-management" element={<ComingSoonPage title="Income Management" description="Track and manage income streams and revenue." />} />
+                    {/* G.R.O.W Super Admin Routes */}
+                    <Route path="/super-admin/task-management" element={<TaskManagementPage />} />
+                    <Route path="/super-admin/strategy-management" element={<StrategyManagementPage />} />
+                    <Route path="/super-admin/cost-management" element={<CostManagementPage />} />
+                    <Route path="/super-admin/income-management" element={<ComingSoonPage title="Income Management" description="Track and manage income streams and revenue." />} />
 
-                  {/* G.R.O.W Agronomist Field Visit Routes */}
-                  <Route path="/agronomist/field-visits" element={<FieldVisitsPage />} />
+                    {/* G.R.O.W Agronomist Field Visit Routes */}
+                    <Route path="/agronomist/field-visits" element={<FieldVisitsPage />} />
+                    <Route path="/agronomist/field-trials" element={<FieldTrialsPage />} />
+                    
+                    {/* Field Trials Routes */}
+                    <Route path="/agronomist/field-trials/treatments" element={<TreatmentVariableManager />} />
+                    <Route path="/agronomist/field-trials/data-entry" element={<DataEntryForm />} />
+                    <Route path="/agronomist/field-trials/analytics" element={<AdvancedAnalytics />} />
+                    <Route path="/agronomist/field-trials/reports" element={<TrialReportGenerator />} />
+                    <Route path="/agronomist/field-trials/weather" element={<WeatherIntegration />} />
+                    <Route path="/agronomist/field-trials/satellite" element={<SatelliteIntegration />} />
+                    <Route path="/agronomist/field-trials/design" element={<FieldDesignerPage />} />
 
-                  <Route path="*" element={<NotFound />} />
-                </Route>
-              </Routes>
-            </Router>
-          </TooltipProvider>
+                    <Route path="*" element={<NotFound />} />
+                  </Route>
+                </Routes>
+              </Router>
+            </TooltipProvider>
+          </CostProvider>
         </AppProvider>
       </ThemeProvider>
     </QueryClientProvider>
