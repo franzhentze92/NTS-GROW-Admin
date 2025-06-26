@@ -421,7 +421,7 @@ export const NAV_ITEMS = [
           },
         ]
       },
-      { id: 'chatbots', label: 'Chatbots', path: '/agronomist/chat', icon: 'MessageCircle' },
+      { id: 'chatbots', label: 'G-Man Chat', path: '/agronomist/chat', icon: 'MessageCircle' },
       { id: 'weather', label: 'General Weather', path: '/agronomist/weather', icon: 'Cloud' },
       { id: 'agronomist-documents', label: 'Documents', path: '/agronomist/documents', icon: 'Folder' },
       { id: 'crop-nutrition', label: 'Crop Nutrition Thresholds', path: '/agronomist/crop-nutrition', icon: 'Scale' },
@@ -431,7 +431,6 @@ export const NAV_ITEMS = [
         icon: 'MapPin',
         children: [
           { id: 'field-visits-management', label: 'Field Visits Management', path: '/agronomist/field-visits', icon: 'ClipboardList' },
-          { id: 'field-visit-analytics', label: 'Field Visit Analytics', path: '/agronomist/field-visits/analytics', icon: 'BarChart3' },
         ]
       },
       {

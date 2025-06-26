@@ -27,9 +27,9 @@ const ChatPage: React.FC = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">AI Chatbots</h1>
+        <h1 className="text-2xl font-bold tracking-tight">G-Man Chat</h1>
         <p className="text-muted-foreground">
-          Your personal AI assistants for various topics.
+          Your personal AI assistant, the G-Man, for agronomy, crop nutrition, and soil health.
         </p>
       </div>
       <Tabs defaultValue="agriculture" className="w-full">
