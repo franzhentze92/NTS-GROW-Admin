@@ -387,15 +387,6 @@ export const NAV_ITEMS = [
         ]
       },
       {
-        id: 'satellite-imagery',
-        label: 'Satellite Imagery',
-        icon: 'Satellite',
-        children: [
-          { id: 'crop-health', label: 'Crop Health', path: '/agronomist/satellite/crop-health', icon: 'Leaf' },
-          { id: 'weather', label: 'Weather', path: '/agronomist/satellite/weather', icon: 'Cloud' },
-        ]
-      },
-      {
         id: 'smart-tools',
         label: 'G.R.O.W Smart Tools',
         icon: 'Zap',
@@ -427,7 +418,6 @@ export const NAV_ITEMS = [
         ]
       },
       { id: 'chatbots', label: 'G-Man Chat', path: '/agronomist/chat', icon: 'MessageCircle' },
-      { id: 'weather', label: 'General Weather', path: '/agronomist/weather', icon: 'Cloud' },
       { id: 'agronomist-documents', label: 'Documents', path: '/agronomist/documents', icon: 'Folder' },
       { id: 'crop-nutrition', label: 'Crop Nutrition Thresholds', path: '/agronomist/crop-nutrition', icon: 'Scale' },
       {
@@ -463,10 +453,16 @@ export const NAV_ITEMS = [
               { id: 'data-summary', label: 'Data Summary', path: '/agronomist/field-trials/data-summary', icon: 'BarChart' }
             ]
           },
-          { id: 'trial-analytics', label: 'Analytics & Statistics', path: '/agronomist/field-trials/analytics', icon: 'BarChart3' },
+          {
+            id: 'analytics-statistics',
+            label: 'Analytics & Statistics',
+            icon: 'BarChart3',
+            children: [
+              { id: 'analysis', label: 'Analysis', path: '/agronomist/field-trials/analytics/analysis', icon: 'BarChart' },
+              { id: 'statistics', label: 'Statistics', path: '/agronomist/field-trials/analytics/statistics', icon: 'TrendingUp' }
+            ]
+          },
           { id: 'trial-reports', label: 'Reporting & Sharing', path: '/agronomist/field-trials/reports', icon: 'FileText' },
-          { id: 'weather-integration', label: 'Weather Integration', path: '/agronomist/field-trials/weather', icon: 'Cloud' },
-          { id: 'satellite-integration', label: 'Satellite Integration', path: '/agronomist/field-trials/satellite', icon: 'Satellite' },
         ]
       },
       { id: 'product-batch-production', label: 'Product Batch Production', path: '/agronomist/product-batch-production', icon: 'Package' },

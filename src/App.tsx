@@ -51,6 +51,8 @@ import TrialDetailsPage from '@/pages/TrialDetailsPage';
 import VariableTreatmentDesignForm from '@/pages/VariableTreatmentDesignForm';
 import DataCollectionEntryPage from '@/pages/DataCollectionEntryPage';
 import DataSummaryPage from '@/pages/DataSummaryPage';
+import AnalysisPage from '@/pages/AnalysisPage';
+import StatisticsPage from '@/pages/StatisticsPage';
 import { useEffect } from 'react';
 
 // Create a client
@@ -174,6 +176,9 @@ function App() {
                     <Route path="/trials/:id" element={<TrialDetailsPage />} />
                     <Route path="/trials/:id/variable-design" element={<VariableTreatmentDesignForm />} />
                     <Route path="/trials/:id/data-entry" element={<DataCollectionEntryPage />} />
+
+                    <Route path="/agronomist/field-trials/analytics/analysis" element={<AnalysisPage />} />
+                    <Route path="/agronomist/field-trials/analytics/statistics" element={<StatisticsPage />} />
 
                     <Route path="*" element={<NotFound />} />
                   </Route>

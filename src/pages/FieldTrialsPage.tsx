@@ -9,7 +9,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Calendar, MapPin, Users, TrendingUp, Plus, Search, Filter, MoreHorizontal, DollarSign, Clock, CheckCircle, AlertCircle, Edit, Trash2, Map, FileText } from 'lucide-react';
+import { Calendar, MapPin, Users, TrendingUp, Plus, Search, Filter, MoreHorizontal, DollarSign, Clock, CheckCircle, AlertCircle, Edit, Trash2, Map, FileText, Package, Database, BarChart3, Calculator } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
 import FieldDesigner from '@/components/fieldTrials/FieldDesigner';
@@ -35,7 +35,17 @@ const mockTrials = [
       { id: 2, name: "Mike Chen", avatar: "/avatars/mike.jpg", role: "Field Technician" },
       { id: 3, name: "Lisa Rodriguez", avatar: "/avatars/lisa.jpg", role: "Data Analyst" }
     ],
-    treatments: 4,
+    treatments: [
+      { name: 'Control', description: 'No fertilizer applied', application: 'Soil', rate: '0 kg N/ha', timing: 'Pre-sowing' },
+      { name: 'Low N', description: 'Low nitrogen rate', application: 'Soil', rate: '60 kg N/ha', timing: 'Pre-sowing' },
+      { name: 'Medium N', description: 'Medium nitrogen rate', application: 'Soil', rate: '120 kg N/ha', timing: 'Pre-sowing' },
+      { name: 'High N', description: 'High nitrogen rate', application: 'Soil', rate: '180 kg N/ha', timing: 'Pre-sowing' }
+    ],
+    variables: [
+      { name: 'Yield', unit: 'kg/ha', frequency: 'At harvest', description: 'Total grain yield per hectare' },
+      { name: 'Plant Height', unit: 'cm', frequency: 'Weekly', description: 'Height from soil surface to tip' },
+      { name: 'Leaf Color', unit: 'Score 1–5', frequency: 'Biweekly', description: 'Visual assessment of leaf greenness' }
+    ],
     replications: 3,
     plots: 12,
     completion: 65,
@@ -63,11 +73,20 @@ const mockTrials = [
       { id: 4, name: "Dr. Robert Kim", avatar: "/avatars/robert.jpg", role: "Pathologist" },
       { id: 5, name: "Emma Wilson", avatar: "/avatars/emma.jpg", role: "Research Assistant" }
     ],
-    treatments: 6,
+    treatments: [
+      { name: 'Control', description: 'No treatment', application: 'None', rate: '0', timing: 'None' },
+      { name: 'Fungicide A', description: 'Standard fungicide', application: 'Foliar', rate: '2 L/ha', timing: 'R1 stage' },
+      { name: 'Fungicide B', description: 'New fungicide', application: 'Foliar', rate: '1.5 L/ha', timing: 'R1 stage' }
+    ],
+    variables: [
+      { name: 'Disease Severity', unit: '%', frequency: 'Weekly', description: 'Percentage of leaf area affected' },
+      { name: 'Yield', unit: 'kg/ha', frequency: 'At harvest', description: 'Total grain yield per hectare' },
+      { name: 'Plant Stand', unit: 'plants/m²', frequency: 'At harvest', description: 'Number of plants per square meter' }
+    ],
     replications: 4,
-    plots: 24,
+    plots: 12,
     completion: 0,
-    design: "Split-Plot",
+    design: "RCBD",
     tasks: [
       { id: 5, title: "Field preparation", status: "pending", dueDate: "2024-03-28", assignee: "Emma Wilson", priority: "high" },
       { id: 6, title: "Seed treatment application", status: "pending", dueDate: "2024-04-02", assignee: "Dr. Robert Kim", priority: "high" }
@@ -89,7 +108,16 @@ const mockTrials = [
       { id: 6, name: "Dr. James Miller", avatar: "/avatars/james.jpg", role: "Soil Scientist" },
       { id: 7, name: "Anna Thompson", avatar: "/avatars/anna.jpg", role: "Field Manager" }
     ],
-    treatments: 3,
+    treatments: [
+      { name: 'Control', description: 'No fertilizer', application: 'None', rate: '0 kg/ha', timing: 'None' },
+      { name: 'NPK', description: 'Complete fertilizer', application: 'Soil', rate: '200 kg/ha', timing: 'Pre-sowing' },
+      { name: 'N Only', description: 'Nitrogen only', application: 'Soil', rate: '100 kg N/ha', timing: 'Pre-sowing' }
+    ],
+    variables: [
+      { name: 'Yield', unit: 'kg/ha', frequency: 'At harvest', description: 'Total grain yield per hectare' },
+      { name: 'Protein Content', unit: '%', frequency: 'At harvest', description: 'Grain protein percentage' },
+      { name: 'Plant Height', unit: 'cm', frequency: 'At flowering', description: 'Height at flowering stage' }
+    ],
     replications: 5,
     plots: 15,
     completion: 100,
@@ -115,11 +143,20 @@ const mockTrials = [
       { id: 8, name: "Dr. Maria Garcia", avatar: "/avatars/maria.jpg", role: "Irrigation Specialist" },
       { id: 9, name: "Tom Davis", avatar: "/avatars/tom.jpg", role: "Field Technician" }
     ],
-    treatments: 5,
+    treatments: [
+      { name: 'Control', description: 'Standard irrigation', application: 'Drip', rate: '100% ET', timing: 'Daily' },
+      { name: 'Deficit 20%', description: '20% deficit irrigation', application: 'Drip', rate: '80% ET', timing: 'Daily' },
+      { name: 'Deficit 40%', description: '40% deficit irrigation', application: 'Drip', rate: '60% ET', timing: 'Daily' }
+    ],
+    variables: [
+      { name: 'Yield', unit: 'kg/ha', frequency: 'At harvest', description: 'Total cotton yield per hectare' },
+      { name: 'Water Use Efficiency', unit: 'kg/mm', frequency: 'At harvest', description: 'Yield per unit of water applied' },
+      { name: 'Fiber Quality', unit: 'Score 1-5', frequency: 'At harvest', description: 'Fiber quality assessment' }
+    ],
     replications: 3,
-    plots: 15,
+    plots: 9,
     completion: 45,
-    design: "Strip-Plot",
+    design: "RCBD",
     tasks: [
       { id: 9, title: "Irrigation system maintenance", status: "completed", dueDate: "2024-03-15", assignee: "Tom Davis", priority: "high" },
       { id: 10, title: "Soil moisture monitoring", status: "in-progress", dueDate: "2024-03-22", assignee: "Dr. Maria Garcia", priority: "high" },
@@ -147,6 +184,18 @@ const mockTrials = [
       { id: 11, name: "Carlos Ruiz", avatar: "/avatars/carlos.jpg", role: "Editor" },
       { id: 12, name: "Ana Gomez", avatar: "/avatars/ana.jpg", role: "Viewer" }
     ],
+    treatments: [
+      { name: 'Control', description: 'No nitrogen applied', application: 'Soil', rate: '0 kg N/ha', timing: 'Pre-sowing' },
+      { name: 'Low N', description: 'Low nitrogen rate', application: 'Soil', rate: '60 kg N/ha', timing: 'Pre-sowing' },
+      { name: 'Medium N', description: 'Medium nitrogen rate', application: 'Soil', rate: '120 kg N/ha', timing: 'Pre-sowing' },
+      { name: 'High N', description: 'High nitrogen rate', application: 'Soil', rate: '180 kg N/ha', timing: 'Pre-sowing' }
+    ],
+    variables: [
+      { name: 'Yield', unit: 'kg/ha', frequency: 'At harvest', description: 'Total grain yield per hectare at physiological maturity' },
+      { name: 'Plant Height', unit: 'cm', frequency: 'Weekly', description: 'Height from soil surface to the tip of the highest leaf' },
+      { name: 'Leaf Color', unit: 'Score 1–5', frequency: 'Biweekly', description: 'Visual assessment of leaf greenness using standardized color chart' },
+      { name: 'Lodging', unit: '%', frequency: 'At harvest', description: 'Percentage of plants that have fallen over or are leaning significantly' }
+    ],
     tasks: [
       { id: 21, title: "Sowing", status: "completed", dueDate: "2025-06-01", assignee: "Maria Fernandez", icon: "✔️" },
       { id: 22, title: "First measurement – emergence", status: "pending", dueDate: "2025-06-15", assignee: "Carlos Ruiz", icon: "🌱" },
@@ -158,7 +207,11 @@ const mockTrials = [
     tags: ["Nitrogen", "Corn", "2025"],
     category: "Fertility",
     gps: "-34.6037, -58.3816",
-    is_draft: false
+    is_draft: false,
+    replications: 3,
+    plots: 12,
+    completion: 25,
+    design: "RCBD"
   },
 ];
 
@@ -595,33 +648,137 @@ const FieldTrialsPage: React.FC = () => {
             {filteredTrials.map((trial) => (
               <Card key={trial.id} className="hover:shadow-md transition-shadow">
                 <CardContent className="p-6">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                    {/* Left: Main Info */}
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center space-x-2 mb-1">
-                        <h3 className="text-lg font-semibold text-gray-900 truncate">{trial.name}</h3>
-                        <Badge className={getStatusColor(trial.status)}>{getStatusIcon(trial.status)} {trial.status}</Badge>
-                        {trial['trial_code'] ? <Badge variant="secondary">Code: {trial['trial_code']}</Badge> : null}
-                        {trial['category'] ? <Badge variant="outline">{trial['category']}</Badge> : null}
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-2">
+                        <h3 className="text-lg font-semibold">{trial.name}</h3>
+                        <Badge className={getStatusColor(trial.status)}>{trial.status}</Badge>
                       </div>
-                      <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-1">
-                        <div className="flex items-center"><MapPin className="w-4 h-4 mr-1" />{trial.location}</div>
-                        {trial['gps'] ? <div className="flex items-center"><MapPin className="w-4 h-4 mr-1" />GPS: {trial['gps']}</div> : null}
-                        {trial['trial_area'] ? <div className="flex items-center"><Map className="w-4 h-4 mr-1" />Area: {trial['trial_area']} ha</div> : null}
-                        <div className="flex items-center"><Calendar className="w-4 h-4 mr-1" />{trial.startDate} - {trial.endDate}</div>
-                        <div className="flex items-center"><DollarSign className="w-4 h-4 mr-1" />${trial.spent?.toLocaleString?.() ?? 0} / ${trial.budget?.toLocaleString?.() ?? 0}</div>
+                      <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
+                        <div className="flex items-center gap-1">
+                          <MapPin className="w-4 h-4" />
+                          {trial.location}
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-4 h-4" />
+                          {trial.startDate} - {trial.endDate}
+                        </div>
                       </div>
-                      <div className="flex flex-wrap gap-2 mb-1">
-                        <Badge variant="outline">Crop: {trial.crop}</Badge>
-                        {trial['variety_hybrid'] ? <Badge variant="outline">Variety: {trial['variety_hybrid']}</Badge> : null}
-                        {trial['trial_type'] ? <Badge variant="outline">Type: {trial['trial_type']}</Badge> : null}
-                        {trial['season'] ? <Badge variant="outline">Season: {trial['season']}</Badge> : null}
+                      
+                      {/* Trial Details */}
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                        <div className="text-center p-2 bg-gray-50 rounded">
+                          <div className="text-lg font-bold text-blue-600">{trial.treatments.length}</div>
+                          <div className="text-xs text-gray-600">Treatments</div>
+                        </div>
+                        <div className="text-center p-2 bg-gray-50 rounded">
+                          <div className="text-lg font-bold text-green-600">{trial.variables.length}</div>
+                          <div className="text-xs text-gray-600">Variables</div>
+                        </div>
+                        <div className="text-center p-2 bg-gray-50 rounded">
+                          <div className="text-lg font-bold text-purple-600">{trial.replications}</div>
+                          <div className="text-xs text-gray-600">Replications</div>
+                        </div>
+                        <div className="text-center p-2 bg-gray-50 rounded">
+                          <div className="text-lg font-bold text-orange-600">{trial.plots}</div>
+                          <div className="text-xs text-gray-600">Total Plots</div>
+                        </div>
                       </div>
-                      {trial['objective'] ? <div className="text-xs text-gray-700 mb-1"><span className="font-medium">Objective:</span> {trial['objective']}</div> : null}
-                      <div className="flex flex-wrap gap-2 mb-1">
-                        {(trial['tags'] || []).map((tag) => <Badge key={tag} variant="secondary">{tag}</Badge>)}
+
+                      {/* Treatments Preview */}
+                      <div className="mb-4">
+                        <h4 className="text-sm font-semibold mb-2">Treatments:</h4>
+                        <div className="flex flex-wrap gap-1">
+                          {trial.treatments.slice(0, 3).map((treatment, index) => (
+                            <Badge key={index} variant="outline" className="text-xs">
+                              {treatment.name}
+                            </Badge>
+                          ))}
+                          {trial.treatments.length > 3 && (
+                            <Badge variant="outline" className="text-xs">
+                              +{trial.treatments.length - 3} more
+                            </Badge>
+                          )}
+                        </div>
                       </div>
-                      {trial['notifications'] ? <Badge variant="destructive">Notifications Enabled</Badge> : null}
+
+                      {/* Variables Preview */}
+                      <div className="mb-4">
+                        <h4 className="text-sm font-semibold mb-2">Variables:</h4>
+                        <div className="flex flex-wrap gap-1">
+                          {trial.variables.slice(0, 3).map((variable, index) => (
+                            <Badge key={index} variant="secondary" className="text-xs">
+                              {variable.name} ({variable.unit})
+                            </Badge>
+                          ))}
+                          {trial.variables.length > 3 && (
+                            <Badge variant="secondary" className="text-xs">
+                              +{trial.variables.length - 3} more
+                            </Badge>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Progress and Budget */}
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-4">
+                          <div className="flex items-center gap-2">
+                            <div className="w-16 bg-gray-200 rounded-full h-2">
+                              <div 
+                                className="bg-blue-600 h-2 rounded-full" 
+                                style={{ width: `${trial.completion}%` }}
+                              ></div>
+                            </div>
+                            <span className="text-sm text-gray-600">{trial.completion}%</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <DollarSign className="w-4 h-4 text-gray-400" />
+                            <span className="text-sm text-gray-600">
+                              ${trial.spent.toLocaleString()} / ${trial.budget.toLocaleString()}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Navigation Buttons */}
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          onClick={() => navigate(`/agronomist/field-trials/treatments?trial=${trial.id}`)}
+                          className="text-xs"
+                        >
+                          <Package className="w-3 h-3 mr-1" />
+                          Variables & Treatments
+                        </Button>
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          onClick={() => navigate(`/agronomist/field-trials/data-collection?trial=${trial.id}`)}
+                          className="text-xs"
+                        >
+                          <Database className="w-3 h-3 mr-1" />
+                          Data Collection
+                        </Button>
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          onClick={() => navigate(`/agronomist/field-trials/analytics/analysis?trial=${trial.id}`)}
+                          className="text-xs"
+                        >
+                          <BarChart3 className="w-3 h-3 mr-1" />
+                          Analytics
+                        </Button>
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          onClick={() => navigate(`/agronomist/field-trials/analytics/statistics?trial=${trial.id}`)}
+                          className="text-xs"
+                        >
+                          <Calculator className="w-3 h-3 mr-1" />
+                          Statistics
+                        </Button>
+                      </div>
                     </div>
                     {/* Right: Owner, Team, Attachments */}
                     <div className="flex flex-col items-end gap-2 min-w-[180px]">
