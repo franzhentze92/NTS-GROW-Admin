@@ -339,6 +339,12 @@ export const PADDOCK_OPTIONS = [
 // Navigation items with hierarchical structure and role-based access
 export const NAV_ITEMS = [
   {
+    id: 'dashboard',
+    label: 'Dashboard',
+    path: '/dashboard',
+    icon: 'LayoutDashboard',
+  },
+  {
     id: 'grow-agronomist',
     label: 'G.R.O.W Agronomist',
     icon: 'Leaf',
@@ -378,7 +384,6 @@ export const NAV_ITEMS = [
         children: [
           { id: 'enter-analysis', label: 'Register New Analysis', path: '/agronomist/analysis/enter', icon: 'Plus' },
           { id: 'analysis-reports', label: 'Analysis Reports', path: '/agronomist/analysis/reports', icon: 'BarChart3' },
-          { id: 'analysis-chronology', label: 'Client Chronology', path: '/agronomist/analysis/chronology', icon: 'Clock' },
         ]
       },
       {
@@ -426,6 +431,14 @@ export const NAV_ITEMS = [
       { id: 'agronomist-documents', label: 'Documents', path: '/agronomist/documents', icon: 'Folder' },
       { id: 'crop-nutrition', label: 'Crop Nutrition Thresholds', path: '/agronomist/crop-nutrition', icon: 'Scale' },
       {
+        id: 'client-management',
+        label: 'Client Management',
+        icon: 'Users',
+        children: [
+          { id: 'client-database', label: 'Client Database', path: '/agronomist/clients', icon: 'Database' },
+        ]
+      },
+      {
         id: 'field-visits',
         label: 'Field Visits',
         icon: 'MapPin',
@@ -448,6 +461,7 @@ export const NAV_ITEMS = [
           { id: 'satellite-integration', label: 'Satellite Integration', path: '/agronomist/field-trials/satellite', icon: 'Satellite' },
         ]
       },
+      { id: 'product-batch-production', label: 'Product Batch Production', path: '/agronomist/product-batch-production', icon: 'Package' },
     ]
   },
   {
@@ -486,7 +500,35 @@ export const NAV_ITEMS = [
       { id: 'strategy-management', label: 'Strategy Management', path: '/super-admin/strategy-management', icon: 'Target' },
       { id: 'cost-management', label: 'Cost Management', path: '/super-admin/cost-management', icon: 'DollarSign' },
     ]
-  }
+  },
+  {
+    id: 'grow-education',
+    label: 'G.R.O.W Education',
+    icon: 'Book',
+    children: [
+      { id: 'grow-library', label: 'G.R.O.W Library', path: '/education/library', icon: 'Book', comingSoon: true },
+      {
+        id: 'online-learning',
+        label: 'Online Learning',
+        icon: 'GraduationCap',
+        children: [
+          { id: 'courses', label: 'Courses', path: '/education/online-learning/courses', icon: 'ListChecks', comingSoon: true },
+          { id: 'podcast', label: 'Podcast', path: '/education/online-learning/podcast', icon: 'Mic', comingSoon: true },
+          { id: 'videos', label: 'Videos', path: '/education/online-learning/videos', icon: 'Video', comingSoon: true },
+        ]
+      },
+      { id: 'grow-health-index', label: 'G.R.O.W Health Index', path: '/education/health-index', icon: 'HeartPulse', comingSoon: true },
+      { id: 'events', label: 'Events', path: '/education/events', icon: 'Calendar', comingSoon: true },
+      {
+        id: 'grow-arcade',
+        label: 'G.R.O.W Arcade',
+        icon: 'Gamepad2',
+        children: [
+          { id: 'trivia-challenge', label: 'Trivia Challenge', path: '/education/arcade/trivia', icon: 'HelpCircle', comingSoon: true },
+        ]
+      },
+    ]
+  },
 ];
 
 export const PRODUCTS = [

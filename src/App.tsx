@@ -44,6 +44,8 @@ import WeatherIntegration from "@/components/fieldTrials/WeatherIntegration";
 import SatelliteIntegration from "@/components/fieldTrials/SatelliteIntegration";
 import FieldDesignerPage from '@/pages/FieldDesignerPage';
 import CostManagementPage from '@/pages/CostManagementPage';
+import ProductBatchProductionPage from '@/pages/ProductBatchProductionPage';
+import ClientsPage from '@/pages/ClientsPage';
 import { useEffect } from 'react';
 
 // Create a client
@@ -92,6 +94,7 @@ function App() {
                   <Route path="/" element={<Layout><Outlet /></Layout>}>
                     {/* Legacy routes - keeping for backward compatibility */}
                     <Route index element={<DashboardPage />} />
+                    <Route path="/dashboard" element={<DashboardPage />} />
                     <Route path="/web-traffic" element={<WebTrafficAnalyticsPage />} />
                     <Route path="/financial" element={<FinancialAnalyticsPage />} />
                     <Route path="/task-management" element={<TaskManagementPage />} />
@@ -145,6 +148,7 @@ function App() {
 
                     {/* G.R.O.W Agronomist Field Visit Routes */}
                     <Route path="/agronomist/field-visits" element={<FieldVisitsPage />} />
+                    <Route path="/agronomist/clients" element={<ClientsPage />} />
                     <Route path="/agronomist/field-trials" element={<FieldTrialsPage />} />
                     
                     {/* Field Trials Routes */}
@@ -155,6 +159,8 @@ function App() {
                     <Route path="/agronomist/field-trials/weather" element={<WeatherIntegration />} />
                     <Route path="/agronomist/field-trials/satellite" element={<SatelliteIntegration />} />
                     <Route path="/agronomist/field-trials/design" element={<FieldDesignerPage />} />
+
+                    <Route path="/agronomist/product-batch-production" element={<ProductBatchProductionPage />} />
 
                     <Route path="*" element={<NotFound />} />
                   </Route>

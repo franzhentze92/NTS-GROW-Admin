@@ -79,6 +79,15 @@ const getVisitTypeBadgeVariant = (visitType: string): 'success' | 'warning' | 'd
   }
 };
 
+type ClientField = { name: string } | string | null;
+
+const getClientName = (client: ClientField) => {
+  if (!client) return '—';
+  if (typeof client === 'string') return client;
+  if (typeof client === 'object' && 'name' in client) return client.name;
+  return '—';
+};
+
 const FieldVisitsPage: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedMonth, setSelectedMonth] = useState('all');
@@ -180,7 +189,7 @@ const FieldVisitsPage: React.FC = () => {
     const displayedVisits = useMemo(() => {
         let filtered = fieldVisits.filter(visit => {
             const matchesSearch = searchTerm === '' || 
-                visit.client?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                getClientName(visit.client).toLowerCase().includes(searchTerm.toLowerCase()) ||
                 visit.consultant?.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 visit.farm?.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 visit.crop?.toLowerCase().includes(searchTerm.toLowerCase());
@@ -483,7 +492,7 @@ const FieldVisitsPage: React.FC = () => {
                                                 <div key={visit.id} className="flex items-center gap-3 p-2 bg-muted rounded">
                                                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                                                     <span className="text-sm flex-1">
-                                                        {visit.consultant} visited {visit.client} - {visit.crop}
+                                                        {visit.consultant} visited {getClientName(visit.client) || '—'} - {visit.crop}
                                                     </span>
                                                     <Badge style={getBadgeStyle(statusColorMap[visit.status || 'Scheduled'])}>
                                                         {visit.status || 'Scheduled'}
@@ -539,7 +548,7 @@ const FieldVisitsPage: React.FC = () => {
                                     <tr key={visit.id} className="border-b hover:bg-muted/50">
                                         <td className="cursor-pointer" onClick={() => handleViewVisit(visit)}>{format(new Date(visit.visit_date), "PPP")}</td>
                                         <td className="cursor-pointer" onClick={() => handleViewVisit(visit)}>{visit.farm || 'N/A'}</td>
-                                        <td className="cursor-pointer" onClick={() => handleViewVisit(visit)}>{visit.client || 'N/A'}</td>
+                                        <td className="cursor-pointer" onClick={() => handleViewVisit(visit)}>{getClientName(visit.client) || '—'}</td>
                                         <td className="cursor-pointer" onClick={() => handleViewVisit(visit)}>{visit.consultant || 'N/A'}</td>
                                         <td className="cursor-pointer" onClick={() => handleViewVisit(visit)}>
                                             <Badge style={getBadgeStyle(statusColorMap[visit.status || 'Scheduled'])}>
@@ -654,7 +663,7 @@ const FieldVisitsPage: React.FC = () => {
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <span className="font-medium">Client:</span>
-                                        <Badge style={getBadgeStyle(cropColorMap[viewingVisit.client || ''])}>{viewingVisit.client || 'N/A'}</Badge>
+                                        <Badge style={getBadgeStyle(cropColorMap[viewingVisit.client || ''])}>{getClientName(viewingVisit.client) || 'N/A'}</Badge>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <MapPin className="h-4 w-4 text-muted-foreground" />

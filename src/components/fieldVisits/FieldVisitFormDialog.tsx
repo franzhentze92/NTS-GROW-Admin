@@ -10,15 +10,15 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { FieldVisit, CreateFieldVisitData, UpdateFieldVisitData } from '@/lib/types';
-import { CONSULTANTS, CROP_OPTIONS, FARM_OPTIONS, PADDOCK_OPTIONS, MOCK_CLIENTS } from '@/lib/constants';
+import { CONSULTANTS, CROP_OPTIONS, FARM_OPTIONS, PADDOCK_OPTIONS } from '@/lib/constants';
 import { supabase } from '@/lib/supabaseClient';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Upload, X, Image as ImageIcon } from 'lucide-react';
 
 const fieldVisitSchema = z.object({
   visit_date: z.string().min(1, 'Visit date is required'),
   consultant: z.string().min(1, 'Consultant is required'),
-  client: z.string().min(1, 'Client is required'),
+  client_id: z.string().min(1, 'Client is required').refine(val => val !== 'select', 'Client is required'),
   status: z.enum(['Scheduled', 'In Progress', 'Completed', 'Cancelled']).default('Scheduled'),
   farm: z.string().optional(),
   paddock: z.string().optional(),
@@ -64,13 +64,31 @@ const FieldVisitFormDialog: React.FC<FieldVisitFormDialogProps> = ({
 }) => {
   const [uploading, setUploading] = useState(false);
   const [uploadedImages, setUploadedImages] = useState<string[]>([]);
+  const [clients, setClients] = useState<{ id: string; name: string }[]>([]);
+
+  // Fetch clients from Supabase
+  useEffect(() => {
+    async function fetchClients() {
+      const res = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/rest/v1/clients?select=id,name`, {
+        headers: {
+          'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
+        }
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setClients(data);
+      }
+    }
+    fetchClients();
+  }, []);
 
   const form = useForm<FieldVisitFormData>({
     resolver: zodResolver(fieldVisitSchema),
     defaultValues: {
       visit_date: visit?.visit_date || '',
       consultant: visit?.consultant || '',
-      client: visit?.client || '',
+      client_id: (visit as any)?.client_id || (visit as any)?.client || 'select',
       status: visit?.status || 'Scheduled',
       farm: visit?.farm || '',
       paddock: visit?.paddock || '',
@@ -111,7 +129,7 @@ const FieldVisitFormDialog: React.FC<FieldVisitFormDialogProps> = ({
       form.reset({
         visit_date: visit.visit_date || '',
         consultant: visit.consultant || '',
-        client: visit.client || '',
+        client_id: (visit as any).client_id || (visit as any).client || 'select',
         status: visit.status || 'Scheduled',
         farm: visit.farm || '',
         paddock: visit.paddock || '',
@@ -207,6 +225,7 @@ const FieldVisitFormDialog: React.FC<FieldVisitFormDialogProps> = ({
       // Update existing visit
       onSubmit({
         ...convertedData,
+        client: convertedData.client_id,
         id: visit.id,
         image_urls: uploadedImages,
         updated_at: new Date().toISOString(),
@@ -215,6 +234,7 @@ const FieldVisitFormDialog: React.FC<FieldVisitFormDialogProps> = ({
       // Create new visit
       onSubmit({
         ...convertedData,
+        client: convertedData.client_id,
         image_urls: uploadedImages,
       } as CreateFieldVisitData);
     }
@@ -272,22 +292,25 @@ const FieldVisitFormDialog: React.FC<FieldVisitFormDialogProps> = ({
 
               <FormField
                 control={form.control}
-                name="client"
+                name="client_id"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Client</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select client" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        {MOCK_CLIENTS.map((client) => (
-                          <SelectItem key={client.id} value={client.name}>{client.name}</SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                    <FormControl>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select a client" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="select">Select a client</SelectItem>
+                          {clients.map(c => (
+                            <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}

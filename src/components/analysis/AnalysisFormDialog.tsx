@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -15,12 +15,13 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQueryClient, useQuery } from '@tanstack/react-query';
 import { createAnalysis, updateAnalysis } from '@/lib/analysisApi';
+import { getClients } from '@/lib/clientsApi';
 import { toast } from 'sonner';
 import { useAppContext } from '@/contexts/AppContext';
-import { Analysis, AnalysisForCreate } from '@/lib/types';
-import { MOCK_CLIENTS, CONSULTANTS, CROP_OPTIONS, CATEGORY_OPTIONS } from '@/lib/constants';
+import { Analysis, AnalysisForCreate, Client } from '@/lib/types';
+import { CONSULTANTS, CROP_OPTIONS, CATEGORY_OPTIONS } from '@/lib/constants';
 import { useDropzone } from 'react-dropzone';
 import { Upload, FileText, X } from 'lucide-react';
 import { supabase } from '@/lib/supabaseClient';
@@ -69,6 +70,12 @@ export const AnalysisFormDialog: React.FC<AnalysisFormDialogProps> = ({
   const [uploading, setUploading] = useState(false);
   const queryClient = useQueryClient();
   const { currentUser } = useAppContext();
+
+  // Fetch clients
+  const { data: clients = [], isLoading: clientsLoading } = useQuery({
+    queryKey: ['clients'],
+    queryFn: getClients,
+  });
 
   // Use external state if provided, otherwise use internal state
   const open = externalOpen !== undefined ? externalOpen : internalOpen;
@@ -324,11 +331,15 @@ export const AnalysisFormDialog: React.FC<AnalysisFormDialogProps> = ({
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          {MOCK_CLIENTS.map((client) => (
-                            <SelectItem key={client.id} value={client.name}>
-                              {client.name}
-                            </SelectItem>
-                          ))}
+                          {clientsLoading ? (
+                            <SelectItem value="loading" disabled>Loading clients...</SelectItem>
+                          ) : (
+                            clients.map((client) => (
+                              <SelectItem key={client.id} value={client.name}>
+                                {client.name}
+                              </SelectItem>
+                            ))
+                          )}
                         </SelectContent>
                       </Select>
                       <FormMessage />

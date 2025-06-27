@@ -7,6 +7,13 @@ export const getFieldVisits = async (): Promise<FieldVisit[]> => {
     .from('field_visits')
     .select(`
       *,
+      client:clients (
+        id,
+        name,
+        email,
+        phone,
+        address
+      ),
       created_by:users (
         id,
         name

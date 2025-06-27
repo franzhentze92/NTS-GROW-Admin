@@ -15,19 +15,20 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQueryClient, useQuery } from '@tanstack/react-query';
 import { createAnalysis } from '@/lib/analysisApi';
+import { getClients } from '@/lib/clientsApi';
 import { toast } from '@/components/ui/use-toast';
 import { useAppContext } from '@/contexts/AppContext';
-import { AnalysisForCreate } from '@/lib/types';
-import { MOCK_CLIENTS, CONSULTANTS, CROP_OPTIONS, CATEGORY_OPTIONS } from '@/lib/constants';
+import { AnalysisForCreate, Client } from '@/lib/types';
+import { CONSULTANTS, CROP_OPTIONS, CATEGORY_OPTIONS } from '@/lib/constants';
 
 const analysisSchema = z.object({
   client_name: z.string().min(1, "Client is required"),
   consultant: z.string().min(1, "Consultant is required"),
   analysis_type: z.enum(['soil', 'leaf']),
-  crop: z.string().optional(),
-  category: z.string().optional(),
+  crop: z.string().min(1, "Crop is required"),
+  category: z.string().min(1, "Category is required"),
   eal_lab_no: z.string().optional(),
   test_count: z.coerce.number().optional(),
   notes: z.string().optional(),
@@ -42,6 +43,12 @@ export const AddAnalysisDialog: React.FC<AddAnalysisDialogProps> = ({ children }
   const [open, setOpen] = useState(false);
   const queryClient = useQueryClient();
   const { currentUser } = useAppContext();
+
+  // Fetch clients
+  const { data: clients = [], isLoading: clientsLoading } = useQuery({
+    queryKey: ['clients'],
+    queryFn: getClients,
+  });
 
   const form = useForm<z.infer<typeof analysisSchema>>({
     resolver: zodResolver(analysisSchema),
@@ -78,9 +85,17 @@ export const AddAnalysisDialog: React.FC<AddAnalysisDialogProps> = ({ children }
     }
 
     const newAnalysis: AnalysisForCreate = {
-      ...values,
+      client_name: values.client_name,
+      consultant: values.consultant,
+      analysis_type: values.analysis_type,
+      crop: values.crop,
+      category: values.category,
       status: 'Draft',
       updated_by: currentUser.id,
+      eal_lab_no: values.eal_lab_no,
+      test_count: values.test_count,
+      notes: values.notes,
+      sample_no: values.sample_no,
     };
 
     mutation.mutate(newAnalysis);
@@ -112,11 +127,15 @@ export const AddAnalysisDialog: React.FC<AddAnalysisDialogProps> = ({ children }
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        {MOCK_CLIENTS.map((client) => (
-                          <SelectItem key={client.id} value={client.name}>
-                            {client.name}
-                          </SelectItem>
-                        ))}
+                        {clientsLoading ? (
+                          <SelectItem value="loading" disabled>Loading clients...</SelectItem>
+                        ) : (
+                          clients.map((client) => (
+                            <SelectItem key={client.id} value={client.name}>
+                              {client.name}
+                            </SelectItem>
+                          ))
+                        )}
                       </SelectContent>
                     </Select>
                     <FormMessage />

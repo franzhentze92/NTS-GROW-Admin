@@ -165,7 +165,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
           
           {sidebarOpen && isExpanded && (
             <div className="space-y-0.5 mt-1">
-              {item.children.map((child: any) => renderNavItem(child, level + 1))}
+              {Array.isArray(item.children) && item.children.map((child: any) => renderNavItem(child, level + 1))}
             </div>
           )}
         </div>
@@ -228,35 +228,28 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
       
       <div className="flex flex-col justify-between h-[calc(100vh-4rem)]">
         <nav className="mt-4 px-3 space-y-2 overflow-y-auto">
-          {filteredNavItems.map((section) => (
-            <div key={section.id} className="space-y-1">
-              <Button
-                variant="ghost"
-                className={cn(
-                  "w-full flex items-center justify-between px-3 py-3 text-base font-semibold transition-colors",
-                  "text-foreground hover:bg-muted hover:text-foreground",
-                  "border-l-2 border-l-transparent hover:border-l-primary/30"
-                )}
-                onClick={() => sidebarOpen && toggleSection(section.id)}
-              >
-                <div className="flex items-center">
-                  <span className="mr-3 h-5 w-5">{getIcon(section.icon)}</span>
-                  {sidebarOpen && section.label}
-                </div>
-                {sidebarOpen && (
-                  expandedSections.includes(section.id) ? 
-                    <ChevronUp className="h-4 w-4" /> : 
-                    <ChevronDown className="h-4 w-4" />
-                )}
-              </Button>
-              
-              {sidebarOpen && expandedSections.includes(section.id) && (
-                <div className="space-y-1 ml-2 border-l border-border/20 pl-2">
-                  {section.children.map((item) => renderNavItem(item, 1))}
-                </div>
-              )}
-            </div>
-          ))}
+          {/* Render all nav items, including top-level links like Dashboard */}
+          {NAV_ITEMS.map((item: any) =>
+            item.children && item.children.length > 0
+              ? renderNavItem(item, 0)
+              : (
+                <NavLink
+                  key={item.id}
+                  to={item.path}
+                  className={({ isActive }) => cn(
+                    "flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors",
+                    isActive
+                      ? "bg-primary/10 text-primary border-l-2 border-l-primary"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground border-l-2 border-l-transparent hover:border-l-primary/20",
+                    "font-semibold"
+                  )}
+                  end
+                >
+                  <span className="mr-3 h-5 w-5">{getIcon(item.icon)}</span>
+                  {sidebarOpen && <span className="text-base">{item.label}</span>}
+                </NavLink>
+              )
+          )}
         </nav>
       </div>
     </div>

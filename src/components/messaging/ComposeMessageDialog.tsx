@@ -102,7 +102,7 @@ const ComposeMessageDialog: React.FC<ComposeMessageDialogProps> = ({ open, onOpe
               </SelectTrigger>
               <SelectContent>
                 {usersLoading ? (
-                  <SelectItem value="" disabled>Loading users...</SelectItem>
+                  <SelectItem value="loading" disabled>Loading users...</SelectItem>
                 ) : (
                   users.map((user) => (
                     <SelectItem key={user.id} value={user.id}>

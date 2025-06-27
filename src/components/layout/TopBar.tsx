@@ -22,7 +22,14 @@ const TopBar: React.FC = () => {
   const [pageTitle, setPageTitle] = useState('');
 
   React.useEffect(() => {
-    const allNavItems = NAV_ITEMS.flatMap(section => section.children);
+    function isNavItemWithPath(item: any): item is { path: string; label: string } {
+      return typeof item === 'object' && !!item && typeof item.path === 'string' && typeof item.label === 'string';
+    }
+    const allNavItems = NAV_ITEMS.flatMap(section =>
+      Array.isArray(section.children)
+        ? section.children.filter(isNavItemWithPath)
+        : isNavItemWithPath(section) ? [section] : []
+    );
     const currentNavItem = allNavItems.find(item => item.path === location.pathname);
     setPageTitle(currentNavItem?.label || '');
   }, [location.pathname]);
@@ -80,7 +87,7 @@ const TopBar: React.FC = () => {
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-9 w-9 rounded-full">
                 <Avatar className="h-9 w-9">
-                  <AvatarImage src={currentUser.avatarUrl || ''} alt={`@${currentUser.name}`} />
+                  <AvatarImage src={currentUser?.avatar_url || currentUser?.avatarUrl || ''} alt={`@${currentUser?.name}`} />
                   <AvatarFallback>{getInitials(currentUser.name)}</AvatarFallback>
                 </Avatar>
               </Button>
