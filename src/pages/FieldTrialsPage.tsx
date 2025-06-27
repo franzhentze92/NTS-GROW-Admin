@@ -9,10 +9,12 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Calendar, MapPin, Users, TrendingUp, Plus, Search, Filter, MoreHorizontal, DollarSign, Clock, CheckCircle, AlertCircle, Edit, Trash2, Map } from 'lucide-react';
+import { Calendar, MapPin, Users, TrendingUp, Plus, Search, Filter, MoreHorizontal, DollarSign, Clock, CheckCircle, AlertCircle, Edit, Trash2, Map, FileText } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
 import FieldDesigner from '@/components/fieldTrials/FieldDesigner';
+import { TrialFormDialog } from '@/components/fieldTrials/TrialFormDialog';
+import { useNavigate } from 'react-router-dom';
 
 // Enhanced mock data for trials with coordinates and budget
 const mockTrials = [
@@ -123,7 +125,41 @@ const mockTrials = [
       { id: 10, title: "Soil moisture monitoring", status: "in-progress", dueDate: "2024-03-22", assignee: "Dr. Maria Garcia", priority: "high" },
       { id: 11, title: "Plant stress assessment", status: "pending", dueDate: "2024-03-29", assignee: "Tom Davis", priority: "medium" }
     ]
-  }
+  },
+  {
+    id: 5,
+    name: "Nitrogen Rate Trial – Corn 2025",
+    status: "ongoing",
+    location: "Demo Farm Alpha",
+    crop: "Corn",
+    variety_hybrid: "Pioneer 30F35",
+    trial_code: "N-CORN-2025",
+    trial_type: "Fertility Rate Trial",
+    season: "Wet 2025",
+    startDate: "2025-06-01",
+    endDate: "2025-09-30",
+    objective: "Evaluate the yield response of corn to different nitrogen rates in a loamy soil field.",
+    farm_name: "Demo Farm Alpha",
+    trial_area: 1.2,
+    area_unit: "ha",
+    owner: { id: 10, name: "Maria Fernandez", avatar: "/avatars/maria.jpg", role: "Lead Agronomist" },
+    collaborators: [
+      { id: 11, name: "Carlos Ruiz", avatar: "/avatars/carlos.jpg", role: "Editor" },
+      { id: 12, name: "Ana Gomez", avatar: "/avatars/ana.jpg", role: "Viewer" }
+    ],
+    tasks: [
+      { id: 21, title: "Sowing", status: "completed", dueDate: "2025-06-01", assignee: "Maria Fernandez", icon: "✔️" },
+      { id: 22, title: "First measurement – emergence", status: "pending", dueDate: "2025-06-15", assignee: "Carlos Ruiz", icon: "🌱" },
+      { id: 23, title: "Plant height", status: "pending", dueDate: "2025-07-10", assignee: "Ana Gomez", icon: "📏" },
+      { id: 24, title: "Harvest and final data collection", status: "pending", dueDate: "2025-09-30", assignee: "Maria Fernandez", icon: "🌾" }
+    ],
+    budget: 1500,
+    spent: 0,
+    tags: ["Nitrogen", "Corn", "2025"],
+    category: "Fertility",
+    gps: "-34.6037, -58.3816",
+    is_draft: false
+  },
 ];
 
 // Enhanced chart data
@@ -234,6 +270,7 @@ const FieldTrialsPage: React.FC = () => {
   });
   const [showFieldDesigner, setShowFieldDesigner] = useState(false);
   const [selectedTrialForDesign, setSelectedTrialForDesign] = useState(null);
+  const navigate = useNavigate();
 
   const filteredTrials = mockTrials.filter(trial => {
     const matchesSearch = trial.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -558,72 +595,66 @@ const FieldTrialsPage: React.FC = () => {
             {filteredTrials.map((trial) => (
               <Card key={trial.id} className="hover:shadow-md transition-shadow">
                 <CardContent className="p-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-lg flex items-center justify-center text-white font-bold">
-                          {trial.crop.charAt(0)}
-                        </div>
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    {/* Left: Main Info */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center space-x-2 mb-1">
+                        <h3 className="text-lg font-semibold text-gray-900 truncate">{trial.name}</h3>
+                        <Badge className={getStatusColor(trial.status)}>{getStatusIcon(trial.status)} {trial.status}</Badge>
+                        {trial['trial_code'] ? <Badge variant="secondary">Code: {trial['trial_code']}</Badge> : null}
+                        {trial['category'] ? <Badge variant="outline">{trial['category']}</Badge> : null}
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center space-x-2">
-                          <h3 className="text-lg font-semibold text-gray-900 truncate">
-                            {trial.name}
-                          </h3>
-                          <Badge className={getStatusColor(trial.status)}>
-                            {getStatusIcon(trial.status)} {trial.status}
-                          </Badge>
-                        </div>
-                        <div className="flex items-center space-x-4 text-sm text-gray-600 mt-1">
-                          <div className="flex items-center">
-                            <MapPin className="w-4 h-4 mr-1" />
-                            {trial.location}
-                          </div>
-                          <div className="flex items-center">
-                            <Calendar className="w-4 h-4 mr-1" />
-                            {trial.startDate} - {trial.endDate}
-                          </div>
-                          <div className="flex items-center">
-                            <DollarSign className="w-4 h-4 mr-1" />
-                            ${trial.spent.toLocaleString()} / ${trial.budget.toLocaleString()}
-                          </div>
-                        </div>
+                      <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-1">
+                        <div className="flex items-center"><MapPin className="w-4 h-4 mr-1" />{trial.location}</div>
+                        {trial['gps'] ? <div className="flex items-center"><MapPin className="w-4 h-4 mr-1" />GPS: {trial['gps']}</div> : null}
+                        {trial['trial_area'] ? <div className="flex items-center"><Map className="w-4 h-4 mr-1" />Area: {trial['trial_area']} ha</div> : null}
+                        <div className="flex items-center"><Calendar className="w-4 h-4 mr-1" />{trial.startDate} - {trial.endDate}</div>
+                        <div className="flex items-center"><DollarSign className="w-4 h-4 mr-1" />${trial.spent?.toLocaleString?.() ?? 0} / ${trial.budget?.toLocaleString?.() ?? 0}</div>
                       </div>
+                      <div className="flex flex-wrap gap-2 mb-1">
+                        <Badge variant="outline">Crop: {trial.crop}</Badge>
+                        {trial['variety_hybrid'] ? <Badge variant="outline">Variety: {trial['variety_hybrid']}</Badge> : null}
+                        {trial['trial_type'] ? <Badge variant="outline">Type: {trial['trial_type']}</Badge> : null}
+                        {trial['season'] ? <Badge variant="outline">Season: {trial['season']}</Badge> : null}
+                      </div>
+                      {trial['objective'] ? <div className="text-xs text-gray-700 mb-1"><span className="font-medium">Objective:</span> {trial['objective']}</div> : null}
+                      <div className="flex flex-wrap gap-2 mb-1">
+                        {(trial['tags'] || []).map((tag) => <Badge key={tag} variant="secondary">{tag}</Badge>)}
+                      </div>
+                      {trial['notifications'] ? <Badge variant="destructive">Notifications Enabled</Badge> : null}
                     </div>
-
-                    <div className="flex items-center space-x-4">
+                    {/* Right: Owner, Team, Attachments */}
+                    <div className="flex flex-col items-end gap-2 min-w-[180px]">
                       {/* Owner */}
-                      <div className="text-right">
-                        <div className="text-sm font-medium text-gray-900">Owner</div>
+                      <div className="text-right mb-1">
+                        <div className="text-xs font-medium text-gray-900">Owner</div>
                         <div className="flex items-center space-x-1">
-                          <Avatar className="w-6 h-6">
-                            <AvatarImage src={trial.owner.avatar} />
-                            <AvatarFallback className="text-xs">
-                              {trial.owner.name.split(' ').map(n => n[0]).join('')}
-                            </AvatarFallback>
-                          </Avatar>
-                          <span className="text-xs text-gray-600">{trial.owner.name}</span>
+                          <Avatar className="w-6 h-6"><AvatarImage src={trial.owner?.avatar} /><AvatarFallback className="text-xs">{trial.owner?.name?.split(' ').map(n => n[0]).join('')}</AvatarFallback></Avatar>
+                          <span className="text-xs text-gray-600">{trial.owner?.name}</span>
                         </div>
                       </div>
-
-                      {/* Actions */}
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" size="sm">
-                            <MoreHorizontal className="w-4 h-4" />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          <DropdownMenuItem onClick={() => handleViewDetails(trial)}>View Details</DropdownMenuItem>
-                          <DropdownMenuItem onClick={() => handleAddTask(trial.id)}>Add Task</DropdownMenuItem>
-                          <DropdownMenuItem>Edit Trial</DropdownMenuItem>
-                          <DropdownMenuItem>Export Data</DropdownMenuItem>
-                          <DropdownMenuItem className="text-red-600">Delete</DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                      {/* Team */}
+                      <div className="text-right mb-1">
+                        <div className="text-xs font-medium text-gray-900">Team</div>
+                        <div className="flex flex-wrap gap-1 justify-end">
+                          {(trial.collaborators || []).map((c) => (
+                            <div key={c.id} className="flex items-center gap-1">
+                              <Avatar className="w-5 h-5"><AvatarImage src={c.avatar} /><AvatarFallback className="text-xs">{c.name.split(' ').map(n => n[0]).join('')}</AvatarFallback></Avatar>
+                              <span className="text-xs text-gray-600">{c.name}</span>
+                              {c.role && <Badge variant="outline" className="text-[10px]">{c.role}</Badge>}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      {/* Attachments */}
+                      {trial['attachments'] && trial['attachments'].length > 0 ? (
+                        <div className="flex items-center gap-1 mt-1">
+                          <FileText className="w-4 h-4 text-gray-500" />
+                          <span className="text-xs text-gray-600">{trial['attachments'].length} attachment{trial['attachments'].length > 1 ? 's' : ''}</span>
+                        </div>
+                      ) : null}
                     </div>
                   </div>
-
                   {/* Progress Bar */}
                   <div className="mt-4">
                     <div className="flex justify-between text-sm text-gray-600 mb-1">
@@ -631,49 +662,43 @@ const FieldTrialsPage: React.FC = () => {
                       <span>{trial.completion}%</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div
-                        className="bg-gradient-to-r from-green-400 to-blue-500 h-2 rounded-full transition-all duration-300"
-                        style={{ width: `${trial.completion}%` }}
-                      />
+                      <div className="bg-gradient-to-r from-green-400 to-blue-500 h-2 rounded-full transition-all duration-300" style={{ width: `${trial.completion}%` }} />
                     </div>
                   </div>
-
                   {/* Tasks Section */}
                   <div className="mt-4">
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-medium text-gray-900">Recent Tasks</h4>
+                      <h4 className="font-medium text-gray-900">Tasks</h4>
                       <Button variant="outline" size="sm" onClick={() => handleAddTask(trial.id)}>
-                        <Plus className="w-3 h-3 mr-1" />
-                        Add Task
+                        <Plus className="w-3 h-3 mr-1" />Add Task
                       </Button>
                     </div>
                     <div className="space-y-2">
-                      {trial.tasks.slice(0, 3).map((task) => (
+                      {(trial.tasks || []).slice(0, 5).map((task) => (
                         <div key={task.id} className="flex items-center justify-between p-2 bg-gray-50 rounded">
                           <div className="flex items-center space-x-2">
                             {getStatusIcon(task.status)}
                             <span className="text-sm font-medium">{task.title}</span>
-                            <Badge className={getPriorityColor(task.priority)}>
-                              {task.priority}
-                            </Badge>
+                            <Badge className={getPriorityColor(task.priority)}>{task.priority}</Badge>
                           </div>
                           <div className="flex items-center space-x-2">
                             <span className="text-xs text-gray-500">{task.assignee}</span>
                             <span className="text-xs text-gray-500">{task.dueDate}</span>
-                            <Button variant="ghost" size="sm" onClick={() => handleEditTask(task)}>
-                              <Edit className="w-3 h-3" />
-                            </Button>
+                            <Button variant="ghost" size="sm" onClick={() => handleEditTask(task)}><Edit className="w-3 h-3" /></Button>
                           </div>
                         </div>
                       ))}
-                      {trial.tasks.length > 3 && (
+                      {(trial.tasks || []).length > 5 && (
                         <div className="text-center">
-                          <Button variant="ghost" size="sm">
-                            View all {trial.tasks.length} tasks
-                          </Button>
+                          <Button variant="ghost" size="sm">View all {trial.tasks.length} tasks</Button>
                         </div>
                       )}
                     </div>
+                  </div>
+                  <div className="flex justify-end mt-4">
+                    <Button variant="secondary" onClick={() => navigate(`/trials/${trial.id}`)}>
+                      View
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -682,262 +707,16 @@ const FieldTrialsPage: React.FC = () => {
         </CardContent>
       </Card>
 
-      {/* Create Trial Dialog */}
-      <Dialog open={showCreateDialog} onOpenChange={setShowCreateDialog}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle>Create New Field Trial</DialogTitle>
-            <DialogDescription>
-              Choose a trial template and configure your experimental design
-            </DialogDescription>
-          </DialogHeader>
-
-          <div className="space-y-6">
-            {/* Template Selection */}
-            <div>
-              <Label className="text-base font-medium">Choose Trial Template</Label>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
-                {trialTemplates.map((template) => (
-                  <Card
-                    key={template.id}
-                    className={`cursor-pointer transition-all ${
-                      selectedTemplate === template.id
-                        ? 'ring-2 ring-green-500 bg-green-50'
-                        : 'hover:shadow-md'
-                    }`}
-                    onClick={() => setSelectedTemplate(template.id)}
-                  >
-                    <CardContent className="p-4">
-                      <div className="flex items-start space-x-3">
-                        <div className="text-2xl">{template.icon}</div>
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-gray-900">{template.name}</h3>
-                          <p className="text-sm text-gray-600 mt-1">{template.description}</p>
-                          <Badge variant="secondary" className="mt-2">
-                            {template.complexity}
-                          </Badge>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-
-            {/* Trial Configuration Form */}
-            {selectedTemplate && (
-              <div className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="trialName">Trial Name</Label>
-                    <Input id="trialName" placeholder="Enter trial name" />
-                  </div>
-                  <div>
-                    <Label htmlFor="crop">Crop</Label>
-                    <Select>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select crop" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="corn">Corn</SelectItem>
-                        <SelectItem value="soybeans">Soybeans</SelectItem>
-                        <SelectItem value="wheat">Wheat</SelectItem>
-                        <SelectItem value="cotton">Cotton</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="location">Location</Label>
-                  <Input id="location" placeholder="Field location" />
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="startDate">Start Date</Label>
-                    <Input id="startDate" type="date" />
-                  </div>
-                  <div>
-                    <Label htmlFor="endDate">End Date</Label>
-                    <Input id="endDate" type="date" />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="description">Description</Label>
-                  <Textarea
-                    id="description"
-                    placeholder="Describe the trial objectives and methodology"
-                    rows={3}
-                  />
-                </div>
-
-                {/* Collaborators */}
-                <div>
-                  <Label>Collaborators</Label>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {mockUsers.map(user => (
-                      <label key={user.id} className="flex items-center space-x-2 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={collaboratorIds.includes(user.id)}
-                          onChange={() => handleCollaboratorToggle(user.id)}
-                        />
-                        <Avatar className="w-6 h-6">
-                          <AvatarImage src={user.avatar} />
-                          <AvatarFallback>{user.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                        </Avatar>
-                        <span className="text-sm">{user.name}</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Tags */}
-                <div>
-                  <Label>Tags</Label>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {mockTags.map(tag => (
-                      <label key={tag} className="flex items-center space-x-2 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={selectedTags.includes(tag)}
-                          onChange={() => handleTagToggle(tag)}
-                        />
-                        <Badge>{tag}</Badge>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex justify-end space-x-3 pt-4">
-                  <Button variant="outline" onClick={() => setShowCreateDialog(false)}>
-                    Cancel
-                  </Button>
-                  <Button className="bg-green-600 hover:bg-green-700">
-                    Create Trial
-                  </Button>
-                </div>
-              </div>
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
-
-      {/* Enhanced Trial Detail Dialog */}
-      <Dialog open={showDetailDialog} onOpenChange={setShowDetailDialog}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle>Trial Details</DialogTitle>
-          </DialogHeader>
-          {selectedTrial && (
-            <Tabs defaultValue="overview" className="mt-4">
-              <TabsList>
-                <TabsTrigger value="overview">Overview</TabsTrigger>
-                <TabsTrigger value="design">Design</TabsTrigger>
-                <TabsTrigger value="field-design">Field Layout</TabsTrigger>
-                <TabsTrigger value="activity">Activity</TabsTrigger>
-              </TabsList>
-              <TabsContent value="overview">
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-4">
-                    <Badge className={getStatusColor(selectedTrial.status)}>{getStatusIcon(selectedTrial.status)} {selectedTrial.status}</Badge>
-                    <span className="text-lg font-semibold">{selectedTrial.name}</span>
-                  </div>
-                  <div className="text-gray-600">{selectedTrial.description || 'No description provided.'}</div>
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-1"><MapPin className="w-4 h-4" />{selectedTrial.location}</div>
-                    <div className="flex items-center gap-1"><Calendar className="w-4 h-4" />{selectedTrial.startDate} - {selectedTrial.endDate}</div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="font-medium">Collaborators:</span>
-                    {selectedTrial.collaborators.map((c: any) => (
-                      <Avatar key={c.id} className="w-6 h-6"><AvatarImage src={c.avatar} /><AvatarFallback>{c.name.split(' ').map((n: string) => n[0]).join('')}</AvatarFallback></Avatar>
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="font-medium">Tags:</span>
-                    {(selectedTrial.tags || ["Yield"]).map((tag: string) => <Badge key={tag}>{tag}</Badge>)}
-                  </div>
-                </div>
-              </TabsContent>
-              <TabsContent value="design">
-                <div className="space-y-2">
-                  <div><span className="font-medium">Design:</span> {selectedTrial.design}</div>
-                  <div><span className="font-medium">Treatments:</span> {selectedTrial.treatments}</div>
-                  <div><span className="font-medium">Replications:</span> {selectedTrial.replications}</div>
-                  <div><span className="font-medium">Plots:</span> {selectedTrial.plots}</div>
-                </div>
-              </TabsContent>
-              <TabsContent value="field-design">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="text-lg font-semibold">Field Layout Designer</h3>
-                      <p className="text-sm text-gray-600">Design and arrange experimental plots on your field</p>
-                    </div>
-                    <Button onClick={() => handleDesignField(selectedTrial)}>
-                      <Map className="w-4 h-4 mr-2" />
-                      Open Designer
-                    </Button>
-                  </div>
-                  
-                  {/* Field Design Preview */}
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Current Field Layout</CardTitle>
-                      <CardDescription>Preview of your experimental design</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
-                        <div className="text-center">
-                          <Map className="w-12 h-12 text-gray-400 mx-auto mb-2" />
-                          <p className="text-gray-600">Field Layout Preview</p>
-                          <p className="text-sm text-gray-500">Click "Open Designer" to create your field layout</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  {/* Design Statistics */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <Card>
-                      <CardContent className="p-4">
-                        <div className="text-2xl font-bold text-blue-600">{selectedTrial.plots}</div>
-                        <div className="text-sm text-gray-600">Total Plots</div>
-                      </CardContent>
-                    </Card>
-                    <Card>
-                      <CardContent className="p-4">
-                        <div className="text-2xl font-bold text-green-600">{selectedTrial.treatments}</div>
-                        <div className="text-sm text-gray-600">Treatments</div>
-                      </CardContent>
-                    </Card>
-                    <Card>
-                      <CardContent className="p-4">
-                        <div className="text-2xl font-bold text-purple-600">{selectedTrial.replications}</div>
-                        <div className="text-sm text-gray-600">Replications</div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </div>
-              </TabsContent>
-              <TabsContent value="activity">
-                <div className="space-y-2">
-                  {mockAuditTrail.map(item => (
-                    <div key={item.id} className="flex items-center gap-2 text-sm text-gray-700">
-                      <span className="font-semibold">{item.user}</span>
-                      <span>{item.action}</span>
-                      <span className="text-gray-400">({item.date})</span>
-                    </div>
-                  ))}
-                </div>
-              </TabsContent>
-            </Tabs>
-          )}
-        </DialogContent>
-      </Dialog>
+      {/* Create Trial Dialog - Using New Comprehensive Form */}
+      <TrialFormDialog 
+        open={showCreateDialog} 
+        onOpenChange={setShowCreateDialog}
+        onSave={(trial) => {
+          console.log('New trial created:', trial);
+          setShowCreateDialog(false);
+          // TODO: Add the new trial to the list and refresh
+        }}
+      />
 
       {/* Task Management Dialog */}
       <Dialog open={showTaskDialog} onOpenChange={setShowTaskDialog}>

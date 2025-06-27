@@ -10,23 +10,58 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Separator } from '@/components/ui/separator';
-import { Plus, Edit, Trash2, Droplets, Thermometer, Leaf, Target, Calendar, Tag } from 'lucide-react';
+import { Plus, Edit, Trash2, Droplets, Thermometer, Leaf, Target, Calendar, Tag, Save, X as Close } from 'lucide-react';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const MOCK_TREATMENTS = [
-  { id: '1', name: 'Control', description: 'No treatment applied', type: 'control', applicationRate: '', applicationMethod: '', color: '#6B7280', plots: ['A1', 'A2'] },
-  { id: '2', name: 'Low N', description: 'Low nitrogen application', type: 'fertilizer', applicationRate: '50 kg/ha', applicationMethod: 'Broadcast', color: '#10B981', plots: ['B1', 'B2'] },
-  { id: '3', name: 'Medium N', description: 'Medium nitrogen application', type: 'fertilizer', applicationRate: '100 kg/ha', applicationMethod: 'Broadcast', color: '#3B82F6', plots: ['C1', 'C2'] },
-  { id: '4', name: 'High N', description: 'High nitrogen application', type: 'fertilizer', applicationRate: '150 kg/ha', applicationMethod: 'Broadcast', color: '#EF4444', plots: ['D1', 'D2'] },
+// Shared mockTrials object (should be imported from a central file in a real app)
+const initialTrials = [
+  {
+    id: 5,
+    name: 'Nitrogen Rate Trial – Corn 2025',
+    trial_code: 'N-CORN-2025',
+    crop: 'Corn',
+    season: 'Wet 2025',
+    status: 'ongoing',
+    treatments: [
+      { name: 'Control', description: 'No nitrogen applied', application: 'Soil', rate: '0 kg N/ha', timing: 'Pre-sowing' },
+      { name: 'Low N', description: 'Low nitrogen rate', application: 'Soil', rate: '60 kg N/ha', timing: 'Pre-sowing' },
+      { name: 'Medium N', description: 'Medium nitrogen rate', application: 'Soil', rate: '120 kg N/ha', timing: 'Pre-sowing' },
+      { name: 'High N', description: 'High nitrogen rate', application: 'Soil', rate: '180 kg N/ha', timing: 'Pre-sowing' }
+    ],
+    variables: [
+      { 
+        name: 'Yield', 
+        unit: 'kg/ha', 
+        frequency: 'At harvest',
+        description: 'Total grain yield per hectare at physiological maturity'
+      },
+      { 
+        name: 'Plant Height', 
+        unit: 'cm', 
+        frequency: 'Weekly',
+        description: 'Height from soil surface to the tip of the highest leaf'
+      },
+      { 
+        name: 'Leaf Color', 
+        unit: 'Score 1–5', 
+        frequency: 'Biweekly',
+        description: 'Visual assessment of leaf greenness using standardized color chart'
+      },
+      { 
+        name: 'Lodging', 
+        unit: '%', 
+        frequency: 'At harvest',
+        description: 'Percentage of plants that have fallen over or are leaning significantly'
+      }
+    ],
+    replications: 3,
+    designType: 'RCBD',
+    plotSize: { width: 3, length: 5, unit: 'm' },
+    rowSpacing: 75, // cm
+    totalPlots: 12
+  },
+  // ...add more trials as needed
 ];
-
-const MOCK_VARIABLES = [
-  { id: '1', name: 'Plant Height', unit: 'cm', frequency: 'Weekly', description: 'Average plant height per plot', type: 'growth', plots: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'D1', 'D2'] },
-  { id: '2', name: 'Yield', unit: 'kg/ha', frequency: 'At harvest', description: 'Grain yield per hectare', type: 'yield', plots: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'D1', 'D2'] },
-  { id: '3', name: 'Protein Content', unit: '%', frequency: 'At harvest', description: 'Protein content in grain', type: 'quality', plots: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'D1', 'D2'] },
-  { id: '4', name: 'Soil Moisture', unit: '%', frequency: 'Daily', description: 'Soil moisture content at 20cm depth', type: 'environmental', plots: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'D1', 'D2'] },
-];
-
-const MOCK_PLOTS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'D1', 'D2'];
 
 const TREATMENT_TYPES = [
   { value: 'control', label: 'Control' },
@@ -48,266 +83,466 @@ const FREQUENCIES = [
   'Daily', 'Weekly', 'Bi-weekly', 'Monthly', 'At planting', 'At harvest', 'Seasonal'
 ];
 
-const TreatmentVariableManager: React.FC = () => {
-  const [treatments, setTreatments] = useState(MOCK_TREATMENTS);
-  const [variables, setVariables] = useState(MOCK_VARIABLES);
-  const [showTreatmentDialog, setShowTreatmentDialog] = useState(false);
-  const [showVariableDialog, setShowVariableDialog] = useState(false);
-  const [editingTreatment, setEditingTreatment] = useState<any>(null);
-  const [editingVariable, setEditingVariable] = useState<any>(null);
+const DESIGN_TYPES = ['RCBD', 'Split-Plot', 'Latin Square', 'Factorial', 'Custom'];
 
-  const getTypeIcon = (type: string) => {
-    switch (type) {
-      case 'growth': return <Leaf className="text-green-600" />;
-      case 'yield': return <Target className="text-orange-600" />;
-      case 'quality': return <Tag className="text-blue-600" />;
-      case 'environmental': return <Thermometer className="text-purple-600" />;
-      default: return <Leaf className="text-gray-600" />;
-    }
+const STATUS_OPTIONS = [
+  { value: 'ongoing', label: 'Ongoing', color: 'default' },
+  { value: 'completed', label: 'Completed', color: 'green' },
+  { value: 'cancelled', label: 'Cancelled', color: 'red' },
+];
+
+const TreatmentVariableManager = () => {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const [trials, setTrials] = useState(initialTrials);
+  const trialIndex = trials.findIndex(t => String(t.id) === String(id));
+  const trial = trialIndex !== -1 ? trials[trialIndex] : null;
+
+  // Dialog state
+  const [showTreatmentDialog, setShowTreatmentDialog] = useState(false);
+  const [editingTreatment, setEditingTreatment] = useState(null);
+  const [showVariableDialog, setShowVariableDialog] = useState(false);
+  const [editingVariable, setEditingVariable] = useState(null);
+
+  // Layout editing state
+  const [isEditingLayout, setIsEditingLayout] = useState(false);
+  const [layoutData, setLayoutData] = useState({
+    designType: trial?.designType || '',
+    replications: trial?.replications || 0,
+    plotSize: {
+      width: trial?.plotSize?.width || 0,
+      length: trial?.plotSize?.length || 0,
+      unit: trial?.plotSize?.unit || 'm'
+    },
+    rowSpacing: trial?.rowSpacing || 0,
+    totalPlots: trial?.totalPlots || 0
+  });
+
+  // Layout handlers
+  const handleLayoutSave = () => {
+    const updated = [...trials];
+    updated[trialIndex] = {
+      ...updated[trialIndex],
+      designType: layoutData.designType,
+      replications: layoutData.replications,
+      plotSize: layoutData.plotSize,
+      rowSpacing: layoutData.rowSpacing,
+      totalPlots: layoutData.totalPlots
+    };
+    setTrials(updated);
+    setIsEditingLayout(false);
   };
 
+  const handleLayoutCancel = () => {
+    setLayoutData({
+      designType: trial?.designType || '',
+      replications: trial?.replications || 0,
+      plotSize: {
+        width: trial?.plotSize?.width || 0,
+        length: trial?.plotSize?.length || 0,
+        unit: trial?.plotSize?.unit || 'm'
+      },
+      rowSpacing: trial?.rowSpacing || 0,
+      totalPlots: trial?.totalPlots || 0
+    });
+    setIsEditingLayout(false);
+  };
+
+  // Treatment handlers
+  const handleAddTreatment = () => {
+    setEditingTreatment({ name: '', description: '', application: '', rate: '', timing: '' });
+    setShowTreatmentDialog(true);
+  };
+  const handleEditTreatment = (t) => {
+    setEditingTreatment({ ...t });
+    setShowTreatmentDialog(true);
+  };
+  const handleDeleteTreatment = (idx) => {
+    const updated = [...trials];
+    updated[trialIndex].treatments.splice(idx, 1);
+    setTrials(updated);
+  };
+  const handleSaveTreatment = () => {
+    const updated = [...trials];
+    if (editingTreatment._editIdx !== undefined) {
+      updated[trialIndex].treatments[editingTreatment._editIdx] = { ...editingTreatment };
+    } else {
+      updated[trialIndex].treatments.push({ ...editingTreatment });
+    }
+    setTrials(updated);
+    setShowTreatmentDialog(false);
+    setEditingTreatment(null);
+  };
+
+  // Variable handlers
+  const handleAddVariable = () => {
+    setEditingVariable({ name: '', unit: '', frequency: '', description: '' });
+    setShowVariableDialog(true);
+  };
+  const handleEditVariable = (v) => {
+    setEditingVariable({ ...v });
+    setShowVariableDialog(true);
+  };
+  const handleDeleteVariable = (idx) => {
+    const updated = [...trials];
+    updated[trialIndex].variables.splice(idx, 1);
+    setTrials(updated);
+  };
+  const handleSaveVariable = () => {
+    const updated = [...trials];
+    if (editingVariable._editIdx !== undefined) {
+      updated[trialIndex].variables[editingVariable._editIdx] = { ...editingVariable };
+    } else {
+      updated[trialIndex].variables.push({ ...editingVariable });
+    }
+    setTrials(updated);
+    setShowVariableDialog(false);
+    setEditingVariable(null);
+  };
+
+  // Status update handler
+  const handleStatusChange = (newStatus) => {
+    const updated = [...trials];
+    updated[trialIndex].status = newStatus;
+    setTrials(updated);
+  };
+
+  if (!id) {
+    // Show all trials
+    return (
+      <div className="max-w-5xl mx-auto py-8 space-y-8">
+        <h1 className="text-2xl font-bold mb-6">All Trials</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {trials.map(trial => (
+            <Card key={trial.id} className="hover:shadow-md transition-shadow">
+              <CardHeader>
+                <CardTitle>{trial.name}</CardTitle>
+                <CardDescription>Code: {trial.trial_code} | Crop: {trial.crop} | Season: {trial.season}</CardDescription>
+                <div className="flex gap-2 mt-2">
+                  <Badge variant={trial.status === 'completed' ? 'success' : trial.status === 'cancelled' ? 'destructive' : 'default'}>
+                    {trial.status.charAt(0).toUpperCase() + trial.status.slice(1)}
+                  </Badge>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <Button variant="secondary" onClick={() => navigate(`/agronomist/field-trials/${trial.id}/treatments`)}>
+                  Manage Treatments & Variables
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (!trial) {
+    return <div className="p-8 text-red-600">Trial not found.</div>;
+  }
+
   return (
-    <div className="space-y-6">
-      <Tabs defaultValue="treatments" className="w-full">
-        <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="treatments">Treatments</TabsTrigger>
-          <TabsTrigger value="variables">Variables</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="treatments" className="space-y-4">
-          <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-bold">Treatment Management</h2>
-            <Button onClick={() => { setEditingTreatment(null); setShowTreatmentDialog(true); }}>
-              <Plus className="mr-2" /> Add Treatment
-            </Button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {treatments.map(treatment => (
-              <Card key={treatment.id} className="hover:shadow-lg transition-shadow">
-                <CardHeader className="pb-3">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <CardTitle className="text-lg">{treatment.name}</CardTitle>
-                      <CardDescription>{treatment.description}</CardDescription>
-                    </div>
-                    <div className="flex gap-1">
-                      <Button size="icon" variant="ghost" onClick={() => { setEditingTreatment(treatment); setShowTreatmentDialog(true); }}>
-                        <Edit size={16} />
-                      </Button>
-                      <Button size="icon" variant="ghost" onClick={() => {}}>
-                        <Trash2 size={16} />
-                      </Button>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="w-4 h-4 rounded-full" style={{ backgroundColor: treatment.color }}></span>
-                    <Badge variant="outline">{treatment.type}</Badge>
-                  </div>
-                  {treatment.applicationRate && (
-                    <div className="text-sm text-gray-600">
-                      <Droplets className="inline mr-1" size={14} />
-                      {treatment.applicationRate}
-                    </div>
-                  )}
-                  {treatment.applicationMethod && (
-                    <div className="text-sm text-gray-600">
-                      <Target className="inline mr-1" size={14} />
-                      {treatment.applicationMethod}
-                    </div>
-                  )}
-                  <Separator />
-                  <div className="text-sm">
-                    <span className="font-medium">Assigned to:</span>
-                    <div className="flex flex-wrap gap-1 mt-1">
-                      {treatment.plots.map(plot => (
-                        <Badge key={plot} variant="secondary" className="text-xs">{plot}</Badge>
-                      ))}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </TabsContent>
-
-        <TabsContent value="variables" className="space-y-4">
-          <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-bold">Variable Management</h2>
-            <Button onClick={() => { setEditingVariable(null); setShowVariableDialog(true); }}>
-              <Plus className="mr-2" /> Add Variable
-            </Button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {variables.map(variable => (
-              <Card key={variable.id} className="hover:shadow-lg transition-shadow">
-                <CardHeader className="pb-3">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <CardTitle className="text-lg">{variable.name}</CardTitle>
-                      <CardDescription>{variable.description}</CardDescription>
-                    </div>
-                    <div className="flex gap-1">
-                      <Button size="icon" variant="ghost" onClick={() => { setEditingVariable(variable); setShowVariableDialog(true); }}>
-                        <Edit size={16} />
-                      </Button>
-                      <Button size="icon" variant="ghost" onClick={() => {}}>
-                        <Trash2 size={16} />
-                      </Button>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    {getTypeIcon(variable.type)}
-                    <Badge variant="outline">{variable.type}</Badge>
-                  </div>
-                  <div className="text-sm text-gray-600">
-                    <span className="font-medium">Unit:</span> {variable.unit}
-                  </div>
-                  <div className="text-sm text-gray-600">
-                    <Calendar className="inline mr-1" size={14} />
-                    {variable.frequency}
-                  </div>
-                  <Separator />
-                  <div className="text-sm">
-                    <span className="font-medium">Measured on:</span>
-                    <div className="flex flex-wrap gap-1 mt-1">
-                      {variable.plots.map(plot => (
-                        <Badge key={plot} variant="secondary" className="text-xs">{plot}</Badge>
-                      ))}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </TabsContent>
-      </Tabs>
-
-      {/* Treatment Dialog */}
-      <Dialog open={showTreatmentDialog} onOpenChange={setShowTreatmentDialog}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>{editingTreatment ? 'Edit Treatment' : 'Add Treatment'}</DialogTitle>
-            <DialogDescription>Configure treatment details and assignments.</DialogDescription>
-          </DialogHeader>
-          <div className="space-y-4">
-            <div>
-              <Label>Name</Label>
-              <Input placeholder="Treatment name" defaultValue={editingTreatment?.name} />
-            </div>
-            <div>
-              <Label>Description</Label>
-              <Textarea placeholder="Treatment description" defaultValue={editingTreatment?.description} />
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <Label>Type</Label>
-                <Select defaultValue={editingTreatment?.type}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {TREATMENT_TYPES.map(t => <SelectItem key={t.value} value={t.value}>{t.label}</SelectItem>)}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div>
-                <Label>Color</Label>
-                <Input type="color" defaultValue={editingTreatment?.color || '#3B82F6'} />
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <Label>Application Rate</Label>
-                <Input placeholder="e.g., 50 kg/ha" defaultValue={editingTreatment?.applicationRate} />
-              </div>
-              <div>
-                <Label>Application Method</Label>
-                <Input placeholder="e.g., Broadcast" defaultValue={editingTreatment?.applicationMethod} />
-              </div>
-            </div>
-            <div>
-              <Label>Assign to Plots</Label>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {MOCK_PLOTS.map(plot => (
-                  <Badge key={plot} variant="outline" className="cursor-pointer hover:bg-green-100">
-                    {plot}
-                  </Badge>
+    <div className="max-w-5xl mx-auto py-8 space-y-8">
+      <Button variant="ghost" onClick={() => navigate('/agronomist/field-trials/treatments')} className="mb-4">Back to All Trials</Button>
+      <Card className="mb-4">
+        <CardHeader>
+          <CardTitle>{trial.name} – Treatments & Variables</CardTitle>
+          <CardDescription>Manage all treatments and variables for this trial.</CardDescription>
+          <div className="flex items-center gap-4 mt-2">
+            <span>Status:</span>
+            <Select value={trial.status} onValueChange={handleStatusChange}>
+              <SelectTrigger className="w-40">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {STATUS_OPTIONS.map(opt => (
+                  <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
                 ))}
-              </div>
-            </div>
-            <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
-              {editingTreatment ? 'Update Treatment' : 'Add Treatment'}
-            </Button>
+              </SelectContent>
+            </Select>
+            <Badge variant={trial.status === 'completed' ? 'success' : trial.status === 'cancelled' ? 'destructive' : 'default'}>
+              {trial.status.charAt(0).toUpperCase() + trial.status.slice(1)}
+            </Badge>
           </div>
-        </DialogContent>
-      </Dialog>
+        </CardHeader>
+        <CardContent>
+          {/* Replications & Layout Section */}
+          <div className="mb-6 p-4 border-2 border-blue-200 rounded-lg bg-blue-50">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="font-semibold text-lg text-blue-800">📐 Replications & Layout</h3>
+              {!isEditingLayout ? (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setIsEditingLayout(true)}
+                  className="flex items-center gap-1"
+                >
+                  <Edit className="h-4 w-4" />
+                  Edit
+                </Button>
+              ) : (
+                <div className="flex gap-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleLayoutSave}
+                    className="flex items-center gap-1"
+                  >
+                    <Save className="h-4 w-4" />
+                    Save
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleLayoutCancel}
+                    className="flex items-center gap-1"
+                  >
+                    <Close className="h-4 w-4" />
+                    Cancel
+                  </Button>
+                </div>
+              )}
+            </div>
+            
+            {!isEditingLayout ? (
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+                <div className="bg-white p-3 rounded border">
+                  <div className="font-medium text-gray-600">Design Type</div>
+                  <div className="text-lg font-semibold">{trial.designType}</div>
+                </div>
+                <div className="bg-white p-3 rounded border">
+                  <div className="font-medium text-gray-600">Replications</div>
+                  <div className="text-lg font-semibold">{trial.replications}</div>
+                </div>
+                <div className="bg-white p-3 rounded border">
+                  <div className="font-medium text-gray-600">Plot Size</div>
+                  <div className="text-lg font-semibold">{trial.plotSize.width} × {trial.plotSize.length} {trial.plotSize.unit}</div>
+                </div>
+                <div className="bg-white p-3 rounded border">
+                  <div className="font-medium text-gray-600">Row Spacing</div>
+                  <div className="text-lg font-semibold">{trial.rowSpacing} cm</div>
+                </div>
+                <div className="bg-white p-3 rounded border">
+                  <div className="font-medium text-gray-600">Total Plots</div>
+                  <div className="text-lg font-semibold">{trial.totalPlots}</div>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-4 p-4 border rounded-lg bg-white">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="designType">Design Type</Label>
+                    <Select
+                      value={layoutData.designType}
+                      onValueChange={(value) => setLayoutData({ ...layoutData, designType: value })}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select design type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {DESIGN_TYPES.map((type) => (
+                          <SelectItem key={type} value={type}>
+                            {type}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="replications">Replications</Label>
+                    <Input
+                      id="replications"
+                      type="number"
+                      min="1"
+                      value={layoutData.replications}
+                      onChange={(e) => setLayoutData({ ...layoutData, replications: parseInt(e.target.value) || 0 })}
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <Label>Plot Size</Label>
+                  <div className="grid grid-cols-3 gap-2 mt-1">
+                    <div>
+                      <Input
+                        type="number"
+                        step="0.1"
+                        placeholder="Width"
+                        value={layoutData.plotSize.width}
+                        onChange={(e) => setLayoutData({
+                          ...layoutData,
+                          plotSize: { ...layoutData.plotSize, width: parseFloat(e.target.value) || 0 }
+                        })}
+                      />
+                    </div>
+                    <div>
+                      <Input
+                        type="number"
+                        step="0.1"
+                        placeholder="Length"
+                        value={layoutData.plotSize.length}
+                        onChange={(e) => setLayoutData({
+                          ...layoutData,
+                          plotSize: { ...layoutData.plotSize, length: parseFloat(e.target.value) || 0 }
+                        })}
+                      />
+                    </div>
+                    <div>
+                      <Select
+                        value={layoutData.plotSize.unit}
+                        onValueChange={(value) => setLayoutData({
+                          ...layoutData,
+                          plotSize: { ...layoutData.plotSize, unit: value }
+                        })}
+                      >
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="m">m</SelectItem>
+                          <SelectItem value="ft">ft</SelectItem>
+                          <SelectItem value="cm">cm</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="rowSpacing">Row Spacing (cm)</Label>
+                    <Input
+                      id="rowSpacing"
+                      type="number"
+                      step="0.1"
+                      value={layoutData.rowSpacing}
+                      onChange={(e) => setLayoutData({ ...layoutData, rowSpacing: parseFloat(e.target.value) || 0 })}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="totalPlots">Total Plots</Label>
+                    <Input
+                      id="totalPlots"
+                      type="number"
+                      min="1"
+                      value={layoutData.totalPlots}
+                      onChange={(e) => setLayoutData({ ...layoutData, totalPlots: parseInt(e.target.value) || 0 })}
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
 
-      {/* Variable Dialog */}
-      <Dialog open={showVariableDialog} onOpenChange={setShowVariableDialog}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>{editingVariable ? 'Edit Variable' : 'Add Variable'}</DialogTitle>
-            <DialogDescription>Configure measurement variable details.</DialogDescription>
-          </DialogHeader>
-          <div className="space-y-4">
-            <div>
-              <Label>Name</Label>
-              <Input placeholder="Variable name" defaultValue={editingVariable?.name} />
+          <div className="mb-6">
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="font-semibold">Treatments</h3>
+              <Button onClick={handleAddTreatment}>Add Treatment</Button>
             </div>
-            <div>
-              <Label>Description</Label>
-              <Textarea placeholder="Variable description" defaultValue={editingVariable?.description} />
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <Label>Type</Label>
-                <Select defaultValue={editingVariable?.type}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {VARIABLE_TYPES.map(v => <SelectItem key={v.value} value={v.value}>{v.label}</SelectItem>)}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div>
-                <Label>Unit</Label>
-                <Input placeholder="e.g., cm, kg/ha" defaultValue={editingVariable?.unit} />
-              </div>
-            </div>
-            <div>
-              <Label>Measurement Frequency</Label>
-              <Select defaultValue={editingVariable?.frequency}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select frequency" />
-                </SelectTrigger>
-                <SelectContent>
-                  {FREQUENCIES.map(f => <SelectItem key={f} value={f}>{f}</SelectItem>)}
-                </SelectContent>
-              </Select>
-            </div>
-            <div>
-              <Label>Measure on Plots</Label>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {MOCK_PLOTS.map(plot => (
-                  <Badge key={plot} variant="outline" className="cursor-pointer hover:bg-green-100">
-                    {plot}
-                  </Badge>
+            <table className="min-w-full text-sm border mb-4">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="p-2 border">Name</th>
+                  <th className="p-2 border">Description</th>
+                  <th className="p-2 border">Application</th>
+                  <th className="p-2 border">Rate</th>
+                  <th className="p-2 border">Timing</th>
+                  <th className="p-2 border">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {trial.treatments.map((t, i) => (
+                  <tr key={i}>
+                    <td className="p-2 border">{t.name}</td>
+                    <td className="p-2 border">{t.description}</td>
+                    <td className="p-2 border">{t.application}</td>
+                    <td className="p-2 border">{t.rate}</td>
+                    <td className="p-2 border">{t.timing}</td>
+                    <td className="p-2 border">
+                      <Button size="sm" variant="outline" onClick={() => { setEditingTreatment({ ...t, _editIdx: i }); setShowTreatmentDialog(true); }}>Edit</Button>
+                      <Button size="sm" variant="destructive" className="ml-2" onClick={() => handleDeleteTreatment(i)}>Delete</Button>
+                    </td>
+                  </tr>
                 ))}
-              </div>
-            </div>
-            <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
-              {editingVariable ? 'Update Variable' : 'Add Variable'}
-            </Button>
+              </tbody>
+            </table>
+            {/* Treatment Dialog */}
+            <Dialog open={showTreatmentDialog} onOpenChange={setShowTreatmentDialog}>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>{editingTreatment && editingTreatment._editIdx !== undefined ? 'Edit Treatment' : 'Add Treatment'}</DialogTitle>
+                </DialogHeader>
+                <div className="space-y-4">
+                  <Label>Name</Label>
+                  <Input value={editingTreatment?.name || ''} onChange={e => setEditingTreatment({ ...editingTreatment, name: e.target.value })} />
+                  <Label>Description</Label>
+                  <Input value={editingTreatment?.description || ''} onChange={e => setEditingTreatment({ ...editingTreatment, description: e.target.value })} />
+                  <Label>Application</Label>
+                  <Input value={editingTreatment?.application || ''} onChange={e => setEditingTreatment({ ...editingTreatment, application: e.target.value })} />
+                  <Label>Rate</Label>
+                  <Input value={editingTreatment?.rate || ''} onChange={e => setEditingTreatment({ ...editingTreatment, rate: e.target.value })} />
+                  <Label>Timing</Label>
+                  <Input value={editingTreatment?.timing || ''} onChange={e => setEditingTreatment({ ...editingTreatment, timing: e.target.value })} />
+                  <Button onClick={handleSaveTreatment}>Save</Button>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
-        </DialogContent>
-      </Dialog>
+          <div className="mb-6">
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="font-semibold">Variables</h3>
+              <Button onClick={handleAddVariable}>Add Variable</Button>
+            </div>
+            <table className="min-w-full text-sm border mb-4">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="p-2 border">Variable</th>
+                  <th className="p-2 border">Unit</th>
+                  <th className="p-2 border">Frequency</th>
+                  <th className="p-2 border">Description</th>
+                  <th className="p-2 border">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {trial.variables.map((v, i) => (
+                  <tr key={i}>
+                    <td className="p-2 border font-medium">{v.name}</td>
+                    <td className="p-2 border">{v.unit}</td>
+                    <td className="p-2 border">{v.frequency}</td>
+                    <td className="p-2 border text-gray-700">{v.description}</td>
+                    <td className="p-2 border">
+                      <Button size="sm" variant="outline" onClick={() => { setEditingVariable({ ...v, _editIdx: i }); setShowVariableDialog(true); }}>Edit</Button>
+                      <Button size="sm" variant="destructive" className="ml-2" onClick={() => handleDeleteVariable(i)}>Delete</Button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {/* Variable Dialog */}
+            <Dialog open={showVariableDialog} onOpenChange={setShowVariableDialog}>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>{editingVariable && editingVariable._editIdx !== undefined ? 'Edit Variable' : 'Add Variable'}</DialogTitle>
+                </DialogHeader>
+                <div className="space-y-4">
+                  <Label>Name</Label>
+                  <Input value={editingVariable?.name || ''} onChange={e => setEditingVariable({ ...editingVariable, name: e.target.value })} />
+                  <Label>Unit</Label>
+                  <Input value={editingVariable?.unit || ''} onChange={e => setEditingVariable({ ...editingVariable, unit: e.target.value })} />
+                  <Label>Frequency</Label>
+                  <Input value={editingVariable?.frequency || ''} onChange={e => setEditingVariable({ ...editingVariable, frequency: e.target.value })} />
+                  <Label>Description</Label>
+                  <Textarea 
+                    value={editingVariable?.description || ''} 
+                    onChange={e => setEditingVariable({ ...editingVariable, description: e.target.value })}
+                    placeholder="Explain what this variable measures and how it should be collected..."
+                  />
+                  <Button onClick={handleSaveVariable}>Save</Button>
+                </div>
+              </DialogContent>
+            </Dialog>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };

@@ -145,7 +145,9 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
             onClick={() => sidebarOpen && toggleSubsection(item.id)}
           >
             <div className="flex items-center">
-              <span className={cn("mr-3", level === 1 ? "h-4 w-4" : level === 2 ? "h-3.5 w-3.5" : "h-5 w-5")}> {getIcon(item.icon)} </span>
+              <span className={cn("mr-3", level === 1 ? "h-4 w-4" : level === 2 ? "h-3.5 w-3.5" : "h-5 w-5")}>
+                {getIcon(item.icon)}
+              </span>
               {sidebarOpen && (
                 <span className={cn(
                   level === 1 ? "text-sm font-medium" : level === 2 ? "text-xs font-normal" : "text-base font-semibold"
@@ -156,10 +158,11 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
             </div>
             {sidebarOpen && (
               isExpanded ? 
-                <ChevronUp className={cn("h-4 w-4", level === 2 ? "h-3 w-3" : "")}/> : 
-                <ChevronDown className={cn("h-4 w-4", level === 2 ? "h-3 w-3" : "")}/>
+                <ChevronUp className={cn("h-4 w-4", level === 2 ? "h-3 w-3" : "")} /> : 
+                <ChevronDown className={cn("h-4 w-4", level === 2 ? "h-3 w-3" : "")} />
             )}
           </Button>
+          
           {sidebarOpen && isExpanded && (
             <div className="space-y-0.5 mt-1">
               {Array.isArray(item.children) && item.children.map((child: any) => renderNavItem(child, level + 1))}
@@ -182,7 +185,9 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
           )}
           end
         >
-          <span className={cn("mr-3", level === 1 ? "h-4 w-4" : level === 2 ? "h-3.5 w-3.5" : level === 3 ? "h-3 w-3" : "h-5 w-5")}>{getIcon(item.icon)}</span>
+          <span className={cn("mr-3", level === 1 ? "h-4 w-4" : level === 2 ? "h-3.5 w-3.5" : level === 3 ? "h-3 w-3" : "h-5 w-5")}>
+            {getIcon(item.icon)}
+          </span>
           {sidebarOpen && (
             <span className={cn(
               level === 1 ? "text-sm" : level === 2 ? "text-xs" : level === 3 ? "text-xs" : "text-base"

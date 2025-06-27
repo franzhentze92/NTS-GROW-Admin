@@ -37,6 +37,7 @@ import NTSProductRecommendatorPage from "@/pages/NTSProductRecommendatorPage";
 import GrowingDegreeDaysPage from '@/pages/GrowingDegreeDaysPage';
 import CropHealth from "@/components/satellite/CropHealth";
 import TreatmentVariableManager from "@/components/fieldTrials/TreatmentVariableManager";
+import DataCollectionManager from "@/components/fieldTrials/DataCollectionManager";
 import DataEntryForm from "@/components/fieldTrials/DataEntryForm";
 import AdvancedAnalytics from "@/components/fieldTrials/AdvancedAnalytics";
 import TrialReportGenerator from "@/components/fieldTrials/TrialReportGenerator";
@@ -46,6 +47,10 @@ import FieldDesignerPage from '@/pages/FieldDesignerPage';
 import CostManagementPage from '@/pages/CostManagementPage';
 import ProductBatchProductionPage from '@/pages/ProductBatchProductionPage';
 import ClientsPage from '@/pages/ClientsPage';
+import TrialDetailsPage from '@/pages/TrialDetailsPage';
+import VariableTreatmentDesignForm from '@/pages/VariableTreatmentDesignForm';
+import DataCollectionEntryPage from '@/pages/DataCollectionEntryPage';
+import DataSummaryPage from '@/pages/DataSummaryPage';
 import { useEffect } from 'react';
 
 // Create a client
@@ -153,6 +158,10 @@ function App() {
                     
                     {/* Field Trials Routes */}
                     <Route path="/agronomist/field-trials/treatments" element={<TreatmentVariableManager />} />
+                    <Route path="/agronomist/field-trials/:id/treatments" element={<TreatmentVariableManager />} />
+                    <Route path="/agronomist/field-trials/data-collection" element={<DataCollectionManager />} />
+                    <Route path="/agronomist/field-trials/:id/data-collection" element={<DataCollectionManager />} />
+                    <Route path="/agronomist/field-trials/data-summary" element={<DataSummaryPage />} />
                     <Route path="/agronomist/field-trials/data-entry" element={<DataEntryForm />} />
                     <Route path="/agronomist/field-trials/analytics" element={<AdvancedAnalytics />} />
                     <Route path="/agronomist/field-trials/reports" element={<TrialReportGenerator />} />
@@ -161,6 +170,10 @@ function App() {
                     <Route path="/agronomist/field-trials/design" element={<FieldDesignerPage />} />
 
                     <Route path="/agronomist/product-batch-production" element={<ProductBatchProductionPage />} />
+
+                    <Route path="/trials/:id" element={<TrialDetailsPage />} />
+                    <Route path="/trials/:id/variable-design" element={<VariableTreatmentDesignForm />} />
+                    <Route path="/trials/:id/data-entry" element={<DataCollectionEntryPage />} />
 
                     <Route path="*" element={<NotFound />} />
                   </Route>
