@@ -53,6 +53,7 @@ import DataCollectionEntryPage from '@/pages/DataCollectionEntryPage';
 import DataSummaryPage from '@/pages/DataSummaryPage';
 import AnalysisPage from '@/pages/AnalysisPage';
 import StatisticsPage from '@/pages/StatisticsPage';
+import NutritionFarmsRequestPage from './pages/NutritionFarmsRequestPage';
 import { useEffect } from 'react';
 
 // Create a client
@@ -179,6 +180,8 @@ function App() {
 
                     <Route path="/agronomist/field-trials/analytics/analysis" element={<AnalysisPage />} />
                     <Route path="/agronomist/field-trials/analytics/statistics" element={<StatisticsPage />} />
+
+                    <Route path="/agronomist/nutrition-farms-request" element={<NutritionFarmsRequestPage />} />
 
                     <Route path="*" element={<NotFound />} />
                   </Route>

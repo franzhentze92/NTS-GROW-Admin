@@ -466,6 +466,12 @@ export const NAV_ITEMS = [
         ]
       },
       { id: 'product-batch-production', label: 'Product Batch Production', path: '/agronomist/product-batch-production', icon: 'Package' },
+      {
+        id: 'nutrition-farms-request',
+        label: 'Nutrition Farms Request',
+        path: '/agronomist/nutrition-farms-request',
+        icon: 'Package',
+      },
     ]
   },
   {
