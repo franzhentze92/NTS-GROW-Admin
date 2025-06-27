@@ -47,7 +47,16 @@ import {
   Thermometer,
   MapPin,
   ClipboardList,
-  Folder
+  Folder,
+  // Education section icons
+  Book,
+  GraduationCap,
+  Mic,
+  Video,
+  HeartPulse,
+  Gamepad2,
+  HelpCircle,
+  Upload
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -88,7 +97,15 @@ const getIcon = (iconName: string) => {
     'Thermometer': Thermometer,
     'MapPin': MapPin,
     'ClipboardList': ClipboardList,
-    'Folder': Folder
+    'Folder': Folder,
+    'Book': Book,
+    'GraduationCap': GraduationCap,
+    'Mic': Mic,
+    'Video': Video,
+    'HeartPulse': HeartPulse,
+    'Gamepad2': Gamepad2,
+    'HelpCircle': HelpCircle,
+    'Upload': Upload
   };
   const IconComponent = iconMap[iconName as keyof typeof iconMap] || LayoutDashboard;
   return <IconComponent className="h-5 w-5" />;
@@ -97,7 +114,7 @@ const getIcon = (iconName: string) => {
 const Sidebar: React.FC<SidebarProps> = ({ className }) => {
   const { sidebarOpen, toggleSidebar, hasRole, setCurrentUser } = useAppContext();
   const navigate = useNavigate();
-  const [expandedSections, setExpandedSections] = useState<string[]>(['grow-agronomist', 'grow-admin', 'grow-super-admin']);
+  const [expandedSections, setExpandedSections] = useState<string[]>(['grow-agronomist', 'grow-admin', 'grow-super-admin', 'grow-education']);
   const [expandedSubsections, setExpandedSubsections] = useState<string[]>([]);
 
   const toggleSection = (sectionId: string) => {
@@ -129,10 +146,13 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
   const renderNavItem = (item: any, level: number = 0) => {
     const hasChildren = item.children && item.children.length > 0;
     const isExpanded = expandedSubsections.includes(item.id);
+    const isEducationSection = item.id === 'grow-education';
     
     if (hasChildren) {
       return (
-        <div key={item.id}>
+        <div key={item.id} className={cn(
+          isEducationSection && "bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-l-green-200 rounded-r-md"
+        )}>
           <Button
             variant="ghost"
             className={cn(
@@ -140,7 +160,8 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
               "text-muted-foreground hover:bg-muted hover:text-foreground",
               level === 1 ? "ml-4 text-sm" : level === 2 ? "ml-8 text-xs" : "",
               level === 1 ? "border-l-2 border-l-transparent hover:border-l-primary/20" : "",
-              level === 2 ? "border-l-2 border-l-transparent hover:border-l-primary/10" : ""
+              level === 2 ? "border-l-2 border-l-transparent hover:border-l-primary/10" : "",
+              isEducationSection && "hover:bg-green-100/50"
             )}
             onClick={() => sidebarOpen && toggleSubsection(item.id)}
           >
@@ -148,7 +169,8 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
               <span className={cn("mr-3", level === 1 ? "h-4 w-4" : level === 2 ? "h-3.5 w-3.5" : "h-5 w-5")}> {getIcon(item.icon)} </span>
               {sidebarOpen && (
                 <span className={cn(
-                  level === 1 ? "text-sm font-medium" : level === 2 ? "text-xs font-normal" : "text-base font-semibold"
+                  level === 1 ? "text-sm font-medium" : level === 2 ? "text-xs font-normal" : "text-base font-semibold",
+                  isEducationSection && "text-green-800"
                 )}>
                   {item.label}
                 </span>
@@ -173,7 +195,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
           key={item.id}
           to={item.path}
           className={({ isActive }) => cn(
-            "flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors",
+            "flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors relative",
             isActive 
               ? "bg-primary/10 text-primary border-l-2 border-l-primary" 
               : "text-muted-foreground hover:bg-muted hover:text-foreground border-l-2 border-l-transparent hover:border-l-primary/20",
@@ -184,11 +206,18 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
         >
           <span className={cn("mr-3", level === 1 ? "h-4 w-4" : level === 2 ? "h-3.5 w-3.5" : level === 3 ? "h-3 w-3" : "h-5 w-5")}>{getIcon(item.icon)}</span>
           {sidebarOpen && (
-            <span className={cn(
-              level === 1 ? "text-sm" : level === 2 ? "text-xs" : level === 3 ? "text-xs" : "text-base"
-            )}>
-              {item.label}
-            </span>
+            <div className="flex items-center justify-between w-full">
+              <span className={cn(
+                level === 1 ? "text-sm" : level === 2 ? "text-xs" : level === 3 ? "text-xs" : "text-base"
+              )}>
+                {item.label}
+              </span>
+              {item.comingSoon && (
+                <span className="ml-2 px-1.5 py-0.5 text-xs bg-orange-100 text-orange-700 rounded-full font-medium">
+                  Soon
+                </span>
+              )}
+            </div>
           )}
         </NavLink>
       );

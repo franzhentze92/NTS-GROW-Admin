@@ -54,6 +54,9 @@ import DataSummaryPage from '@/pages/DataSummaryPage';
 import AnalysisPage from '@/pages/AnalysisPage';
 import StatisticsPage from '@/pages/StatisticsPage';
 import NutritionFarmsRequestPage from './pages/NutritionFarmsRequestPage';
+import EducationVideoPage from "@/pages/EducationVideoPage";
+import AuthCallbackPage from "@/pages/AuthCallbackPage";
+import VideoUploadManagerPage from "@/pages/VideoUploadManagerPage";
 import { useEffect } from 'react';
 
 // Create a client
@@ -99,6 +102,7 @@ function App() {
               <Router {...router}>
                 <Routes>
                   <Route path="/login" element={<LoginPage />} />
+                  <Route path="/auth/callback" element={<AuthCallbackPage />} />
                   <Route path="/" element={<Layout><Outlet /></Layout>}>
                     {/* Legacy routes - keeping for backward compatibility */}
                     <Route index element={<DashboardPage />} />
@@ -182,6 +186,16 @@ function App() {
                     <Route path="/agronomist/field-trials/analytics/statistics" element={<StatisticsPage />} />
 
                     <Route path="/agronomist/nutrition-farms-request" element={<NutritionFarmsRequestPage />} />
+
+                    {/* G.R.O.W Education Routes */}
+                    <Route path="/education/library" element={<ComingSoonPage title="G.R.O.W Library" description="Access our comprehensive library of agricultural resources, research papers, and educational materials." />} />
+                    <Route path="/education/online-learning/courses" element={<ComingSoonPage title="Online Courses" description="Enroll in our comprehensive online courses covering sustainable agriculture, soil health, and crop management." />} />
+                    <Route path="/education/online-learning/podcast" element={<ComingSoonPage title="G.R.O.W Podcast" description="Listen to our educational podcast series featuring industry experts and practical farming insights." />} />
+                    <Route path="/education/online-learning/videos" element={<EducationVideoPage />} />
+                    <Route path="/education/video-upload-manager" element={<VideoUploadManagerPage />} />
+                    <Route path="/education/health-index" element={<ComingSoonPage title="G.R.O.W Health Index" description="Monitor and track soil and plant health metrics with our comprehensive health index system." />} />
+                    <Route path="/education/events" element={<ComingSoonPage title="Events" description="Stay updated with upcoming educational events, workshops, and conferences." />} />
+                    <Route path="/education/arcade/trivia" element={<ComingSoonPage title="Trivia Challenge" description="Test your agricultural knowledge with our interactive trivia challenges and quizzes." />} />
 
                     <Route path="*" element={<NotFound />} />
                   </Route>

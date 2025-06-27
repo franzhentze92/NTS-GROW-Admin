@@ -525,6 +525,7 @@ export const NAV_ITEMS = [
           { id: 'courses', label: 'Courses', path: '/education/online-learning/courses', icon: 'ListChecks', comingSoon: true },
           { id: 'podcast', label: 'Podcast', path: '/education/online-learning/podcast', icon: 'Mic', comingSoon: true },
           { id: 'videos', label: 'Videos', path: '/education/online-learning/videos', icon: 'Video', comingSoon: true },
+          { id: 'video-upload-manager', label: 'Video Upload Manager', path: '/education/video-upload-manager', icon: 'Upload', comingSoon: true },
         ]
       },
       { id: 'grow-health-index', label: 'G.R.O.W Health Index', path: '/education/health-index', icon: 'HeartPulse', comingSoon: true },

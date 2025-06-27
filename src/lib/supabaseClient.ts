@@ -44,6 +44,20 @@ const createMockClient = (): SupabaseClient => {
     },
     auth: {
       getUser: () => createMockPromise({ user: null }, null),
+      signInWithPassword: () => createMockPromise(
+        { user: { id: 'mock-user-id', email: 'test@example.com' }, session: { access_token: 'mock-token' } }, 
+        null
+      ),
+      signUp: () => createMockPromise(
+        { user: { id: 'mock-user-id', email: 'test@example.com' }, session: { access_token: 'mock-token' } }, 
+        null
+      ),
+      signOut: () => createMockPromise({}, null),
+      onAuthStateChange: (callback: any) => {
+        // Mock auth state change
+        callback('SIGNED_IN', { user: { id: 'mock-user-id', email: 'test@example.com' } });
+        return { data: { subscription: { unsubscribe: () => {} } } };
+      },
     },
   } as any;
 };
